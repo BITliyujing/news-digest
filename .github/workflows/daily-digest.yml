@@ -1,0 +1,56 @@
+name: daily-digest
+
+# 每天北京时间 07:00（UTC 23:00）自动生成简报并发布到 GitHub Pages
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch: {}   # 支持在网页上手动点“运行”
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 生成简报
+        env:
+          CLOUD_RUN: "1"                 # 云端出口在境外，需代理的英文源直接启用
+          GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+          MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python run_daily.py
+
+      - name: 提交数据（保持去重记忆与历史）
+        run: |
+          git config user.name "digest-bot"
+          git config user.email "digest-bot@users.noreply.github.com"
+          git add data logs output sources.json settings.json || true
+          git commit -m "digest: $(date -u +%Y-%m-%d)" || echo "no changes"
+          git push || echo "push skipped"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,8 @@
+digest/glm_api_key.txt
+digest/ms_api_key.txt
+digest/deepseek_api_key.txt
+digest/siliconflow_api_key.txt
+__pycache__/
+*.pyc
+logs/_check.js
+shot_*.png

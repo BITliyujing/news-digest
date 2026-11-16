@@ -1,0 +1,3141 @@
+[
+ {
+  "name": "北极星电力网/北极星太阳能光伏网",
+  "url": "https://www.bjx.com.cn",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "围绕“十五五”发展规划共同做好电力保供和新能源消纳！国家电网与中核集团举行会谈",
+   "福建2027机制电价竞价结果：光伏0.388元/度、机制电量33.22亿度",
+   "光伏“结构性修复”，修在了哪儿？"
+  ],
+  "err": ""
+ },
+ {
+  "name": "BloombergNEF（BNEF，彭博新能源财经）",
+  "url": "https://about.bnef.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，全球",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://about.bnef.com/feed",
+  "count": 10,
+  "samples": [
+   "Europe’s Energy Transition Enters a New Phase: Six themes From the BNE",
+   "Data Center Power Demand Is Set to Surge, Raising New Climate Challeng",
+   "Financing Grid Buildout: Mobilizing Capital Across Models"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Canary Media",
+  "url": "https://www.canarymedia.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，美国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.canarymedia.com/rss.rss",
+  "count": 100,
+  "samples": [
+   "How California Gov.-elect Becerra could be better on climate than News",
+   "‘Electrify everything’ hits the global stage",
+   "Solar PAC got revenge on clean energy’s enemies in Congress"
+  ],
+  "err": ""
+ },
+ {
+  "name": "中国能源报（含公众号/中国能源网）",
+  "url": "https://www.cnenergynews.cn",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "【焦炭再降价！第三轮提降全面执行】",
+   "【选举落地之后，油价真正锚定何处？透视原油新定价】",
+   "雅迪、爱玛等多品牌被撤销3C证书"
+  ],
+  "err": ""
+ },
+ {
+  "name": "PV-Tech",
+  "url": "https://www.pv-tech.org",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，英国（Solar Media集团）",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.pv-tech.org/feed/",
+  "count": 300,
+  "samples": [
+   "China’s Drinda scraps plan for 5GW TOPCon solar cell plant in Oman",
+   "Metlen starts construction at 252MW/375MWh solar-plus-storage plant in",
+   "DS1 takes on construction of Lithuania’s ‘largest’ PV project"
+  ],
+  "err": ""
+ },
+ {
+  "name": "pv magazine International（光伏杂志国际版）",
+  "url": "https://www.pv-magazine.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文为主，德/法/西/中等13个版本，德国总部",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.pv-magazine.com/feed",
+  "count": 10,
+  "samples": [
+   "First attempt to address screen printing-induced degradation in copper",
+   "Great Lakes irradiance surges as wet weather weighs on Southwest solar",
+   "UNSW develops three-minute lithium-ion battery health test"
+  ],
+  "err": ""
+ },
+ {
+  "name": "势银（TrendBank）",
+  "url": "https://finance.sina.com.cn/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，宁波",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "黄仁勋接受采访，回顾来时路，全程淡定",
+   "黄仁勋对美国AI这么重要，为何要把他拉下来？",
+   "美股芯片股暗盘大涨，英伟达直线拉升"
+  ],
+  "err": ""
+ },
+ {
+  "name": "索比光伏网",
+  "url": "https://www.solarbe.com",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "福建2027机制电价竞价结果：光伏0.388元/度、机制电量33.22亿度 |",
+   "对印尼太阳能电池出口涨1.5倍，这风口能持续多久？ |",
+   "上能电气解读分布式光伏发展新逻辑！ |"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Renew Economy",
+  "url": "https://reneweconomy.com.au/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，澳大利亚",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://reneweconomy.com.au/feed/",
+  "count": 10,
+  "samples": [
+   "EPBC fields tsunami of submissions on renewables-backed data centre af",
+   "Australian climate leadership under scrutiny as new evidence shows fos",
+   "After the blizzard: In a post-Snowy 2.0 world, what role does Snowy Hy"
+  ],
+  "err": ""
+ },
+ {
+  "name": "高工氢电（GGII氢电产业研究所）",
+  "url": "https://www.haimen.gov.cn/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，深圳",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 20,
+  "samples": [
+   "李鸿忠：进一步完善党和国家监督体系",
+   "李书磊：坚持用党的创新理论凝心铸魂",
+   "科技强农赋能新质生产力 加快建设高水平农..."
+  ],
+  "err": ""
+ },
+ {
+  "name": "高工储能",
+  "url": "https://m.solarbe.com/21-0-50014599-1.html",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，深圳",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 11,
+  "samples": [
+   "天合储能荣膺国家级最高认定！",
+   "十二连冠！天合储能荣获2026年四季度BNEF Tier 1一级储能厂商评级",
+   "蝉联！高景太阳能荣膺钛能奖·2026年度“光伏领袖企业”"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Wood Mackenzie（伍德麦肯兹）",
+  "url": "https://www.woodmac.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，英国/全球",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 3,
+  "samples": [
+   "Corporate Strategy &amp; Analytics Service",
+   "Explore news and thought leadership",
+   "Account and preferences management"
+  ],
+  "err": ""
+ },
+ {
+  "name": "CleanTechnica",
+  "url": "https://profiles.crustdata.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "新华财经·能源频道",
+  "url": "https://www.cnfin.com",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，北京（新华社旗下）",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "09:59 煤炭板块震荡拉升，安泰集团逼近涨停，郑州煤电、兖矿能源、昊华能源、云煤能源跟涨。",
+   "09:57 11月16日，SMM统计国内再生铝合金锭三大主流消费地日度库存为4758吨，较前一交易日减少174吨。",
+   "09:53 11月16日，人民币对美元中间价报6.7141，调升11个基点。"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Windpower Monthly（风电月刊）",
+  "url": "https://www.windpowermonthly.com",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，英国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.windpowermonthly.com/rss",
+  "count": 20,
+  "samples": [
+   "COP 31: GWEC urges doubling wind power investments to drive installati",
+   "Finland prepares new wave of offshore wind auctions – with no state ai",
+   "Saudi Arabia launches tender for 1.3GW wind farm"
+  ],
+  "err": ""
+ },
+ {
+  "name": "氢云链",
+  "url": "https://c.m.163.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，深圳",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "小姐姐，你还是不要穿紧身裤了，这拿手也挡不住啊！",
+   "习近平将同普京、特朗普举行中俄美元首会晤",
+   "\"零元面馆\"背后老板身份披露：二奢富豪 常谈\"福报论\""
+  ],
+  "err": ""
+ },
+ {
+  "name": "电车资源",
+  "url": "https://www.evpartner.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "渗透率51.9%！我国新能源商用车销量首次超越燃油车",
+   "千台规模的运营商，选车的逻辑变了",
+   "宁德时代的一座“锂矿”，成了锂价横跳的“开关”？"
+  ],
+  "err": ""
+ },
+ {
+  "name": "氢能观察（世纪新能源网旗下）",
+  "url": "https://www.ne21.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "转换率25%+，爱旭“满屏”新品亮出满分价值",
+   "从沙戈荒到算电协同|甘肃新能源大基地会议圆满落幕，产业蓝皮书重磅发布",
+   "破解算力绿色供给难题 ！2026 AIDC与新能源协同发展蓝皮书正式发布"
+  ],
+  "err": ""
+ },
+ {
+  "name": "BloombergNEF（彭博新能源财经）",
+  "url": "https://about.bnef.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，伦敦/纽约",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://about.bnef.com/feed",
+  "count": 10,
+  "samples": [
+   "Europe’s Energy Transition Enters a New Phase: Six themes From the BNE",
+   "Data Center Power Demand Is Set to Surge, Raising New Climate Challeng",
+   "Financing Grid Buildout: Mobilizing Capital Across Models"
+  ],
+  "err": ""
+ },
+ {
+  "name": "第一元素网",
+  "url": "https://m.10100.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 25,
+  "samples": [
+   "更多服务，极速建站 查看详情",
+   "全球开店丨官方直联，快速入驻，多渠道导航！",
+   "广货潮源，聚力欧美新增长——广州TikTok Shop 品牌出海增长峰会"
+  ],
+  "err": ""
+ },
+ {
+  "name": "S&P Global Commodity Insights — Energy Transition（标普全球大宗商品洞察）",
+  "url": "https://www.spglobal.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，伦敦/纽约/新加坡",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Energy-Storage.news",
+  "url": "https://www.energy-storage.news/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，英国（Solar Media集团）",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "IEA Newsroom（国际能源署新闻室）",
+  "url": "https://www.iea.org/news",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文为主，巴黎",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Heatmap News",
+  "url": "https://heatmapnews.com",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING]"
+ },
+ {
+  "name": "S&P Global Commodity Insights（含Platts）",
+  "url": "https://press.spglobal.com/2025-01-13-S-P-Global-Commodity-Insights-Predicts-a-Transformative-Shift-as-Investments-in-Cleantech-Outpace-Fossil-Fuels-for-the-First-Time",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，全球",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://press.spglobal.com/index.php?s=2429&pagetemplate=rss",
+  "count": 5,
+  "samples": [
+   "Chime Financial Set to Join S&P MidCap 400",
+   "S&P Global Market Intelligence Expands Strategic Partnership with Mizu",
+   "Reaching Canada's 100 MMtpa Federal Ambition for LNG Exports Would Sup"
+  ],
+  "err": ""
+ },
+ {
+  "name": "电动汽车观察家",
+  "url": "http://www.evobserver.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 9,
+  "samples": [
+   "问界新M8上市：华为设计，赛力斯生产、销售",
+   "李书福辞任后吉利第一份季报：利润创新高，但管理层“不满意”",
+   "宁德时代电池+Momenta智驾，东风日产NX7预售12.99万起"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Wood Mackenzie（伍德麦肯兹）",
+  "url": "https://www.woodmac.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，爱丁堡",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 3,
+  "samples": [
+   "Corporate Strategy &amp; Analytics Service",
+   "Explore news and thought leadership",
+   "Account and preferences management"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Canary Media",
+  "url": "https://www.canarymedia.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.canarymedia.com/rss.rss",
+  "count": 100,
+  "samples": [
+   "How California Gov.-elect Becerra could be better on climate than News",
+   "‘Electrify everything’ hits the global stage",
+   "Solar PAC got revenge on clean energy’s enemies in Congress"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Volts（David Roberts）",
+  "url": "https://www.volts.wtf/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "GreenBiz（现Trellis Group）",
+  "url": "https://trellis.net/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://trellis.net/feed/",
+  "count": 10,
+  "samples": [
+   "America voted against AI data centers. How business leaders should res",
+   "The debate on GHG Protocol’s electricity accounting revisions is far f",
+   "AI tools that work — and tips from the sustainability leaders who buil"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Recharge News",
+  "url": "https://www.hydrogeninsight.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，英国/挪威（NHST Media集团）",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 7,
+  "samples": [
+   "‘Operational green hydrogen projects are easily complying with RFNBO r",
+   "Qair cuts ribbon on first 20MW phase of French green hydrogen facility",
+   "One of Europe’s largest e-SAF projects kicks off engineering phase pro"
+  ],
+  "err": ""
+ },
+ {
+  "name": "IEEFA（能源经济与金融分析研究所）",
+  "url": "https://ieefa.org",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Climate Tech VC（CTVC，现Currence）",
+  "url": "https://hark.news/best-climate-newsletters",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 21,
+  "samples": [
+   "Read how Hark selects &amp; ranks newsletters",
+   "Listen to Canary Media Daily free",
+   "Listen to Axios Future of Energy free"
+  ],
+  "err": ""
+ },
+ {
+  "name": "华尔街见闻",
+  "url": "https://wallstreetcn.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "财联社（新能源/锂电频道）",
+  "url": "https://www.cls.cn",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平将同普京、特朗普举行中俄美元首会晤",
+   "Anthropic超级IPO本周“出鞘” 美股AI信仰面临最严苛大考？",
+   "国家统计局：10月规模以上工业增加值同比实际增长4.8%"
+  ],
+  "err": ""
+ },
+ {
+  "name": "中金公司研究（\"中金点睛\"公众号）",
+  "url": "https://finance.sina.com.cn/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "黄仁勋接受采访，回顾来时路，全程淡定",
+   "黄仁勋对美国AI这么重要，为何要把他拉下来？",
+   "美股芯片股暗盘大涨，英伟达直线拉升"
+  ],
+  "err": ""
+ },
+ {
+  "name": "36氪·36碳（双碳频道）",
+  "url": "https://www.36kr.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.36kr.com/feed",
+  "count": 30,
+  "samples": [
+   "晶泰孵化的虚拟细胞公司完成Pre-A轮融资，华盖、红杉、星连等投资超亿元｜36氪首发",
+   "3.5万亿医保基金，明年为这些新药“买单”",
+   "8点1氪丨黄仁勋考虑回归担任英伟达CEO；129万/支的“天价抗癌药”进医保了；美国罕见全国停飞超4小时"
+  ],
+  "err": ""
+ },
+ {
+  "name": "国际能源网",
+  "url": "https://www.in-en.com",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "江西：到2030年新能源力争达到60GW，成为电力装机主体",
+   "远景、三一、电气风电预中标！国家能源集团1.05GW风机集采中标候选公示",
+   "中船科技平山湖10万千瓦风电项目全容量并网，张掖区域累计装机达70万千瓦"
+  ],
+  "err": ""
+ },
+ {
+  "name": "财新（能源/碳中和）",
+  "url": "https://www.caixin.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "外交部：习近平将同普京、特朗普举行中俄美元首会晤",
+   "今日开盘：两市双双低开 沪指跌幅0.63%",
+   "创新药持续波动，出海、支付端有何变化？｜医药股周报"
+  ],
+  "err": ""
+ },
+ {
+  "name": "界面新闻（财经/能源）",
+  "url": "https://www.jiemian.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "全球首个国家级气象预警方案：“妈祖”一体机在气候大会上发布",
+   "伊丽莎白雅顿：“两杯奶茶钱”可买全套产品，有关部门：违规宣传，罚款两万｜消费者报告",
+   "均价十万、开在外滩的以色列高定婚纱店被指跑路，顾客称钱货两空维权难｜界面消费者报告"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Hydrogen Insight（氢能洞察）",
+  "url": "https://www.hydrogeninsight.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，英国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 7,
+  "samples": [
+   "‘Operational green hydrogen projects are easily complying with RFNBO r",
+   "Qair cuts ribbon on first 20MW phase of French green hydrogen facility",
+   "One of Europe’s largest e-SAF projects kicks off engineering phase pro"
+  ],
+  "err": ""
+ },
+ {
+  "name": "中央财经大学绿色金融国际研究院（IIGF）",
+  "url": "https://iigf.cufe.edu.cn/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "文献分析 | 数字化绿色化协同如何赋能高碳密集企业碳减排？——效... 2026-11-16",
+   "IIGFCOP31时评 | 黄顯傑、任国征：气候变化与人类健康的关联分析... 2026-11-13",
+   "IIGF首席观点 | 刘锋：汇率是经济的结果，而非政策的前提？ 2026-11-12"
+  ],
+  "err": ""
+ },
+ {
+  "name": "每日经济新闻（NBD）",
+  "url": "https://www.nbd.com.cn",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，成都",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "“54号文”之后，区县基金玩法改写！中小GP面临洗牌",
+   "BLG夺冠带火影院凌晨场！影院为何抢着做电竞生意？",
+   "“双十一”，狗衣服热销17万件！祖玛珑、阿迪等95个品牌跨界“争宠”，宠物公司为何少赚了？"
+  ],
+  "err": ""
+ },
+ {
+  "name": "澎湃新闻（零碳/《临界点》栏目）",
+  "url": "https://www.thepaper.cn",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 9,
+  "samples": [
+   "11月19日，习近平将同普京、特朗普在深圳举行会晤",
+   "全球前瞻｜APEC会议周启幕，中国时隔12年再次担任APEC东道主",
+   "澎湃早晚报｜早餐湃·秋假重组出游格局"
+  ],
+  "err": ""
+ },
+ {
+  "name": "第一财经（Yicai）",
+  "url": "https://www.yicai.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "“汾酒抖音挑战赛播放量突破6.3亿次，全面掀起新春清香热 >",
+   "“第四范式财报放盈利前景 定位AI时代Salesforce",
+   "股债波动影响投资，居民“存款搬家”放缓"
+  ],
+  "err": ""
+ },
+ {
+  "name": "兴业研究",
+  "url": "https://www.cibresearch.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "Fuel Cells Works",
+  "url": "https://www.fuelcellsworks.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "英文，美国/加拿大",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "香橙会研究院",
+  "url": "https://www.163.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "陪我去建档路上，老公开着免提接了初恋的电话，听完那头的哭诉，",
+   "安娃夺冠危及莱巴后位，萨巴粗口事件闹大乌网协白政治家下场痛批",
+   "伊姐周六热推：电视剧《玫瑰战争》；电视剧《重生密码》......"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Lazard LCOE+（能源成本报告）",
+  "url": "https://www.lazard.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 1,
+  "samples": [
+   "2025 Annual Letter to Shareholders"
+  ],
+  "err": ""
+ },
+ {
+  "name": "证券时报",
+  "url": "https://www.stcn.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，深圳",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "满足不同层次和类型的业绩说明会的需求，以智慧服务开启新时代高质量投资者关系管理新范式，搭建传递公司投资价值的全新展台。",
+   "全景25周年——全新升级的新版全景服务平台-董办云正式发布。&quot;四大解决方案+三大全新功能&quot;，助力上市公司在资本市场蓝海征",
+   "创业故事｜铜冠铜箔：在微米之间 凿开AI算力“通路”"
+  ],
+  "err": ""
+ },
+ {
+  "name": "中国证券报",
+  "url": "https://www.cs.com.cn",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "北交所开市五周年：向新向上 蓄势筑基 北交所“广东板块”交出高质量发展新“答卷”",
+   "天士力：多款产品被纳入新版医保目录",
+   "日产中国马智欣： 推进品牌进阶转型 国内海外双线布局新能源"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Science（含News/eLetters科学新闻板块）",
+  "url": "https://www.science.org",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，AAAS",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Angewandte Chemie International Edition（德国应用化学）",
+  "url": "https://onlinelibrary.wiley.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，Wiley/VCH",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Nature Energy（《自然-能源》）",
+  "url": "https://www.nature.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，施普林格·自然",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 26,
+  "samples": [
+   "Severe drought and warming increase the extinction risk of cacti",
+   "Daily briefing: Should old, bad science be culled from the literature?",
+   "Who needs sex? Kelp reproduce asexually when no mate is nearby"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Advanced Materials家族（AM/AEM/AFM/Small等）",
+  "url": "https://www.x-mol.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，Wiley",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "Nature Catalysis（《自然-催化》）",
+  "url": "https://www.nature.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，施普林格·自然",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 26,
+  "samples": [
+   "Severe drought and warming increase the extinction risk of cacti",
+   "Daily briefing: Should old, bad science be culled from the literature?",
+   "Who needs sex? Kelp reproduce asexually when no mate is nearby"
+  ],
+  "err": ""
+ },
+ {
+  "name": "JACS（美国化学会志）",
+  "url": "https://pubs.acs.org/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，美国化学会",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Nature Materials（《自然-材料》）",
+  "url": "https://www.nature.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，施普林格·自然",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 26,
+  "samples": [
+   "Severe drought and warming increase the extinction risk of cacti",
+   "Daily briefing: Should old, bad science be culled from the literature?",
+   "Who needs sex? Kelp reproduce asexually when no mate is nearby"
+  ],
+  "err": ""
+ },
+ {
+  "name": "C&EN（Chemical & Engineering News）",
+  "url": "https://cen.acs.org",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，美国化学会（1923年创刊）",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 25,
+  "samples": [
+   "Can lithium mining take off in Europe?",
+   "How Avogadro’s number became constant",
+   "Editorial: The beginnings of a reset for US science?"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Joule（Cell Press）",
+  "url": "https://www.cell.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，Cell Press/爱思唯尔",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "ACS Energy Letters",
+  "url": "https://pubs.acs.org/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，美国化学会",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "ChemRxiv",
+  "url": "https://chemrxiv.org/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，ACS运营",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "ScienceDaily",
+  "url": "https://www.sciencedaily.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，ScienceDaily LLC",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.sciencedaily.com/rss/all.xml",
+  "count": 60,
+  "samples": [
+   "Vitamin C could help block cancer-linked chemicals in your stomach, st",
+   "NASA warns this year's Monster El Niño could be even bigger than legen",
+   "Uranus and Neptune’s bizarre magnetic fields may finally be explained"
+  ],
+  "err": ""
+ },
+ {
+  "name": "催化计",
+  "url": "https://finance.sina.cn/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "11月13日易方达创业板200ETF(159572)遭净赎回250.79万元，位居当日股票ETF净流出排名275/1373",
+   "乐歌股份涨2.01%，成交额1266.51万元，主力资金净流入205.12万元",
+   "华设集团：公司创新业务营收占比已超35%"
+  ],
+  "err": ""
+ },
+ {
+  "name": "纳米人",
+  "url": "https://baike.baidu.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "Springer Nature / Wiley 期刊目录邮件推送（eTOC Alerts）",
+  "url": "https://www.nature.com",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，英/德出版社",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 26,
+  "samples": [
+   "Severe drought and warming increase the extinction risk of cacti",
+   "Daily briefing: Should old, bad science be culled from the literature?",
+   "Who needs sex? Kelp reproduce asexually when no mate is nearby"
+  ],
+  "err": ""
+ },
+ {
+  "name": "X-MOL（中文站/App）",
+  "url": "https://www.x-mol.com",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中英双语，北京衮雪科技",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "Heatmap News",
+  "url": "https://heatmap.news",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 6,
+  "samples": [
+   "Data Center Developers Can’t Pay People Enough to Accept Them",
+   "Where Rising Electricity Prices Showed Up in the Blue Wave",
+   "The Deadliest Part of a Wildfire Might Not Be the Blaze"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Google Scholar（谷歌学术，邮件提醒功能）",
+  "url": "https://scholar.google.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "多语言，Google",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>"
+ },
+ {
+  "name": "研之成理",
+  "url": "https://www.linkresearcher.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国（面向全球成果）",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "12 科研圈日报：国家科学技术奖\"鼓励主要论著优先在国内学术刊物上发表\"；《自然》调查称美国学者对中国职位的申请量增长20%",
+   "他带着这颗钛金属心脏，成功存活了100天",
+   "业内一流的英文润色服务，限时折扣优惠"
+  ],
+  "err": ""
+ },
+ {
+  "name": "科学材料站（SCI Materials Hub）",
+  "url": "http://www.scimaterials.cn",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 13,
+  "samples": [
+   "科研选材，选科学材料站 - 参考文献精选",
+   "电解槽、电堆与氢气发生器产品直达目录",
+   "德国科德宝Freudenberg"
+  ],
+  "err": ""
+ },
+ {
+  "name": "中国科学报/科学网（含科学网博客）",
+  "url": "https://www.sciencenet.cn",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国科学院主管",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "黄河输沙量减少近90%，“悬河”消失了吗？",
+   "从可拉酸钠到海洋软黄金，生物新分子走上货架",
+   "如入乐园，中外学者在湘西山村沉浸式“探宝”"
+  ],
+  "err": ""
+ },
+ {
+  "name": "arXiv（cond-mat.mtrl-sci材料科学分区）",
+  "url": "https://arxiv.org/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "英语，Cornell/arXiv.org",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 34,
+  "samples": [
+   "Cosmology and Nongalactic Astrophysics",
+   "Earth and Planetary Astrophysics",
+   "High Energy Astrophysical Phenomena"
+  ],
+  "err": ""
+ },
+ {
+  "name": "DeepTech深科技/麻省理工科技评论中文版",
+  "url": "https://www.deeptechchina.com",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，北京演绎科技",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "高分子科学前沿",
+  "url": "https://news.qq.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "能源学人",
+  "url": "http://www.graphene.tv/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "http://www.graphene.tv/feed",
+  "count": 15,
+  "samples": [
+   "算力上天、火箭成列、卫星出海，北京商业航天迈上新台阶 北京商业航天正形成更清晰产业闭环",
+   "虹口这三个社区获评全国示范老年友好社区",
+   "2026中国国际石墨烯创新大会 | 爱尚家科技分享石墨烯热管理产业化前景"
+  ],
+  "err": ""
+ },
+ {
+  "name": "顶刊收割机",
+  "url": "http://mp.weixin.qq.com/s?__biz=MzkwOTMxNzc5Mw==&mid=2247483806&idx=1&sn=8f970052ae9b7f35a8189fd425a1a07a",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "材料科学与工程（mse_material）",
+  "url": "https://cj.sina.cn/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 1,
+  "samples": [
+   "如何玩转看点-财经头条？看完这个手册就够了"
+  ],
+  "err": ""
+ },
+ {
+  "name": "材料人",
+  "url": "http://www.efmlab.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "4.学术报告：痕量有机危害物的光化学检测",
+   "3. 学术报告：Advanced Na-Ion Battery",
+   "2. 学术报告：电催化剂缺陷化学"
+  ],
+  "err": ""
+ },
+ {
+  "name": "催化开天地",
+  "url": "http://www.efmlab.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "4.学术报告：痕量有机危害物的光化学检测",
+   "3. 学术报告：Advanced Na-Ion Battery",
+   "2. 学术报告：电催化剂缺陷化学"
+  ],
+  "err": ""
+ },
+ {
+  "name": "清新电源",
+  "url": "http://www.sztspi.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国（依托深圳市电源技术学会）",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "华夏能源网",
+  "url": "https://www.hxny.com/",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "电池中国网",
+  "url": "https://www.cbea.com",
+  "module": "m1",
+  "cat": "门类一：新能源产业与技术资讯",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Associated Press 美联社（AP News）",
+  "url": "https://apnews.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "中国金融学会绿色金融专业委员会（绿金委）",
+  "url": "http://www.greenfinance.org.cn/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:TimeoutError:timed out"
+ },
+ {
+  "name": "知社学术圈",
+  "url": "https://www.zhuanzhiai.com/",
+  "module": "m3",
+  "cat": "门类三：能源·材料科研学术资",
+  "lang": "中文，中国（海归学者发起）",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:TimeoutError:The read operation timed out"
+ },
+ {
+  "name": "Cleantech Group",
+  "url": "https://www.cleantech.com",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，美国/欧洲",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Politico（政客）",
+  "url": "https://www.politico.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "AFP 法新社",
+  "url": "https://www.afp.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英/法文，法国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "CNN Politics",
+  "url": "https://edition.cnn.com/politics",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:EOFError:Compressed file ended before the end-of-stream mar"
+ },
+ {
+  "name": "新华社（含《新华每日电讯》）",
+  "url": "https://www.xinhuanet.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤",
+   "海报丨致敬埃德加·斯诺：90年回响",
+   "雾凇有什么好看的？还真挺好看的"
+  ],
+  "err": ""
+ },
+ {
+  "name": "人民日报（含人民网）",
+  "url": "https://www.people.com.cn",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "人民日报评论员：贯彻《条例》、守土尽责",
+   "习近平将同普京、特朗普举行中俄美元首会晤",
+   "10月国民经济运行总体平稳、向新向优"
+  ],
+  "err": ""
+ },
+ {
+  "name": "FT Energy Source",
+  "url": "https://forums.energysource.live.ft.com/home",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Bloomberg Green",
+  "url": "https://www.bloomberg.com/green",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，全球",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "中国政府网（国务院）",
+  "url": "https://www.gov.cn",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 30,
+  "samples": [
+   "习近平将同俄罗斯总统普京、美国总统特朗普举行 中俄美元首会晤",
+   "何立峰：推动干部树立和践行正确政绩观",
+   "解读：从“十五五”专项规划看以金融服务发展大局"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Reuters（路透可持续能源/ESG频道）",
+  "url": "https://www.reuters.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，全球",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "参考消息（新华社子报）",
+  "url": "https://www.cankaoxiaoxi.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "澎湃新闻",
+  "url": "https://www.thepaper.cn",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 9,
+  "samples": [
+   "11月19日，习近平将同普京、特朗普在深圳举行会晤",
+   "全球前瞻｜APEC会议周启幕，中国时隔12年再次担任APEC东道主",
+   "澎湃早晚报｜早餐湃·秋假重组出游格局"
+  ],
+  "err": ""
+ },
+ {
+  "name": "财新（政经频道）",
+  "url": "https://www.caixin.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "外交部：习近平将同普京、特朗普举行中俄美元首会晤",
+   "今日开盘：两市双双低开 沪指跌幅0.63%",
+   "创新药持续波动，出海、支付端有何变化？｜医药股周报"
+  ],
+  "err": ""
+ },
+ {
+  "name": "求是",
+  "url": "https://www.qstheory.cn",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "《求是》杂志编辑部：不断书写亚太命运与共新篇章",
+   "人工智能时代，精神能力更加宝贵",
+   "习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤"
+  ],
+  "err": ""
+ },
+ {
+  "name": "半月谈",
+  "url": "http://www.banyuetan.org",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤",
+   "五中全会精神在基层｜特写：一叶红船映初心，百年薪火启新程",
+   "在进博会，看科技改写日常的N种方式"
+  ],
+  "err": ""
+ },
+ {
+  "name": "瞭望（《瞭望》新闻周刊）",
+  "url": "https://lw.xinhuanet.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "“最美律师”扶弱济困15年，捐献遗体和眼角膜",
+   "艾合买提·吾甫尔：以手为足 助农兴乡",
+   "瞭望·吾心吾乡｜马善祥：一位人民调解员的自我修养"
+  ],
+  "err": ""
+ },
+ {
+  "name": "侠客岛（人民日报海外版）",
+  "url": "https://news.qq.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "玉渊谭天（中央广播电视总台）",
+  "url": "https://baike.baidu.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "学习强国",
+  "url": "https://www.xuexi.cn",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，全国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "央视新闻/《新闻联播》",
+  "url": "https://tv.cctv.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "糖尿病前期 距离糖尿病还有多远？",
+   "普京：不接受外国军队出现在乌领土上",
+   "干6小时倒贴2万？起底货运司机招工骗局"
+  ],
+  "err": ""
+ },
+ {
+  "name": "长安街知事（北京日报）",
+  "url": "https://xinwen.bjd.com.cn/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "国家发展改革委官网",
+  "url": "https://www.ndrc.gov.cn",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "郑栅洁主任主持召开民营企业座谈会 围绕抓好年内经济工作落实、研究明年政策举措听取意见建议",
+   "习近平：携手共建亚太命运共同体",
+   "郑栅洁主任主持召开民营企业座谈会 围绕准确把握三季度经济形势、积极应对国际供需情况变化听..."
+  ],
+  "err": ""
+ },
+ {
+  "name": "Semafor Energy（原Net Zero）",
+  "url": "https://www.semafor.com/",
+  "module": "m2",
+  "cat": "门类二：新能源金融与绿色投资",
+  "lang": "英文，全球",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "BBC（含BBC中文）",
+  "url": "https://www.bbc.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文+中文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [Errno 11001] getaddrinfo failed>"
+ },
+ {
+  "name": "Institute for the Study of War（ISW 战争研究所）",
+  "url": "https://www.understandingwar.org",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Reuters 路透（China/Politics频道）",
+  "url": "https://www.reuters.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "South China Morning Post 南华早报（SCMP）",
+  "url": "https://www.scmp.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，中国香港",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Bloomberg 彭博（Politics/China）",
+  "url": "https://www.bloomberg.com/politics",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Financial Times 金融时报（FT）",
+  "url": "https://www.ft.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "The Wall Street Journal 华尔街日报（WSJ China）",
+  "url": "https://www.wsj.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文+中文网，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "The New York Times 纽约时报（NYT China）",
+  "url": "https://www.nytimes.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "DW 德国之声（含DW中文）",
+  "url": "https://www.dw.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "德文+中文，德国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [Errno 11001] getaddrinfo failed>"
+ },
+ {
+  "name": "Nikkei Asia 日经亚洲",
+  "url": "https://asia.nikkei.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，日本",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "The Diplomat（外交家）",
+  "url": "https://thediplomat.com",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，美国（聚焦亚太）",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "参考消息",
+  "url": "https://www.cankaoxiaoxi.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "The Guardian 卫报",
+  "url": "https://www.theguardian.com/",
+  "module": "m4",
+  "cat": "门类四：国内时政与政策发布资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "观察者网（含\"底线思维\"公众号）",
+  "url": "https://www.guancha.cn",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤",
+   "APEC峰会临近，外媒聚焦“中国机遇”",
+   "在美国两轮制裁中走访新疆，这是值得我们奉献与捍卫的好地方"
+  ],
+  "err": ""
+ },
+ {
+  "name": "澎湃国际（澎湃新闻国际频道）",
+  "url": "https://www.thepaper.cn",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 9,
+  "samples": [
+   "11月19日，习近平将同普京、特朗普在深圳举行会晤",
+   "全球前瞻｜APEC会议周启幕，中国时隔12年再次担任APEC东道主",
+   "澎湃早晚报｜早餐湃·秋假重组出游格局"
+  ],
+  "err": ""
+ },
+ {
+  "name": "凤凰网国际（《凤凰大参考》/凤凰网国际智库）",
+  "url": "https://news.ifeng.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京+香港",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "平安半年报超预期！净利润大增36%",
+   "国家统计局：10月份各线城市商品住宅销售价格同比降幅继续收窄",
+   "俄媒：欧盟最穷的成员国不再唯命是从"
+  ],
+  "err": ""
+ },
+ {
+  "name": "《世界知识》杂志",
+  "url": "https://www.shijizhishi.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [Errno 11001] getaddrinfo failed>"
+ },
+ {
+  "name": "中国人民大学重阳金融研究院（人大重阳）",
+  "url": "https://rdcy.ruc.edu.cn",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:ConnectionResetError:[WinError 10054] 远程主机强迫关闭了一个现有的连接。"
+ },
+ {
+  "name": "新华社国际报道（\"新华国际\"等公号）",
+  "url": "https://www.xinhuanet.com/world",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "全球连线丨AI真的会让普通人创业更容易吗？",
+   "全球连线丨拉美网红塞莉娅：行走湖北 洞见中国",
+   "全球瞭望丨克里：美国等国应跟上中国绿能发展步伐"
+  ],
+  "err": ""
+ },
+ {
+  "name": "CGTN（中国国际电视台）",
+  "url": "https://www.cgtn.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文+中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "Xi's Shenzhen visits show China's commitment to reform and opening up",
+   "Xi's article on building Asia-Pacific community to be published",
+   "49th ASEAN Summit kicks off in the Philippines"
+  ],
+  "err": ""
+ },
+ {
+  "name": "界面新闻·天下（\"界面天下\"）",
+  "url": "https://www.jiemian.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "全球首个国家级气象预警方案：“妈祖”一体机在气候大会上发布",
+   "伊丽莎白雅顿：“两杯奶茶钱”可买全套产品，有关部门：违规宣传，罚款两万｜消费者报告",
+   "均价十万、开在外滩的以色列高定婚纱店被指跑路，顾客称钱货两空维权难｜界面消费者报告"
+  ],
+  "err": ""
+ },
+ {
+  "name": "欧亚系统科学研究会（公众号）",
+  "url": "http://essra.org.cn",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，全国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 18,
+  "samples": [
+   "烟霾再袭新加坡：东盟为何难破跨境治理困局？",
+   "我们是谁？理解东盟在中美之间的四重角色",
+   "印度的大坑，中企千万不要再陷入"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Carnegie Endowment 卡内基国际和平基金会",
+  "url": "https://carnegieendowment.org",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [Errno 11001] getaddrinfo failed>"
+ },
+ {
+  "name": "Reuters World 路透（世界频道）",
+  "url": "https://www.reuters.com/",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "The Economist 经济学人",
+  "url": "https://www.economist.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Foreign Affairs 外交事务",
+  "url": "https://www.foreignaffairs.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Foreign Policy 外交政策",
+  "url": "https://foreignpolicy.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "地球知识局",
+  "url": "https://new.qq.com/",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，全国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "江东观潮（新华日报）",
+  "url": "https://xh.xhby.net/",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，江苏",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "Inside Higher Ed（高等教育内参）",
+  "url": "https://www.insidehighered.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，美国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.insidehighered.com/rss.xml",
+  "count": 10,
+  "samples": [
+   "Louisiana System Head Resigns Amid Tax Issue",
+   "Florida University System Punts on Restoring Admission for Some Noncit",
+   "One City’s Game Plan to Retain International Students"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Times Higher Education（THE，泰晤士高等教育）",
+  "url": "https://www.timeshighereducation.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，英国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 18,
+  "samples": [
+   "World University Rankings 2027",
+   "Arab University Rankings 2027",
+   "Asia University Rankings 2026"
+  ],
+  "err": ""
+ },
+ {
+  "name": "War on the Rocks（WOTR）",
+  "url": "https://warontherocks.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "QS（TopUniversities）",
+  "url": "https://www.topuniversities.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，英国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.topuniversities.com/rss.xml",
+  "count": 10,
+  "samples": [
+   "İstanbul Medipol University - QS Sustainability Ranking 2027",
+   "İstanbul Bilgi University - QS Sustainability Ranking 2027",
+   "École de technologie supérieure - QS Sustainability Ranking 2027"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Science Careers（AAAS科学职业频道）",
+  "url": "https://www.science.org/careers",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，AAAS",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Retraction Watch（撤稿观察）",
+  "url": "https://retractionwatch.com/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，美国（非营利）",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://retractionwatch.com/feed/",
+  "count": 10,
+  "samples": [
+   "Weekend reads: China fires researchers after death during trial; Criti",
+   "Do PubPeer comments make a difference? A small study tried to find out",
+   "Misconduct cases remain unresolved for years in South Korea, data show"
+  ],
+  "err": ""
+ },
+ {
+  "name": "University World News（大学世界新闻）",
+  "url": "https://www.universityworldnews.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，国际",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "Foreign universities struggle to attract Indian students",
+   "HE institutions adopt code for institutional autonomy",
+   "Is a new spring coming for international students in the US?"
+  ],
+  "err": ""
+ },
+ {
+  "name": "CSIS（战略与国际研究中心）",
+  "url": "https://www.csis.org",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Nature Careers（自然·职业）",
+  "url": "https://www.nature.com/careers",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，施普林格·自然",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.nature.com/careers/rss",
+  "count": 25,
+  "samples": [
+   "Chinese graduate students are now choosing to stay closer to home",
+   "How I balance my life as a professional surfer and a university resear",
+   "AI’s energy paradox: will the AI boom strain energy systems or be the "
+  ],
+  "err": ""
+ },
+ {
+  "name": "环球时报（中文版+英文Global Times）",
+  "url": "https://www.huanqiu.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中英文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error [Errno 11001] getaddrinfo failed>"
+ },
+ {
+  "name": "Science Insider（Science新闻板块）",
+  "url": "https://www.science.org",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，AAAS",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "The Chronicle of Higher Education（高等教育纪事报）",
+  "url": "https://www.chronicle.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Stratfor / RANE",
+  "url": "https://www.stratfor.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "科学网/中国科学报",
+  "url": "https://www.sciencenet.cn",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中科院/工程院/基金委/中国科协共同主办",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "黄河输沙量减少近90%，“悬河”消失了吗？",
+   "从可拉酸钠到海洋软黄金，生物新分子走上货架",
+   "如入乐园，中外学者在湘西山村沉浸式“探宝”"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Nature（新闻与政策板块）",
+  "url": "https://www.nature.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，施普林格·自然",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 26,
+  "samples": [
+   "Severe drought and warming increase the extinction risk of cacti",
+   "Daily briefing: Should old, bad science be culled from the literature?",
+   "Who needs sex? Kelp reproduce asexually when no mate is nearby"
+  ],
+  "err": ""
+ },
+ {
+  "name": "中国教育在线（EOL）",
+  "url": "https://www.eol.cn",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://www.eol.cn/rss.xml",
+  "count": 130,
+  "samples": [
+   "韩正出席2026世界中文大会开幕式并致辞",
+   "2026世界中文大会全体会议举行",
+   "中国科协撤销3人“全国优秀科技工作者”荣誉称号"
+  ],
+  "err": ""
+ },
+ {
+  "name": "软科（上海软科）",
+  "url": "https://www.shanghairanking.cn/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 1,
+  "samples": [
+   "全球体育类院系学术排名"
+  ],
+  "err": ""
+ },
+ {
+  "name": "麦可思研究",
+  "url": "https://www.mycos.com.cn",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "青塔（含青塔人才）",
+  "url": "https://www.cingta.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "高绩",
+  "url": "https://news.qq.com/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "募格学术",
+  "url": "https://news.qq.com/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "EURAXESS（欧洲研究者门户）",
+  "url": "https://euraxess.ec.europa.eu",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "多语言，欧盟",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 11,
+  "samples": [
+   "Karolinska Institutet via Varbi",
+   "Helmholtz Association of German Research Centres",
+   "Follow the EURAXESS Biennial Conference 2026 online!"
+  ],
+  "err": ""
+ },
+ {
+  "name": "国家自然科学基金委员会（NSFC）官网",
+  "url": "https://www.nsfc.gov.cn",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平主席引领亚太大家庭扬帆前行",
+   "习近平将出席亚太经合组织第三十三次领导人非正式会议及相关活动",
+   "以中国式现代化新成就为亚太和世界提供新机遇"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Nature Index（自然指数）",
+  "url": "https://www.natureindex.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，施普林格·自然",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "(Examples: Universidad Autónoma de Madrid",
+   "View the latest institution rankings",
+   "View the latest Country/territory rankings"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Science|Business",
+  "url": "https://www.sciencebusiness.net",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，比利时/欧洲",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "《学位与研究生教育》杂志/公众号",
+  "url": "http://www.adge.edu.cn",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "教育部官网/微言教育",
+  "url": "http://www.moe.gov.cn",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平：携手共建亚太命运共同体",
+   "习近平：在纪念孙中山先生诞辰160周年大会上的讲话",
+   "教育部、公安部、农业农村部部署实施服务乡村振兴高校招生专项计划"
+  ],
+  "err": ""
+ },
+ {
+  "name": "科技日报",
+  "url": "http://www.stdaily.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤",
+   "首发、首飞、刷新纪录！我国多领域硬核成果持续上新",
+   "从喂饱庄稼到点亮电网！这块“石头”，全球爆单"
+  ],
+  "err": ""
+ },
+ {
+  "name": "高校人才网",
+  "url": "https://www.gaoxiaojob.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "良渚实验室裴善赡课题组2026年诚聘博士后、科研助理",
+   "教学科研岗 面议 博士研究生 若干人 重庆水利电力职业技术学院 重庆",
+   "电气工程专业教师岗1 面议 硕士研究生 若干人 重庆水利电力职业技术学院 重庆"
+  ],
+  "err": ""
+ },
+ {
+  "name": "科奖在线",
+  "url": "https://www.163.com/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "陪我去建档路上，老公开着免提接了初恋的电话，听完那头的哭诉，",
+   "安娃夺冠危及莱巴后位，萨巴粗口事件闹大乌网协白政治家下场痛批",
+   "伊姐周六热推：电视剧《玫瑰战争》；电视剧《重生密码》......"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Chatham House 英国皇家国际事务研究所",
+  "url": "https://www.chathamhouse.org",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Brookings 布鲁金斯学会",
+  "url": "https://www.brookings.edu",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "MERICS 墨卡托中国研究中心",
+  "url": "https://www.merics.org",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文+德文，德国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Al Jazeera English 半岛电视台英文网",
+  "url": "https://www.aljazeera.com",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，卡塔尔",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Wonkhe",
+  "url": "https://wonkhe.com",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，英国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://wonkhe.com/feed",
+  "count": 25,
+  "samples": [
+   "The Post-18 Project: Civic at the crossroads",
+   "Universities can’t do place-based working without doing politics",
+   "It’s time to stop talking about excellence in teaching"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Lowy Institute 罗伊研究所（The Interpreter）",
+  "url": "https://www.lowyinstitute.org",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "英文，澳大利亚",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "学术志",
+  "url": "https://www.sohu.com/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "中小学秋假落地 出游格局有何变化？",
+   "机器人跑得比博尔特还快 要闯过多少关？",
+   "象鼻山围挡拆除 半月谈：“圈景收费”该反思了"
+  ],
+  "err": ""
+ },
+ {
+  "name": "CNBC",
+  "url": "https://www.cnbc.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:EOFError:Compressed file ended before the end-of-stream mar"
+ },
+ {
+  "name": "The Information",
+  "url": "https://theinformation.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://theinformation.com/feed",
+  "count": 20,
+  "samples": [
+   "Amazon Loses 40 Leo Satellites After ULA Rocket Failure",
+   "Nvidia’s Earnings on Deck; Anthropic’s Public Debut",
+   "Huang Allies Encourage Nvidia Comeback as Bessent Pushes Board to Look"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Le Monde《世界报》/ Der Spiegel《明镜》周刊",
+  "url": "https://www.lemonde.fr",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "法文/德文，法、德",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Morning Brew",
+  "url": "https://www.morningbrew.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "Fortune（财富）",
+  "url": "https://fortune.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": true,
+  "kind": "rss",
+  "feed": "https://fortune.com/feed",
+  "count": 10,
+  "samples": [
+   "jensen",
+   "Transportation secretary still doesn’t totally rule out that a cyberat",
+   "Americans fear the worst after Pentagon doomsday prepping, ‘Black Octo"
+  ],
+  "err": ""
+ },
+ {
+  "name": "知社学术圈",
+  "url": "https://www.zhuanzhiai.com/",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "中文，中国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "【博士论文】基于信息论探索的强化学习与控制：安全性、最优性及其应用研究",
+   "370页干货书（2026年）《反介入/区域拒止（A2/AD）研究进展：从防御技术到全社会路径》",
+   "《军事人工智能中的法律、伦理和技术困境》338页书籍"
+  ],
+  "err": ""
+ },
+ {
+  "name": "财新",
+  "url": "https://www.caixin.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "外交部：习近平将同普京、特朗普举行中俄美元首会晤",
+   "今日开盘：两市双双低开 沪指跌幅0.63%",
+   "创新药持续波动，出海、支付端有何变化？｜医药股周报"
+  ],
+  "err": ""
+ },
+ {
+  "name": "华尔街见闻",
+  "url": "https://wallstreetcn.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，上海",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "第一财经",
+  "url": "https://www.yicai.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "“汾酒抖音挑战赛播放量突破6.3亿次，全面掀起新春清香热 >",
+   "“第四范式财报放盈利前景 定位AI时代Salesforce",
+   "股债波动影响投资，居民“存款搬家”放缓"
+  ],
+  "err": ""
+ },
+ {
+  "name": "Barron's",
+  "url": "https://www.barrons.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "Check Out How Much It’s Carving Out for Retail Investors",
+   "Top RIA Firms September 2026 (opens in a new tab)",
+   "Top 100 Independent Advisors September 2026 (opens in a new tab)"
+  ],
+  "err": ""
+ },
+ {
+  "name": "晚点LatePost",
+  "url": "https://www.latepost.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 8,
+  "samples": [
+   "黄仁勋闪电辞职后，英伟达和 AI 行业失去了什么丨晚点播客",
+   "储能行业的繁荣，为什么没有带来普遍的高利润？ 11月10日",
+   "高毛利之外，国产 GPU 还有一笔 “软件账” 10月26日"
+  ],
+  "err": ""
+ },
+ {
+  "name": "虎嗅",
+  "url": "https://www.huxiu.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "黄仁勋考虑重返英伟达，科技大佬连夜组建“作战室”",
+   "华尔街：黄仁勋辞职，或成中国的“梦幻剧本”",
+   "黄仁勋辞任英伟达CEO，国产算力迎来窗口期？"
+  ],
+  "err": ""
+ },
+ {
+  "name": "《财经》杂志（Caijing）",
+  "url": "https://www.caijing.com.cn",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "长安汽车拟挂牌转让阿维塔10%股权，交易价格32亿元",
+   "国家发改委：自11月12日24时起，国内汽、柴油（标准品）价格每吨分别下调645元、625元",
+   "鸿蒙智行问界新M8正式上市，售价37.98万元起"
+  ],
+  "err": ""
+ },
+ {
+  "name": "证券市场周刊（含原红周刊）",
+  "url": "https://www.weeklyonstock.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "4天4板大涨46%，这只股被大资金“盯上”！主力启动、拉升手法全曝光！",
+   "百年风土，和谐共生｜张裕2025年度“绿色答卷”",
+   "​世界级大师遇上世界级酒庄：伊恩·麦卡利斯特携手郎酒，酿就“世界级水准”威士忌！"
+  ],
+  "err": ""
+ },
+ {
+  "name": "界面新闻",
+  "url": "https://www.jiemian.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "全球首个国家级气象预警方案：“妈祖”一体机在气候大会上发布",
+   "伊丽莎白雅顿：“两杯奶茶钱”可买全套产品，有关部门：违规宣传，罚款两万｜消费者报告",
+   "均价十万、开在外滩的以色列高定婚纱店被指跑路，顾客称钱货两空维权难｜界面消费者报告"
+  ],
+  "err": ""
+ },
+ {
+  "name": "澎湃新闻（财经）",
+  "url": "https://www.thepaper.cn",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，上海",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 9,
+  "samples": [
+   "11月19日，习近平将同普京、特朗普在深圳举行会晤",
+   "全球前瞻｜APEC会议周启幕，中国时隔12年再次担任APEC东道主",
+   "澎湃早晚报｜早餐湃·秋假重组出游格局"
+  ],
+  "err": ""
+ },
+ {
+  "name": "每日经济新闻",
+  "url": "https://www.nbd.com.cn",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，成都",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 35,
+  "samples": [
+   "“54号文”之后，区县基金玩法改写！中小GP面临洗牌",
+   "BLG夺冠带火影院凌晨场！影院为何抢着做电竞生意？",
+   "“双十一”，狗衣服热销17万件！祖玛珑、阿迪等95个品牌跨界“争宠”，宠物公司为何少赚了？"
+  ],
+  "err": ""
+ },
+ {
+  "name": "雪球",
+  "url": "https://xueqiu.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:RuntimeError:通用解析到0条"
+ },
+ {
+  "name": "The Scholarly Kitchen（学术厨房）",
+  "url": "https://scholarlykitchen.sspnet.org",
+  "module": "m6",
+  "cat": "门类六：高等教育与科研圈资讯",
+  "lang": "英语，SSP（学术与专业出版协会）",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "甲子光年",
+  "url": "https://www.aiww.com/",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": true,
+  "kind": "list",
+  "feed": "",
+  "count": 13,
+  "samples": [
+   "什么是 AI？先建立正确认知",
+   "Kimi 通用助手 · 第6名 月之暗面推出的一款智能助手，在处理长文本和复杂任务方面表现出色。 8,459,226 关注度 +16.1%",
+   "千问 通用助手 · 第4名 阿里巴巴推出的AI应用，基于通义千问大模型，打造的个人AI助手应用。 13,097,628 关注度 +25.4%"
+  ],
+  "err": ""
+ },
+ {
+  "name": "极客公园",
+  "url": "https://www.geekpark.net",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:HTTPError:HTTP Error 403: Forbidden"
+ },
+ {
+  "name": "补壹刀（环球时报系）",
+  "url": "https://tian-jian.org/",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "牛弹琴",
+  "url": "https://tian-jian.org/",
+  "module": "m5",
+  "cat": "门类五：国际时政与地缘政治资",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "36氪",
+  "url": "https://ir.36kr.com/",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "中文，北京",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:TimeoutError:The read operation timed out"
+ },
+ {
+  "name": "Bloomberg（彭博）",
+  "url": "https://www.bloomberg.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Wall Street Journal（华尔街日报）",
+  "url": "https://www.wsj.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Financial Times（金融时报）",
+  "url": "https://www.ft.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "The Economist（经济学人）",
+  "url": "https://www.economist.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，英国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Reuters（路透商业频道）",
+  "url": "https://www.reuters.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，全球",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Nikkei Asia（日经亚洲）",
+  "url": "https://asia.nikkei.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，日本",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Axios",
+  "url": "https://www.axios.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Business Insider",
+  "url": "https://www.businessinsider.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "The New York Times（商业版/DealBook）",
+  "url": "https://www.nytimes.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ },
+ {
+  "name": "Semafor Business",
+  "url": "https://www.semafor.com",
+  "module": "m7",
+  "cat": "门类七：综合财经与商业资讯",
+  "lang": "英语，美国",
+  "ok": false,
+  "kind": "",
+  "feed": "",
+  "count": 0,
+  "samples": [],
+  "err": "list:URLError:<urlopen error timed out>"
+ }
+]

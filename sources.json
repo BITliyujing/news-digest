@@ -1,0 +1,1595 @@
+{
+ "modules": {
+  "m1": {
+   "name": "新能源产业与技术",
+   "keywords": [
+    "氢",
+    "电解槽",
+    "催化剂",
+    "燃料电池",
+    "储能",
+    "光伏",
+    "风电",
+    "电池",
+    "GW",
+    "锂",
+    "绿氢",
+    "electrolyser",
+    "hydrogen"
+   ]
+  },
+  "m2": {
+   "name": "新能源金融与绿色投资",
+   "keywords": [
+    "基金",
+    "融资",
+    "投资",
+    "IPO",
+    "碳",
+    "绿色金融",
+    "储能",
+    "锂电",
+    "新能源",
+    "募资",
+    "碳中和"
+   ]
+  },
+  "m3": {
+   "name": "能源·材料科研学术",
+   "keywords": [
+    "电催化",
+    "electrocatal",
+    "hydrogen",
+    "催化剂",
+    "单原子",
+    "single-atom",
+    "CO2",
+    "析氢",
+    "HER",
+    "OER",
+    "battery",
+    "电池",
+    "材料",
+    "catalyst"
+   ]
+  },
+  "m4": {
+   "name": "国内时政与政策",
+   "keywords": [
+    "政策",
+    "国务院",
+    "中央",
+    "部委",
+    "发改委",
+    "条例",
+    "决定",
+    "印发",
+    "通知"
+   ]
+  },
+  "m5": {
+   "name": "国际时政与地缘",
+   "keywords": [
+    "美国",
+    "俄罗斯",
+    "乌克兰",
+    "中美",
+    "欧盟",
+    "中东",
+    "朝鲜",
+    "南海",
+    "日本",
+    "印度",
+    "台海",
+    "北约"
+   ]
+  },
+  "m6": {
+   "name": "高等教育与科研圈",
+   "keywords": [
+    "基金",
+    "教育",
+    "学科",
+    "评估",
+    "排名",
+    "高校",
+    "科研",
+    "撤稿",
+    "职称",
+    "人才",
+    "大学"
+   ]
+  },
+  "m7": {
+   "name": "综合财经与商业",
+   "keywords": [
+    "央行",
+    "利率",
+    "通胀",
+    "股市",
+    "债市",
+    "美元",
+    "人民币",
+    "GDP",
+    "公司",
+    "财报",
+    "市值"
+   ]
+  }
+ },
+ "sources": [
+  {
+   "id": "pvmag",
+   "name": "pv magazine",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 1.2,
+   "active": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.pv-magazine.com/feed/"
+   }
+  },
+  {
+   "id": "energystorage",
+   "name": "Energy-Storage.news",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 1.1,
+   "active": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.energy-storage.news/feed/"
+   }
+  },
+  {
+   "id": "hydrogeninsight",
+   "name": "Hydrogen Insight",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 1.4,
+   "active": true,
+   "channel": {
+    "type": "sitemap",
+    "url": "https://www.hydrogeninsight.com/sitemap.xml"
+   }
+  },
+  {
+   "id": "iea",
+   "name": "IEA Newsroom",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "sitemap",
+    "url": "https://www.iea.org/sitemap.xml"
+   },
+   "requires_proxy": true,
+   "note": "本机被403限流；云端运行（CLOUD_RUN=1）时自动启用"
+  },
+  {
+   "id": "bnef",
+   "name": "BNEF Newsroom",
+   "modules": [
+    "m2"
+   ],
+   "lang": "en",
+   "weight": 1.3,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://about.bnef.com/insights/",
+    "url_regex": "/insights/(?!category)[a-z0-9-]+/[a-z0-9-]+/",
+    "base": "https://about.bnef.com",
+    "read_bytes": 500000
+   }
+  },
+  {
+   "id": "spglobal",
+   "name": "S&P Global CI Energy Transition",
+   "modules": [
+    "m2"
+   ],
+   "lang": "en",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.spglobal.com/content/spglobal/commodity-insights/us/en/rss/blog.xml"
+   },
+   "note": "Akamai 403 反爬，本机与云端均被拦，暂以 BNEF/财新/CLS 替代，二期用浏览器通道"
+  },
+  {
+   "id": "bjx",
+   "name": "北极星电力网",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.bjx.com.cn/"
+   },
+   "note": "原站有WAF挑战，改走通用解析+关键词过滤"
+  },
+  {
+   "id": "energypeople",
+   "name": "中国能源报",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": false,
+   "channel": {
+    "type": "auto",
+    "home": "http://paper.people.com.cn/zgnyb/"
+   },
+   "note": "人民网系站点403，暂以中国能源网/北极星替代"
+  },
+  {
+   "id": "wallstcn-articles",
+   "name": "华尔街见闻·文章",
+   "modules": [
+    "m2"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "wallstcn_articles",
+    "url": "https://api-one.wallstcn.com/apiv1/content/articles?limit=20"
+   }
+  },
+  {
+   "id": "wallstcn-lives",
+   "name": "华尔街见闻·快讯",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.9,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "wallstcn_lives",
+    "url": "https://api-one.wallstcn.com/apiv1/content/lives?channel=global&limit=60"
+   }
+  },
+  {
+   "id": "cls",
+   "name": "财联社电报",
+   "modules": [
+    "m2",
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "cls_roll",
+    "rows": 30
+   },
+   "note": "已实现官方签名接口（md5(sha1(query))），稳定可用，不再依赖RSSHub"
+  },
+  {
+   "id": "ftc-energy",
+   "name": "FT中文网·能源",
+   "modules": [
+    "m2"
+   ],
+   "lang": "zh",
+   "weight": 0.9,
+   "active": false,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.ftchinese.com/channel/energy.html"
+   },
+   "note": "本机连接超时（限流/需登录），云端出口可再试；暂以财新、华尔街见闻替代"
+  },
+  {
+   "id": "nenergy",
+   "name": "Nature Energy",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.4,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.nature.com/nenergy/research-articles",
+    "url_regex": "/articles/s\\d+-\\d+-\\d+-[\\w-]+",
+    "base": "https://www.nature.com"
+   }
+  },
+  {
+   "id": "nenergy-news",
+   "name": "Nature Energy·News",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.2,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.nature.com/nenergy/news-and-comment",
+    "url_regex": "/articles/s\\d+-\\d+-\\d+-[\\w-]+",
+    "base": "https://www.nature.com"
+   }
+  },
+  {
+   "id": "natcatal",
+   "name": "Nature Catalysis",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.4,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.nature.com/natcatal/research-articles",
+    "url_regex": "/articles/s\\d+-\\d+-\\d+-[\\w-]+",
+    "base": "https://www.nature.com"
+   }
+  },
+  {
+   "id": "jacs",
+   "name": "JACS",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.4,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "crossref",
+    "issn": "0002-7863",
+    "rows": 20
+   }
+  },
+  {
+   "id": "angew",
+   "name": "Angewandte Chemie",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.3,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "crossref",
+    "issn": "1433-7851",
+    "rows": 20
+   }
+  },
+  {
+   "id": "acscatal",
+   "name": "ACS Catalysis",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.3,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "crossref",
+    "issn": "2155-5435",
+    "rows": 20
+   }
+  },
+  {
+   "id": "ees",
+   "name": "Energy & Environmental Science",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.3,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "crossref",
+    "issn": "1754-5692",
+    "rows": 20
+   }
+  },
+  {
+   "id": "chemrxiv",
+   "name": "ChemRxiv 预印本",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "crossref",
+    "prefix": "10.26434",
+    "rows": 20
+   },
+   "note": "ChemRxiv 官网403，改走 Crossref 官方API（按 DOI 前缀取最新）"
+  },
+  {
+   "id": "gov-zhengce",
+   "name": "中国政府网·政策",
+   "modules": [
+    "m4"
+   ],
+   "lang": "zh",
+   "weight": 1.4,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.gov.cn/zhengce/",
+    "url_regex": "(./)?\\d{6}/content_\\d+\\.htm",
+    "base": "https://www.gov.cn/zhengce/"
+   }
+  },
+  {
+   "id": "nea",
+   "name": "国家能源局",
+   "modules": [
+    "m4",
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 1.3,
+   "active": false,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.nea.gov.cn/xwzx/nyyw.htm"
+   },
+   "note": "页面为JS渲染，通用解析0条；政策类由国务院/发改委覆盖"
+  },
+  {
+   "id": "cctv-china",
+   "name": "央视新闻·国内",
+   "modules": [
+    "m4"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://news.cctv.com/china/",
+    "url_regex": "news\\.cctv\\.com/\\d{4}/\\d{2}/\\d{2}/\\w+\\.shtml",
+    "base": "https://news.cctv.com"
+   }
+  },
+  {
+   "id": "thepaper",
+   "name": "澎湃新闻",
+   "modules": [
+    "m4",
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "thepaper_sidebar",
+    "url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar"
+   }
+  },
+  {
+   "id": "guancha-intl",
+   "name": "观察者网·国际",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.guancha.cn/column/GuoJi·ZhanLue",
+    "url_regex": "/\\w+/\\d{4}_\\d{2}_\\d{2}_\\d+\\.shtml",
+    "base": "https://www.guancha.cn"
+   }
+  },
+  {
+   "id": "cctv-world",
+   "name": "央视新闻·国际",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://news.cctv.com/world/",
+    "url_regex": "news\\.cctv\\.com/\\d{4}/\\d{2}/\\d{2}/\\w+\\.shtml",
+    "base": "https://news.cctv.com"
+   }
+  },
+  {
+   "id": "huanqiu",
+   "name": "环球网·国际",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://world.huanqiu.com/",
+    "url_regex": "huanqiu\\.com/article/\\w+",
+    "base": "https://world.huanqiu.com",
+    "fallback_list_url": "https://www.huanqiu.com/"
+   }
+  },
+  {
+   "id": "moe",
+   "name": "教育部·通知公告",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 1.2,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "http://www.moe.gov.cn/jyb_xxgk/s5743/s5744/",
+    "url_regex": "\\d{6}/t\\d+_\\d+\\.html",
+    "base": "http://www.moe.gov.cn/jyb_xxgk/s5743/s5744/"
+   }
+  },
+  {
+   "id": "chinanews",
+   "name": "中新网滚动新闻",
+   "modules": [
+    "m4",
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.chinanews.com.cn/scroll-news/news1.html",
+    "url_regex": "chinanews\\.com\\.cn/[a-z]+/\\d{4}/\\d+-\\d+/\\d+\\.shtml",
+    "url_channel_map": {
+     "/gn/": "m4",
+     "/gj/": "m5",
+     "/zw/": "m4"
+    },
+    "base": "https://www.chinanews.com.cn"
+   }
+  },
+  {
+   "id": "sciencenet",
+   "name": "科学网",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://news.sciencenet.cn/",
+    "url_regex": "(news\\.sciencenet\\.cn|www\\.cas\\.cn)/[a-z/]*\\d{4}[\\w/]*\\d+",
+    "base": "https://news.sciencenet.cn/"
+   }
+  },
+  {
+   "id": "retractionwatch",
+   "name": "Retraction Watch",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://retractionwatch.com/feed/"
+   }
+  },
+  {
+   "id": "the-news",
+   "name": "THE·World News",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.timeshighereducation.com/news",
+    "url_regex": "/news/[\\w-]+",
+    "base": "https://www.timeshighereducation.com"
+   }
+  },
+  {
+   "id": "caixin",
+   "name": "财新网",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 1.2,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.caixin.com/",
+    "url_regex": "caixin\\.com/\\d{4}-\\d{2}-\\d{2}/\\d+\\.html",
+    "base": "https://www.caixin.com"
+   }
+  },
+  {
+   "id": "nbd",
+   "name": "每日经济新闻",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.nbd.com.cn/",
+    "url_regex": "/articles/\\d{4}-\\d{2}-\\d{2}/\\d+\\.html",
+    "base": "https://www.nbd.com.cn"
+   }
+  },
+  {
+   "id": "kr36",
+   "name": "36氪快讯",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.8,
+   "active": true,
+   "channel": {
+    "type": "rsshub",
+    "route": "/36kr/newsflashes"
+   },
+   "note": "走RSSHub镜像，镜像不稳时当日离线"
+  },
+  {
+   "id": "ggii",
+   "name": "高工氢电",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 1.3,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "公众号源：在sources.json填入wechat_id并将active改为true即可启用"
+  },
+  {
+   "id": "cicc",
+   "name": "中金点睛",
+   "modules": [
+    "m2"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "公众号源，待微信号"
+  },
+  {
+   "id": "yanzc",
+   "name": "研之成理",
+   "modules": [
+    "m3"
+   ],
+   "lang": "zh",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "公众号源，待微信号"
+  },
+  {
+   "id": "chj",
+   "name": "催化计",
+   "modules": [
+    "m3"
+   ],
+   "lang": "zh",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "公众号源，待微信号"
+  },
+  {
+   "id": "ckxx",
+   "name": "参考消息",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "官网为JS渲染，走公众号通道，待微信号"
+  },
+  {
+   "id": "wandian",
+   "name": "晚点LatePost",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "公众号源，待微信号"
+  },
+  {
+   "id": "weyan",
+   "name": "微言教育",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 1.1,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "公众号源，待微信号"
+  },
+  {
+   "id": "reuters-world",
+   "name": "Reuters World",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 1.3,
+   "active": false,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.reutersagency.com/feed/?best-topics=world"
+   },
+   "requires_proxy": true,
+   "note": "本机网络不可达，需代理；有代理后在settings.json配置proxy并置active=true"
+  },
+  {
+   "id": "economist",
+   "name": "The Economist",
+   "modules": [
+    "m5",
+    "m7"
+   ],
+   "lang": "en",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.economist.com/the-world-this-week",
+    "url_regex": "/\\d{4}/\\d{2}/\\d{2}/[\\w-]+"
+   },
+   "requires_proxy": true,
+   "note": "需代理"
+  },
+  {
+   "id": "isw",
+   "name": "ISW 战争研究所",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 1.1,
+   "active": false,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.understandingwar.org/publications",
+    "url_regex": "/publications/[\\w-]+"
+   },
+   "requires_proxy": true,
+   "note": "Cloudflare反爬+需代理"
+  },
+  {
+   "id": "fa",
+   "name": "Foreign Affairs",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 1.1,
+   "active": false,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.foreignaffairs.com/rss.xml"
+   },
+   "requires_proxy": true,
+   "note": "需代理"
+  },
+  {
+   "id": "aljazeera",
+   "name": "Al Jazeera English",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 1.0,
+   "active": false,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.aljazeera.com/xml/rss/all.xml"
+   },
+   "requires_proxy": true,
+   "note": "需代理"
+  },
+  {
+   "id": "joule",
+   "name": "Joule",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.3,
+   "active": true,
+   "channel": {
+    "type": "api",
+    "adapter": "crossref",
+    "issn": "2542-4351",
+    "rows": 15
+   },
+   "note": "Cell Press 站被 Cloudflare 拦，改走 Crossref"
+  },
+  {
+   "id": "scholar-alerts",
+   "name": "Google Scholar Alerts",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 1.2,
+   "active": false,
+   "channel": {
+    "type": "manual"
+   },
+   "note": "邮件通道，二期接入邮箱解析；首期以Nature双刊+ChemRxiv覆盖"
+  },
+  {
+   "id": "xingta",
+   "name": "青塔",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": false,
+   "channel": {
+    "type": "rsshub",
+    "route": "/wechat/mp/{wechat_id}"
+   },
+   "wechat_id": null,
+   "note": "官网为JS渲染，走公众号通道"
+  },
+  {
+   "id": "nsfc",
+   "name": "国家自然科学基金委",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 1.3,
+   "active": false,
+   "channel": {
+    "type": "scrape",
+    "list_url": "https://www.nsfc.gov.cn/publish/portal0/",
+    "url_regex": "nsfc\\.gov\\.cn/[\\w/]+"
+   },
+   "note": "官网为Vue单页应用，待找到数据接口后启用；首期由科学网+教育部覆盖"
+  },
+  {
+   "id": "canarymedia-com",
+   "name": "Canary Media",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.canarymedia.com/rss.rss"
+   }
+  },
+  {
+   "id": "pv-tech-org",
+   "name": "PV-Tech",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.pv-tech.org/feed/"
+   }
+  },
+  {
+   "id": "reneweconomy-com-au",
+   "name": "Renew Economy",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://reneweconomy.com.au/feed/"
+   }
+  },
+  {
+   "id": "windpowermonthly-com",
+   "name": "Windpower Monthly",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.windpowermonthly.com/rss"
+   }
+  },
+  {
+   "id": "woodmac-com",
+   "name": "Wood Mackenzie",
+   "modules": [
+    "m1"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.woodmac.com/"
+   }
+  },
+  {
+   "id": "ne21-com",
+   "name": "氢能观察",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.ne21.com/"
+   }
+  },
+  {
+   "id": "evobserver-com",
+   "name": "电动汽车观察家",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "http://www.evobserver.com/"
+   }
+  },
+  {
+   "id": "evpartner-com",
+   "name": "电车资源",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.evpartner.com/"
+   }
+  },
+  {
+   "id": "solarbe-com",
+   "name": "索比光伏网",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.solarbe.com"
+   }
+  },
+  {
+   "id": "trellis-net",
+   "name": "GreenBiz",
+   "modules": [
+    "m2"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://trellis.net/feed/"
+   }
+  },
+  {
+   "id": "heatmap-news",
+   "name": "Heatmap News",
+   "modules": [
+    "m2"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://heatmap.news"
+   }
+  },
+  {
+   "id": "iigf-cufe-edu-cn",
+   "name": "中央财经大学绿色金融国际研究院",
+   "modules": [
+    "m2"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://iigf.cufe.edu.cn/"
+   }
+  },
+  {
+   "id": "cen-acs-org",
+   "name": "C&EN",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://cen.acs.org"
+   }
+  },
+  {
+   "id": "sciencedaily-com",
+   "name": "ScienceDaily",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.sciencedaily.com/rss/all.xml"
+   }
+  },
+  {
+   "id": "arxiv-org",
+   "name": "arXiv",
+   "modules": [
+    "m3"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://arxiv.org/"
+   }
+  },
+  {
+   "id": "efmlab-com",
+   "name": "催化开天地",
+   "modules": [
+    "m3"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "http://www.efmlab.com/"
+   }
+  },
+  {
+   "id": "linkresearcher-com",
+   "name": "研之成理·linkresearcher",
+   "modules": [
+    "m3"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.linkresearcher.com/"
+   }
+  },
+  {
+   "id": "scimaterials-cn",
+   "name": "科学材料站",
+   "modules": [
+    "m3"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "http://www.scimaterials.cn"
+   }
+  },
+  {
+   "id": "banyuetan-org",
+   "name": "半月谈",
+   "modules": [
+    "m4"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "http://www.banyuetan.org"
+   }
+  },
+  {
+   "id": "ndrc-gov-cn",
+   "name": "国家发展改革委官网",
+   "modules": [
+    "m4"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.ndrc.gov.cn"
+   }
+  },
+  {
+   "id": "qstheory-cn",
+   "name": "求是",
+   "modules": [
+    "m4"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.qstheory.cn"
+   }
+  },
+  {
+   "id": "cgtn-com",
+   "name": "CGTN",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.cgtn.com"
+   }
+  },
+  {
+   "id": "euraxess-ec-europa-eu",
+   "name": "EURAXESS",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://euraxess.ec.europa.eu"
+   }
+  },
+  {
+   "id": "insidehighered-com",
+   "name": "Inside Higher Ed",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.insidehighered.com/rss.xml"
+   }
+  },
+  {
+   "id": "natureindex-com",
+   "name": "Nature Index",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.natureindex.com"
+   }
+  },
+  {
+   "id": "topuniversities-com",
+   "name": "QS",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.topuniversities.com/rss.xml"
+   }
+  },
+  {
+   "id": "universityworldnews-co",
+   "name": "University World News",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.universityworldnews.com"
+   }
+  },
+  {
+   "id": "wonkhe-com",
+   "name": "Wonkhe",
+   "modules": [
+    "m6"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://wonkhe.com/feed"
+   }
+  },
+  {
+   "id": "stdaily-com",
+   "name": "科技日报",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "http://www.stdaily.com"
+   }
+  },
+  {
+   "id": "gaoxiaojob-com",
+   "name": "高校人才网",
+   "modules": [
+    "m6"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.gaoxiaojob.com"
+   }
+  },
+  {
+   "id": "barrons-com",
+   "name": "Barron's",
+   "modules": [
+    "m7"
+   ],
+   "lang": "en",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.barrons.com"
+   }
+  },
+  {
+   "id": "fortune-com",
+   "name": "Fortune",
+   "modules": [
+    "m7"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://fortune.com/feed"
+   }
+  },
+  {
+   "id": "theinformation-com",
+   "name": "The Information",
+   "modules": [
+    "m7"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://theinformation.com/feed"
+   }
+  },
+  {
+   "id": "caijing-com-cn",
+   "name": "《财经》杂志",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.caijing.com.cn"
+   }
+  },
+  {
+   "id": "latepost-com",
+   "name": "晚点LatePost·latepost",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.latepost.com"
+   }
+  },
+  {
+   "id": "huxiu-com",
+   "name": "虎嗅",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.huxiu.com"
+   }
+  },
+  {
+   "id": "weeklyonstock-com",
+   "name": "证券市场周刊",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.75,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.weeklyonstock.com"
+   }
+  },
+  {
+   "id": "globaltimes",
+   "name": "环球时报英文版",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.globaltimes.cn/"
+   }
+  },
+  {
+   "id": "zaobao",
+   "name": "联合早报",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.zaobao.com.sg/"
+   }
+  },
+  {
+   "id": "fortunechina",
+   "name": "财富中文网",
+   "modules": [
+    "m7"
+   ],
+   "lang": "zh",
+   "weight": 0.8,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.fortunechina.com/"
+   }
+  },
+  {
+   "id": "pedaily",
+   "name": "投资界",
+   "modules": [
+    "m2"
+   ],
+   "lang": "zh",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.pedaily.cn/"
+   }
+  },
+  {
+   "id": "cnenergynews",
+   "name": "中国能源网",
+   "modules": [
+    "m1"
+   ],
+   "lang": "zh",
+   "weight": 1.0,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.cnenergynews.cn/"
+   }
+  },
+  {
+   "id": "cgtn",
+   "name": "CGTN",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 0.9,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://www.cgtn.com/"
+   }
+  },
+  {
+   "id": "un-news-zh",
+   "name": "联合国新闻",
+   "modules": [
+    "m5"
+   ],
+   "lang": "zh",
+   "weight": 0.8,
+   "active": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "auto",
+    "home": "https://news.un.org/zh/"
+   }
+  }
+ ]
+}

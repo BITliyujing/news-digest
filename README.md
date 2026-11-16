@@ -1,0 +1,103 @@
+# 行业资讯简报工具（方案A：定时生成静态页 → 随时随地打开）
+
+每天定时抓取 7 个门类的核心信源，去重排序后生成约 300 字中文摘要，输出一个手机自适应单页 HTML。
+打开即看，可按模块切换、按信源筛选；每条附原文链接。
+
+---
+
+## 一、目录结构
+
+```
+资讯工具/
+├─ run_daily.py            主程序（抓取→处理→摘要→生成页面）
+├─ sources.json            信源清单与通道配置（可手工增删）
+├─ settings.json           参数（时间窗、条数、模型、并发等）
+├─ digest/                 核心模块
+│  ├─ http.py              抓取层（直连/curl UA/系统代理/本机代理端口自动回退）
+│  ├─ fetchers.py          通道适配：rss / sitemap / scrape / api / rsshub / auto
+│  ├─ pipeline.py          模块路由、时间窗、去重、关键词排序、配额
+│  ├─ summarize.py         摘要层（多模型供应商自动切换）
+│  └─ build.py             页面生成（模块标签、信源面板、归档）
+├─ tools/
+│  ├─ probe_sources.py     批量探测信源可用性
+│  └─ build_sources.py     把探测结果并入 sources.json
+├─ cloud/                  云端运行（电脑关机也能出简报）
+├─ output/                 index.html + archive/ 按日归档 + data.json
+├─ data/                   当日结构化数据、去重记忆、发现的RSS
+└─ logs/                   运行日志、信源健康记录
+```
+
+---
+
+## 二、本地怎么跑
+
+```bash
+cd "D:/Personal&Family/量化投资相关/学习资料/行业资讯更新/资讯工具"
+"D:/Program Files/Python314/python.exe" run_daily.py                 # 完整运行（有Key就自动摘要）
+"D:/Program Files/Python314/python.exe" run_daily.py --dry           # 不调模型，验证链路
+"D:/Program Files/Python314/python.exe" run_daily.py --only m1 m3    # 只跑指定模块
+```
+
+零第三方依赖，只用 Python 标准库。
+
+---
+
+## 三、摘要模型（token 从这里走）
+
+配置在 `settings.json` 的 `llm.providers`，按顺序尝试，前一个不可用自动换下一个。
+Key 放文件（`digest/*.txt`）或环境变量均可。
+
+| 供应商 | 现状 | 获取方式 |
+|---|---|---|
+| **智谱 GLM**（glm-4.7-flash / glm-4.5-flash） | **目前仍免费**，无 token 总量上限 | open.bigmodel.cn 手机号注册 → 创建 API Key → 存 `digest/glm_api_key.txt` |
+| 魔搭 ModelScope | 免费额度（每日约 2000 次），含 GLM-4.7-Flash / Qwen | modelscope.cn 注册 → 访问令牌 → `digest/ms_api_key.txt` |
+| DeepSeek | 付费备胎，约 ¥1-4/天 | platform.deepseek.com → `digest/deepseek_api_key.txt` |
+| 硅基流动 | 部分小模型免费 | siliconflow.cn → `digest/siliconflow_api_key.txt` |
+
+说明：
+- 抓取、去重、排序、页面生成都在本地完成，**不消耗 token**；token 只花在“写 300 字摘要”。
+- 全部 Key 都没有时页面仍会生成，摘要降级为正文前 300 字截取，并标注“摘要未生成”。
+- 并发默认 6（`llm.concurrency`），智谱免费档支持约 30 并发，可调高。
+
+---
+
+## 四、页面功能
+
+- **7 个模块标签**：顶部横滑切换，URL 锚点记住上次位置。
+- **信源设置面板**（右上角按钮）：
+  - 按模块列出全部信源，勾选/取消即在本机隐藏该信源条目（手机、电脑各记各的）；
+  - “只看”按钮：只看单条信源，页面上方出现恢复入口；点卡片里的信源名等价；
+  - “添加信源”：填名称/网址/模块 → 生成 JSON 配置，复制发给维护者即可加入每日抓取。
+- **归档**：`output/archive/YYYY-MM-DD.html` 保留每日快照。
+
+---
+
+## 五、云端运行（电脑关机也能更新 + 手机随时看）
+
+见 `cloud/README-cloud.md`。要点：
+- GitHub Actions 每天北京时间 07:00 跑一次，产物发布到 GitHub Pages，得到一个可分享网址；
+- 手机浏览器打开 → 添加到主屏幕，等于一个 App 图标；
+- 云端出口在境外，路透、经济学人、外交事务等原本被拦的英文源可直接抓（`CLOUD_RUN=1` 自动启用）。
+
+---
+
+## 六、信源维护
+
+- **季度体检**：`python tools/probe_sources.py` 全量探测失效源；`python tools/build_sources.py` 把新发现的可抓站点并入 `sources.json`。
+- **健康日志**：`logs/health.json` 记录每个源最近成功日、连续失败次数、错误原因。
+- **通道优先级**：官方 RSS > 官方 API（财联社/华尔街见闻/澎湃/Crossref）> 页面解析 > RSSHub 镜像。
+- **公众号**：无 RSS，需 RSSHub 实例并填 `wechat_id`（`sources.json` 已预留 7 个，`active:false`）。
+  - 微信号查法：公众号文章页 → 右上角 → 更多资料 → 微信号。
+  - 公共镜像对公众号支持不稳，建议自建（Docker 一条命令）或二期用付费代抓。
+
+---
+
+## 七、常见问题
+
+| 现象 | 原因与处理 |
+|---|---|
+| 某源 0 条 | 看 `logs/health.json` 的 `last_error`；403/429 多为反爬限流，换通道或等次日 |
+| 摘要全是正文截取 | 未检测到任何模型 Key，按第三节配一个 |
+| 英文源抓不到 | 本机网络被拦；配代理（`settings.json` 的 `proxy`），或直接走云端运行 |
+| 页面条目少 | 调大 `per_source_daily_cap` / `items_per_module_cap`；确认 `window_days`=3 |
+| 想加某个网站 | 页面“信源设置→添加信源”生成配置，或直接改 `sources.json` 加 `{"type":"auto","home":"网址"}` |
