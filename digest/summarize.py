@@ -203,9 +203,11 @@ def _call(kind, payload, settings, providers, state):
 
 
 def fallback_summary(item):
+    """模型不可用时的降级：优先用抓到的正文，其次用接口导语。
+    门槛放到 15 字，是因为财联社这类快讯本身就是二三十字的一句话，够直接当摘要读。"""
     for k in ("summary_text", "lead"):
         v = (item.get(k) or "").strip()
-        if len(v) >= 60:
+        if len(v) >= 15:
             return v[:300]
     return ""
 
@@ -241,6 +243,13 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
              "fail": 0, "last_error": "", "cached": 0,
              "batches": 0, "batch_fail": 0,
              "gate": threading.Lock(), "next_slot": 0.0}
+    # 时钟预算：免费档被限流时冷却会不断叠加，没有预算就可能跑上几个小时。
+    # 到点后剩余条目直接降级为正文截取，保证定时任务在可预期的时间内结束。
+    deadline = time.time() + float(llm_cfg.get("max_minutes", 25)) * 60
+    state["skipped_timeout"] = 0
+
+    def out_of_time():
+        return time.time() > deadline
 
     def take_slot():
         """全局限速：相邻两次真实请求至少间隔 interval 秒；被限流时整体冷却。"""
@@ -286,6 +295,10 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
         dump_dir.mkdir(parents=True, exist_ok=True)
 
     def work(batch):
+        if out_of_time():
+            with state["lock"]:
+                state["skipped_timeout"] += len(batch)
+            return
         take_slot()
         content, tag, err = _call("batch", batch, settings, providers, state)
         with state["lock"]:
@@ -324,10 +337,13 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
 
     # 3) 补齐：先按 3 条一批重试（截断/漏段多是批太长），剩下的再单条补
     still = []
-    if missing:
+    if missing and not out_of_time():
         chunks = [missing[i:i + 3] for i in range(0, len(missing), 3)]
 
         def repair_batch(chunk):
+            if out_of_time():
+                still.extend(chunk)
+                return
             take_slot()
             content, tag, _err = _call("batch", chunk, settings, providers, state)
             parts = _parse_batch(content, len(chunk)) if content else {}
@@ -343,10 +359,13 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
             list(ex.map(repair_batch, chunks))
         log(f"  补齐批次：{len(chunks)} 次请求，仍缺 {len(still)} 条")
 
-    if still and repair_max > 0:
+    if still and repair_max > 0 and not out_of_time():
         queue = still[:repair_max]
 
         def repair(it):
+            if out_of_time():
+                still_skipped.append(it)
+                return
             take_slot()
             sm, mode, _err = _call("one", it, settings, providers, state)
             if sm:
@@ -357,8 +376,10 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
                 with state["lock"]:
                     state["fail"] += 1
 
+        still_skipped = []
         with ThreadPoolExecutor(max_workers=2) as ex:
             list(ex.map(repair, queue))
+        state["skipped_timeout"] += len(still_skipped)
         log(f"  单条补齐完成：{sum(1 for it in queue if it.get('summary_mode') not in ('lead', 'failed'))}"
             f"/{len(queue)} 条")
 
@@ -378,6 +399,8 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
     except Exception:
         pass
 
+    if state.get("skipped_timeout"):
+        log(f"  时钟预算用尽：{state['skipped_timeout']} 条改用正文截取（下次运行会补上）")
     used = state.get("pinned")
     log(f"  摘要完成：成功 {state['ok']}，失败 {state['fail']}，缓存命中 {state['cached']}，"
         f"请求 {state['batches'] + min(len(missing), repair_max)} 次，"

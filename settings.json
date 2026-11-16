@@ -68,7 +68,8 @@
   "batch_size": 4,
   "repair_max": 12,
   "debug_batch_dump": true,
-  "cooldown_seconds": 45
+  "cooldown_seconds": 30,
+  "max_minutes": 30
  },
  "window_days": 1,
  "per_source_daily_cap": 4,
