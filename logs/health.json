@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 12,
+  "fail_streak": 13,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
@@ -288,9 +288,9 @@
  },
  "ne21-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 1,
+  "fail_streak": 2,
   "last_count": 0,
-  "last_error": "URLError: <urlopen error timed out>",
+  "last_error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
   "checked": "2026-11-16"
  },
  "evobserver-com": {
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 1,
+  "fail_streak": 2,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
@@ -498,9 +498,9 @@
  },
  "huxiu-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 0,
-  "last_count": 35,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "TimeoutError: The read operation timed out",
   "checked": "2026-11-16"
  },
  "weeklyonstock-com": {
@@ -561,21 +561,21 @@
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 1,
+  "fail_streak": 2,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-16"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 1,
+  "fail_streak": 2,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 1,
+  "fail_streak": 2,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
