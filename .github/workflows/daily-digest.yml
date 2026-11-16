@@ -27,6 +27,7 @@ jobs:
 
       - name: 生成简报
         env:
+          TZ: Asia/Shanghai
           CLOUD_RUN: "1"                 # 云端出口在境外，需代理的英文源直接启用
           GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
           MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
