@@ -56,7 +56,8 @@
     "max_tokens": 600,
     "note": "硅基流动，部分小模型免费"
    }
-  ]
+  ],
+  "min_interval_seconds": 12
  },
  "window_days": 3,
  "per_source_daily_cap": 8,

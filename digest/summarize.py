@@ -124,7 +124,9 @@ def fallback_summary(item):
 
 
 def summarize_items(items, settings, base_dir, log=print, dry=False):
-    """给每条 item 补 summary / summary_mode。多线程并发（glm 免费档约30并发）。"""
+    """给每条 item 补 summary / summary_mode。
+    - 限速节流：llm.min_interval_seconds 控制全局请求间隔（免费档实测约5次/分钟）
+    - 摘要缓存缓存：同一 URL 的条目跨日复用（近3天窗口约2/3是旧闻），存 data/summary_cache.json"""
     providers = [] if dry else build_providers(settings)
     if not providers:
         for it in items:
@@ -134,20 +136,47 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
         return items
 
     import threading
+    llm_cfg = settings.get("llm", {})
+    interval = float(llm_cfg.get("min_interval_seconds", 12))
+    cache_path = Path(base_dir) / "data" / "summary_cache.json"
+    try:
+        cache = json.loads(cache_path.read_text(encoding="utf-8"))
+    except Exception:
+        cache = {}
+    today = time.strftime("%Y-%m-%d")
     state = {"lock": threading.Lock(), "pinned": None, "model": "", "ok": 0,
-             "fail": 0, "last_error": ""}
-    workers = int(settings.get("llm", {}).get("concurrency", 6))
+             "fail": 0, "last_error": "", "cached": 0,
+             "gate": threading.Lock(), "next_slot": 0.0}
+    workers = int(llm_cfg.get("concurrency", 4))
     total = len(items)
     done = {"n": 0}
 
     def work(it):
-        sm, mode = summarize_one(it, settings, providers, state)
-        if sm:
-            it["summary"] = sm
-            it["summary_mode"] = mode
+        url = it.get("url") or ""
+        hit = cache.get(url) if url else None
+        if hit and hit.get("summary"):
+            it["summary"] = hit["summary"]
+            it["summary_mode"] = "cache"
+            with state["lock"]:
+                state["cached"] += 1
         else:
-            it["summary"] = fallback_summary(it) or "（本条摘要生成失败）"
-            it["summary_mode"] = "lead" if it.get("lead") else "failed"
+            # 全局限速：两次真实请求之间至少间隔 interval 秒
+            with state["gate"]:
+                now = time.time()
+                slot = max(state["next_slot"], now)
+                state["next_slot"] = slot + interval
+                wait = slot - now
+            if wait > 0:
+                time.sleep(wait)
+            sm, mode = summarize_one(it, settings, providers, state)
+            if sm:
+                it["summary"] = sm
+                it["summary_mode"] = mode
+                if url:
+                    cache[url] = {"summary": sm, "mode": mode, "date": today}
+            else:
+                it["summary"] = fallback_summary(it) or "（本条摘要生成失败）"
+                it["summary_mode"] = "lead" if it.get("lead") else "failed"
         with state["lock"]:
             done["n"] += 1
             if done["n"] % 20 == 0:
@@ -156,8 +185,18 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
     with ThreadPoolExecutor(max_workers=workers) as ex:
         list(ex.map(work, items))
 
+    # 缓存落盘（只保留最近 30 天的条目）
+    if cache:
+        cut = time.strftime("%Y-%m-%d", time.gmtime(time.time() - 30 * 86400))
+        cache = {k: v for k, v in cache.items() if v.get("date", "") >= cut}
+    try:
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_path.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        pass
+
     used = state.get("pinned")
-    log(f"  摘要完成：成功 {state['ok']}，失败 {state['fail']}，"
+    log(f"  摘要完成：成功 {state['ok']}，失败 {state['fail']}，缓存命中 {state['cached']}，"
         f"通道 {used['name'] + '/' + state['model'] if used else '无'}")
     if state["fail"] and state["last_error"]:
         log(f"  最近错误：{state['last_error'][:160]}")
