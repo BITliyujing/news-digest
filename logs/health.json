@@ -16,13 +16,13 @@
  "hydrogeninsight": {
   "last_ok": "2026-11-16",
   "fail_streak": 0,
-  "last_count": 38,
+  "last_count": 37,
   "last_error": "",
   "checked": "2026-11-16"
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 11,
+  "fail_streak": 12,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
@@ -148,9 +148,9 @@
  },
  "huanqiu": {
   "last_ok": "2026-11-16",
-  "fail_streak": 11,
-  "last_count": 0,
-  "last_error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>",
+  "fail_streak": 0,
+  "last_count": 40,
+  "last_error": "",
   "checked": "2026-11-16"
  },
  "moe": {
@@ -288,9 +288,9 @@
  },
  "ne21-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 0,
-  "last_count": 35,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "URLError: <urlopen error timed out>",
   "checked": "2026-11-16"
  },
  "evobserver-com": {
@@ -463,9 +463,9 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 0,
-  "last_count": 35,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
  },
  "fortune-com": {
@@ -513,7 +513,7 @@
  "globaltimes": {
   "last_ok": "2026-11-16",
   "fail_streak": 0,
-  "last_count": 19,
+  "last_count": 20,
   "last_error": "",
   "checked": "2026-11-16"
  },
@@ -556,6 +556,41 @@
   "last_ok": "2026-11-16",
   "fail_streak": 0,
   "last_count": 30,
+  "last_error": "",
+  "checked": "2026-11-16"
+ },
+ "reuters-world": {
+  "last_ok": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 404: Not Found",
+  "checked": "2026-11-16"
+ },
+ "economist": {
+  "last_ok": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 403: Forbidden",
+  "checked": "2026-11-16"
+ },
+ "isw": {
+  "last_ok": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 403: Forbidden",
+  "checked": "2026-11-16"
+ },
+ "fa": {
+  "last_ok": "2026-11-16",
+  "fail_streak": 0,
+  "last_count": 20,
+  "last_error": "",
+  "checked": "2026-11-16"
+ },
+ "aljazeera": {
+  "last_ok": "2026-11-16",
+  "fail_streak": 0,
+  "last_count": 25,
   "last_error": "",
   "checked": "2026-11-16"
  }
