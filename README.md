@@ -51,7 +51,7 @@ Key 放文件（`digest/*.txt`）或环境变量均可。
 | 供应商 | 现状 | 获取方式 |
 |---|---|---|
 | **智谱 GLM**（glm-4.7-flash / glm-4.5-flash） | **目前仍免费**，无 token 总量上限 | open.bigmodel.cn 手机号注册 → 创建 API Key → 存 `digest/glm_api_key.txt` |
-| 魔搭 ModelScope | 免费额度（每日约 2000 次），含 GLM-4.7-Flash / Qwen | modelscope.cn 注册 → 访问令牌 → `digest/ms_api_key.txt` |
+| 魔搭 ModelScope | 免费层按「魔粒」计费（每日约 250 粒，主流模型约 2 粒/次，约 125 次/天）；**需绑定阿里云账号并完成实名认证**；含 GLM-4.7-Flash / Qwen3.8-Flash-Next | modelscope.cn → 访问令牌（ms-…）→ `digest/ms_api_key.txt` |
 | DeepSeek | 付费备胎，约 ¥1-4/天 | platform.deepseek.com → `digest/deepseek_api_key.txt` |
 | 硅基流动 | 部分小模型免费 | siliconflow.cn → `digest/siliconflow_api_key.txt` |
 
@@ -88,6 +88,7 @@ Key 放文件（`digest/*.txt`）或环境变量均可。
 
 详细操作见 `cloud/SETUP-STEPS.md`（6 步，约 20 分钟）。要点：
 - GitHub Actions 每天北京时间 07:00 跑一次，产物发布到 GitHub Pages，得到一个可分享网址；
+- **本地 Key 文件不会自动同步到云端**（`.gitignore` 已忽略，避免令牌泄露）。要把新令牌同步到云端密钥，运行 `python tools/set_github_secret.py MODELSCOPE_API_KEY digest/ms_api_key.txt`（换其他供应商时替换密钥名和文件名即可）；云端密钥列表可在 GitHub 仓库 Settings → Secrets and variables → Actions 查看；
 - 手机浏览器打开 → 添加到主屏幕，等于一个 App 图标；
 - 云端出口在境外，路透、经济学人、外交事务等原本被拦的英文源可直接抓（`CLOUD_RUN=1` 自动启用）。
 
