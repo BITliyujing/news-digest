@@ -65,19 +65,23 @@ def _ask(title, source_name, text, settings, prov, model):
 
 
 def summarize_one(item, settings, providers, state):
-    """单条摘要。state 里记住本次运行已验证可用的 provider+model。"""
+    """单条摘要。state 里记住本次运行已验证可用的 provider+model（钉住，避免每条重复试错）。"""
     text = item.get("summary_text") or item.get("lead") or ""
     if len(text) < 40:
         return None, "text-too-short"
     lock = state["lock"]
     with lock:
         pinned = state.get("pinned")
+        pinned_model = state.get("model")
     order = ([pinned] + [p for p in providers if p is not pinned]) if pinned else list(providers)
     last_err = ""
     for prov in order:
-        models = prov.get("models") or []
+        models = list(prov.get("models") or [])
+        if prov is pinned and pinned_model in models:
+            # 已验证成功的模型排第一，其余作备胎
+            models = [pinned_model] + [m for m in models if m != pinned_model]
         for model in models:
-            for attempt in range(2):
+            for attempt in range(3):
                 try:
                     sm = _ask(item["title"], item["source_name"], text, settings, prov, model)
                     if sm:
@@ -86,6 +90,9 @@ def summarize_one(item, settings, providers, state):
                             state["model"] = model
                             state["ok"] += 1
                         return sm, f"{prov['name']}:{model}"
+                    # 空正文（如推理模型思考耗尽 token 预算）：换模型，不再重试
+                    last_err = f"{prov['name']}/{model} empty-content"
+                    break
                 except Exception as e:
                     body = ""
                     if hasattr(e, "read"):
@@ -98,6 +105,9 @@ def summarize_one(item, settings, providers, state):
                         break  # 换模型
                     if re.search(r"(401|403|Unauthorized|invalid.*key)", body, re.I):
                         break  # 换供应商
+                    if re.search(r"(429|Too Many|rate.?limit)", body + str(e), re.I):
+                        time.sleep(8 * (attempt + 1))  # 限流：指数退避后再试
+                        continue
                     time.sleep(1 + attempt)
     with lock:
         state["fail"] += 1
