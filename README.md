@@ -50,8 +50,8 @@ Key 放文件（`digest/*.txt`）或环境变量均可。
 
 | 供应商 | 现状 | 获取方式 |
 |---|---|---|
-| **智谱 GLM**（glm-4.7-flash / glm-4.5-flash） | **目前仍免费**，无 token 总量上限 | open.bigmodel.cn 手机号注册 → 创建 API Key → 存 `digest/glm_api_key.txt` |
-| 魔搭 ModelScope | 免费层按「魔粒」计费（每日约 250 粒，主流模型约 2 粒/次，约 125 次/天）；**需绑定阿里云账号并完成实名认证**；含 GLM-4.7-Flash / Qwen3.8-Flash-Next | modelscope.cn → 访问令牌（ms-…）→ `digest/ms_api_key.txt` |
+| **智谱 GLM**（当前主用 glm-4.5-flash） | **确实免费**：官方「模型概览」把 4.7-Flash 与 4.5-Flash 归入「免费文本模型」分组，「API 定价」页 GLM-4.7-Flash 的输入/输出/缓存命中均标「免费」；不设 token 总量上限，限的是并发/速率（免费档实测约 5 次/分钟）。注意：定价表未单列 4.5-Flash，第三方资料称其可能下线，届时再评估替代 | open.bigmodel.cn 手机号注册 → 创建 API Key → 存 `digest/glm_api_key.txt` |
+| 魔搭 ModelScope | **免费额度制（非无限）**：官方「魔粒体系」为每日登录 200 粒 + 绑定阿里云 50 粒 = 250 粒短期魔粒（当日有效），验证邮箱/完善资料等一次性另得 50 粒长期魔粒（90 天有效）；API-Inference 按模型档位扣 0.5（轻量）/1（主流）/2（旗舰）粒每次，约 125～500 次/天。**门槛：阿里云实名认证 + 邮箱验证**（两步缺一不可，均已确认完成）；本次实测两模型均可用，GLM-4.7-Flash 当前访问拥挤偶发 429 | modelscope.cn → 访问令牌（ms-…）→ `digest/ms_api_key.txt` |
 | DeepSeek | 付费备胎，约 ¥1-4/天 | platform.deepseek.com → `digest/deepseek_api_key.txt` |
 | 硅基流动 | 部分小模型免费 | siliconflow.cn → `digest/siliconflow_api_key.txt` |
 
