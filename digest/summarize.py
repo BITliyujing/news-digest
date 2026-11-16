@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """摘要层：多供应商自动切换（智谱GLM免费 / 魔搭ModelScope免费 / DeepSeek付费 / 硅基流动）。
 
+摘要之外还让模型顺手给每条打「重要度 1-5 + 类别」，写回 item 供 pipeline 重排使用；
+元数据在解析时剥离，不会出现在页面摘要和缓存正文里。
+
 两种调用方式：
   1) 批量（默认）：把 llm.batch_size 条资讯合并成一次请求，按 <<<序号>>> 分节输出，再拆回各条。
      好处是请求数降到 1/N，能绕开免费档"每分钟约5次"的硬限流——这是之前失败率高的根因。
@@ -18,7 +21,47 @@ _CTX = http._CTX
 _SYS_PROMPT = (
     "你是一名资深行业资讯编辑，为中文读者（科研人员与投资人）撰写每日简报。"
     "只依据给定材料归纳，不编造、不添加材料外的事实；英文术语、机构名、人名保留英文原文。"
+    "你还负责为每条资讯评估重要度并归类，判断要有区分度，不要一律打高分。"
 )
+
+# 模型附在摘要末尾的元数据，例如：重要度:4|类别:政策
+_META_LINE = re.compile(
+    r"(?:重要度|重要性|importance)\s*[:：为]?\s*([1-5])(?:分|/5)?"
+    r"(?:(?:\s+|\s*[,，;；|｜、]\s*)(?:类别|分类|category)\s*[:：为]?\s*([^\s|｜,，;；、/]+))?",
+    re.I,
+)
+_META_CAT = re.compile(
+    r"(?:类别|分类|category)\s*[:：为]?\s*([^\s|｜,，;；、/]+)", re.I
+)
+
+
+def _extract_meta(body):
+    """从摘要尾部剥离模型附带的元数据，返回 (纯摘要, 重要度 or None, 类别 or None)。
+
+    模型偶尔不换行、把元数据和正文写在同一行，所以匹配到以后只切掉尾部片段：
+    若这一行前面还有超过 30 字的正文就保留，避免把摘要正文误删。
+    """
+    lines = (body or "").rstrip().split("\n")
+    imp = cat = None
+    for idx in range(len(lines) - 1, max(-1, len(lines) - 4), -1):
+        m = _META_LINE.search(lines[idx])
+        if not m:
+            continue
+        imp = int(m.group(1))
+        cat = m.group(2) or None
+        prefix = lines[idx][:m.start()].strip()
+        if len(prefix) > 30:
+            lines[idx] = prefix
+        else:
+            lines = lines[:idx]
+        break
+    if imp is not None and not cat and lines:
+        m2 = _META_CAT.search(lines[-1])
+        if m2:
+            cat = m2.group(1)
+            if len(lines[-1][:m2.start()].strip()) <= 30:
+                lines = lines[:-1]
+    return "\n".join(lines).strip(), imp, cat
 
 # 分节标记：优先只认"行首"的 <<<1>>>、【1】、[1]、#1，避免正文里的引用数字被误判
 _SEC_LINE = re.compile(r"^[ \t]*(?:<<<\s*(\d{1,3})\s*>>>|【\s*(\d{1,3})\s*】|\[\s*(\d{1,3})\s*\]|#\s*(\d{1,3})(?![0-9]))",
@@ -66,7 +109,10 @@ def _ask(title, source_name, text, settings, prov, model):
     user = (f"信源：{source_name}\n标题：{title}\n材料：{text}\n\n"
             f"请写一段约{settings.get('summary_chars', 300)}字的中文简报摘要（280～320字，材料单薄时可略短，不低于180字）："
             "先给核心事实（谁、做了什么、关键数字），再给一句意义/影响；"
-            "严禁编造材料外的信息；不要标题、不要项目符号、不要客套话。")
+            "严禁编造材料外的信息；不要标题、不要项目符号、不要客套话。\n\n"
+            "最后另起一行，只写一行元数据：重要度:数字|类别:政策/融资/技术/市场/动态/观点/人事/其他（八选一）。\n"
+            "重要度标准：5=重大政策/突破性技术/巨额融资/市场剧震；4=重要政策/大额融资/重要成果；"
+            "3=常规行业动态或论文；2=边缘信息；1=花絮。元数据不要写进摘要正文，不要解释。")
     resp = _post(prov["base_url"], {
         "model": model,
         "messages": [{"role": "system", "content": _SYS_PROMPT},
@@ -94,7 +140,11 @@ def _ask_batch(batch, settings, prov, model):
         f"2) 必须输出全部 {n} 段，序号连续完整，不合并、不跳过、不改变顺序、不额外加总述或结语；\n"
         "3) 每条只能使用标注在该序号下的材料，严禁把其他条目的信息混进来，严禁编造材料外事实；\n"
         "4) 每段先给核心事实（谁、做了什么、关键数字），再给一句意义/影响；\n"
-        "5) 不要标题、不要项目符号、不要客套话。\n\n" + "\n\n".join(blocks)
+        "5) 不要标题、不要项目符号、不要客套话；\n"
+        "6) 每段摘要正文之后另起一行，只写一行元数据：重要度:数字|类别:政策/融资/技术/市场/动态/观点/人事/其他（八选一）。\n"
+        "   重要度标准：5=重大政策/突破性技术/巨额融资/市场剧震；4=重要政策/大额融资/重要成果；"
+        "3=常规行业动态或论文；2=边缘信息；1=花絮。元数据不写入摘要正文，不要解释。\n\n"
+        + "\n\n".join(blocks)
     )
     # 输出预算：中文约 1.75 token/字，模型还会写超，按每条约 900 token 预留，
     # 否则 finish_reason=length，只会输出前一两段就被截断（这是批量失败的根因）。
@@ -110,7 +160,11 @@ def _ask_batch(batch, settings, prov, model):
 
 
 def _parse_batch(content, n):
-    """把批量输出切回 {序号: 摘要}。序号越界、正文过短的直接丢弃（交给补齐环节）。"""
+    """把批量输出切回 {序号: {summary, importance, category}}。
+
+    元数据在切段时就剥离，保证写进页面 data.json 和缓存的都是纯摘要；
+    剥离后正文不足 40 字的段落直接丢弃，交给补齐环节。
+    """
     content = content or ""
     best = {}
     for pat in (_SEC_LINE, _SEC_ANY):
@@ -127,8 +181,12 @@ def _parse_batch(content, n):
                 continue
             end = hits[k + 1][1] if k + 1 < len(hits) else len(content)
             body = _clean_summary(content[m_end:end])
-            if 40 <= len(body) <= 1200:
-                got[num] = body
+            if not (40 <= len(body) <= 1200):
+                continue
+            text, imp, cat = _extract_meta(body)
+            if len(text) < 40:
+                continue
+            got[num] = {"summary": text, "importance": imp, "category": cat}
         if len(got) > len(best):
             best = got
         if len(best) >= n:
@@ -218,13 +276,16 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
     - 批量：llm.batch_size 条/次请求（默认 5），请求数降到 1/5，避开免费档限流
     - 补齐：批量里漏掉的条目再用单条模式补，最多 llm.repair_max 条
     - 限速：llm.min_interval_seconds 控制全局请求间隔（免费档实测约5次/分钟）
-    - 缓存：data/summary_cache.json 按 URL 跨日复用，窗口内重复出现的旧条目不再请求
+    - 缓存：data/summary_cache.json 按 URL 跨日复用，窗口内重复出现的旧条目不再请求；
+      重要度与类别也一并缓存，重复条目沿用上次的评分。
     """
     providers = [] if dry else build_providers(settings)
     if not providers:
         for it in items:
             it["summary"] = fallback_summary(it) or "（摘要待启用：配置任一模型 API Key 后自动生成）"
             it["summary_mode"] = "lead" if it.get("lead") else "placeholder"
+            it["importance"] = 3
+            it["category"] = ""
         log("  摘要：未检测到可用模型 Key，已用正文截取占位")
         return items
 
@@ -261,12 +322,16 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
         if wait > 0:
             time.sleep(wait)
 
-    def put(it, sm, mode):
+    def put(it, sm, mode, imp=None, cat=None):
+        # 没有重要度分时用 3（中等），保证 dry / 缓存 / 摘要降级都能参与重排
         it["summary"] = sm
         it["summary_mode"] = mode
+        it["importance"] = imp or 3
+        it["category"] = cat or ""
         url = it.get("url") or ""
         if url:
-            cache[url] = {"summary": sm, "mode": mode, "date": today}
+            cache[url] = {"summary": sm, "mode": mode, "date": today,
+                          "imp": it["importance"], "cat": it["category"]}
 
     # 1) 命中缓存的先落袋，剩下的是本次真正要生成的
     todo = []
@@ -276,10 +341,15 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
         if hit and hit.get("summary"):
             it["summary"] = hit["summary"]
             it["summary_mode"] = "cache"
+            # 旧缓存没有 imp/cat，按中等分处理；新缓存会带回上次模型给的分数
+            it["importance"] = hit.get("imp", 3)
+            it["category"] = hit.get("cat", "")
             state["cached"] += 1
         elif len((it.get("summary_text") or it.get("lead") or "").strip()) < 40:
             it["summary"] = fallback_summary(it) or "（本条材料过短，未能生成摘要）"
             it["summary_mode"] = "lead" if it.get("lead") else "failed"
+            it["importance"] = 3
+            it["category"] = ""
             state["fail"] += 1
         else:
             todo.append(it)
@@ -321,8 +391,9 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
             except Exception:
                 pass
         for i, it in enumerate(batch, 1):
-            if parts.get(i):
-                put(it, parts[i], tag)
+            p = parts.get(i)
+            if p:
+                put(it, p["summary"], tag, p["importance"], p["category"])
                 with state["lock"]:
                     state["ok"] += 1
             else:
@@ -348,8 +419,9 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
             content, tag, _err = _call("batch", chunk, settings, providers, state)
             parts = _parse_batch(content, len(chunk)) if content else {}
             for i, it in enumerate(chunk, 1):
-                if parts.get(i):
-                    put(it, parts[i], tag)
+                p = parts.get(i)
+                if p:
+                    put(it, p["summary"], tag, p["importance"], p["category"])
                     with state["lock"]:
                         state["ok"] += 1
                 else:
@@ -369,7 +441,8 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
             take_slot()
             sm, mode, _err = _call("one", it, settings, providers, state)
             if sm:
-                put(it, _clean_summary(sm), mode)
+                sm, imp, cat = _extract_meta(_clean_summary(sm))
+                put(it, sm, mode, imp, cat)
                 with state["lock"]:
                     state["ok"] += 1
             else:
@@ -388,6 +461,8 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
         if not it.get("summary"):
             it["summary"] = fallback_summary(it) or "（本条摘要生成失败，可点原文查看）"
             it["summary_mode"] = "lead" if it.get("lead") else "failed"
+        it.setdefault("importance", 3)
+        it.setdefault("category", "")
 
     # 缓存落盘（只保留最近 30 天）
     if cache:

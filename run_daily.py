@@ -231,6 +231,12 @@ def main():
     # 4) 摘要
     summarize.summarize_items(items, settings, str(BASE), log=log, dry=args.dry)
 
+    # 4.5) 模型看过正文后给的重要度决定谁排前面；关键词分只负责谁进摘要队列。
+    #      只重排、不增删，所以模块的配额不受影响。
+    items = pipeline.rerank_by_llm(items, settings)
+    hi = sum(1 for it in items if it.get("importance", 3) >= 4)
+    log(f"  重要度重排完成：{hi}/{len(items)} 条评为高重要度（≥4）")
+
     # 5) 组装页面 + 数据落盘
     out_dir = BASE / settings["out_dir"]
     page = build.build_page(items, module_defs, settings, str(out_dir), log=log, sources=all_sources)

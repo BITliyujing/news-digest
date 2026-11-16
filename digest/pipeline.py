@@ -37,12 +37,30 @@ def route_module(item, src, module_defs):
     return mods[0]
 
 
+_KW_PATTERNS = {}
+
+
+def _kw_hit(kw, text):
+    """英文关键词按词边界匹配，中文仍按子串匹配。
+
+    为什么：原来一律用子串匹配，'rate' 会命中 corporate / accurate，
+    'her' 会命中英文代词 her，英文源的相关性分因此虚高。
+    """
+    kw = kw.strip().lower()
+    if not kw:
+        return False
+    if kw.isascii():
+        pat = _KW_PATTERNS.get(kw)
+        if pat is None:
+            pat = re.compile(r"(?<![a-z0-9])" + re.escape(kw) + r"(?![a-z0-9])")
+            _KW_PATTERNS[kw] = pat
+        return bool(pat.search(text))
+    return kw in text
+
+
 def keyword_score(title, lead, module_def):
-    hits = 0
-    for kw in module_def.get("keywords", []):
-        if kw.lower() in (title + " " + (lead or "")).lower():
-            hits += 1
-    return hits
+    text = (title + " " + (lead or "")).lower()
+    return sum(1 for kw in module_def.get("keywords", []) if _kw_hit(kw, text))
 
 
 def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
@@ -146,3 +164,27 @@ def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
     Path(state_dir).mkdir(parents=True, exist_ok=True)
     seen_path.write_text(json.dumps(seen, ensure_ascii=False), encoding="utf-8")
     return out
+
+
+def rerank_by_llm(items, settings):
+    """摘要完成后，用模型给的重要度分做最终排序。
+
+    为什么分两段排序：关键词分只负责"谁值得花 token 进摘要队列"，
+    模型看过正文后给的重要度才负责"谁该排在前面"。前者是粗筛，
+    后者能区分"中央政策"和"一篇常规论文"——关键词分做不到这一点。
+
+    模块配额在 process_items 里已切好，这里只重排、不增删条目。
+    没有重要度分的条目（dry 运行 / 旧缓存 / 摘要降级）取默认 3 分，
+    保证任何模式都不会因缺字段而崩。
+    """
+    kw_w = float(settings.get("rerank_keyword_weight", 0.3))
+    imp_w = float(settings.get("rerank_importance_weight", 2.0))
+    for it in items:
+        imp = it.get("importance") or 3
+        try:
+            kw = float(it.get("score", 0))
+        except (TypeError, ValueError):
+            kw = 0.0
+        it["final_score"] = round(kw * kw_w + float(imp) * imp_w, 2)
+    items.sort(key=lambda x: -x.get("final_score", 0))
+    return items

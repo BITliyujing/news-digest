@@ -76,6 +76,8 @@
  "items_per_module_cap": 16,
  "dedupe_threshold": 0.72,
  "summary_chars": 300,
+ "rerank_keyword_weight": 0.3,
+ "rerank_importance_weight": 2.0,
  "article_text_chars": 1200,
  "lead_enough_chars": 180,
  "source_concurrency": 6,

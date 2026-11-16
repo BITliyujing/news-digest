@@ -31,7 +31,17 @@
     "锂电",
     "新能源",
     "募资",
-    "碳中和"
+    "碳中和",
+    "green finance",
+    "clean energy",
+    "renewable",
+    "investment",
+    "financing",
+    "carbon",
+    "ESG",
+    "battery",
+    "solar",
+    "storage"
    ]
   },
   "m3": {
@@ -64,7 +74,14 @@
     "条例",
     "决定",
     "印发",
-    "通知"
+    "通知",
+    "State Council",
+    "NDRC",
+    "ministry",
+    "policy",
+    "regulation",
+    "Beijing",
+    "China"
    ]
   },
   "m5": {
@@ -81,7 +98,20 @@
     "日本",
     "印度",
     "台海",
-    "北约"
+    "北约",
+    "United States",
+    "Russia",
+    "Ukraine",
+    "European Union",
+    "NATO",
+    "Middle East",
+    "North Korea",
+    "Japan",
+    "India",
+    "Taiwan Strait",
+    "Iran",
+    "Israel",
+    "sanctions"
    ]
   },
   "m6": {
@@ -97,7 +127,18 @@
     "撤稿",
     "职称",
     "人才",
-    "大学"
+    "大学",
+    "university",
+    "universities",
+    "faculty",
+    "tenure",
+    "retraction",
+    "academic",
+    "professor",
+    "scholar",
+    "ranking",
+    "research",
+    "NSF"
    ]
   },
   "m7": {
@@ -113,7 +154,18 @@
     "GDP",
     "公司",
     "财报",
-    "市值"
+    "市值",
+    "Federal Reserve",
+    "interest rate",
+    "inflation",
+    "stock market",
+    "bond",
+    "dollar",
+    "yuan",
+    "earnings",
+    "Wall Street",
+    "oil price",
+    "Treasury"
    ]
   }
  },

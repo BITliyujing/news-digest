@@ -45,6 +45,10 @@ overflow-wrap:anywhere;word-break:break-word}
 .badge{display:inline-block;font-size:10.5px;border:1px solid var(--line);color:var(--ink2);
 border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:1px}
 .badge.warn{color:var(--warn);border-color:var(--warn)}
+.imp{display:inline-block;font-size:10.5px;border:1px solid var(--line);color:var(--ink2);
+border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:1px}
+.imp.high{color:var(--warn);border-color:var(--warn)}
+.imp.mid{color:var(--acc);border-color:var(--acc)}
 footer{max-width:860px;margin:0 auto;padding:18px 12px 40px;color:var(--ink2);font-size:12px;line-height:1.7}
 footer a{color:var(--acc)}
 .empty{padding:40px 10px;text-align:center;color:var(--ink2);font-size:14px}
@@ -209,10 +213,22 @@ def _card(it):
     if mode in ("placeholder", "failed"):
         badge = '<span class="badge warn">摘要未生成</span>'
     pub = it.get("published_str") or "近日"
+    imp = it.get("importance")
+    try:
+        imp = int(imp) if imp is not None else None
+    except (TypeError, ValueError):
+        imp = None
+    cat = (it.get("category") or "").strip()
+    imp_badge = ""
+    # 默认 3 分（dry 运行 / 旧缓存 / 摘要降级）不显示，避免满屏无意义的"重要度3"
+    if cat or (imp and imp >= 4):
+        label = (cat + " · " if cat else "") + f"重要度{imp}"
+        cls = "imp high" if imp and imp >= 4 else "imp mid"
+        imp_badge = f'<span class="{cls}">{_esc(label)}</span>'
     return (f'<div class="card" data-src="{_esc(it["source_id"])}" data-mod="{_esc(it["module"])}">'
             f'<h3><a href="{_esc(it["url"])}" target="_blank" rel="noopener noreferrer">{_esc(it["title"])}</a>{badge}</h3>'
             f'<div class="meta"><span class="src" onclick="onlySrc(\'{_esc(it["source_id"])}\')">{_esc(it["source_name"])}</span>'
-            f' · {pub}</div>'
+            f' · {pub}{imp_badge}</div>'
             f'<p class="sum">{_esc(it.get("summary") or "")}</p></div>')
 
 
@@ -275,7 +291,8 @@ def build_page(items, module_defs, settings, out_dir, log=print, sources=None):
     # 前端可直接读取的数据快照（给二期云端版/检索用）
     (out / "data.json").write_text(json.dumps(
         [{"t": it["title"], "u": it["url"], "s": it["source_name"], "m": it["module"],
-          "p": it.get("published_str", ""), "x": it.get("summary", "")} for it in items],
+          "p": it.get("published_str", ""), "x": it.get("summary", ""),
+          "i": it.get("importance", 3), "c": it.get("category", "")} for it in items],
         ensure_ascii=False), encoding="utf-8")
     log(f"  页面已生成: {out}/index.html（{len(items)}条，归档 archive/{date}.html）")
     return str(out / "index.html")
