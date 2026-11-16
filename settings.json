@@ -3,7 +3,7 @@
  "rsshub_timeout": 45,
  "proxy": null,
  "llm": {
-  "concurrency": 4,
+  "concurrency": 3,
   "providers": [
    {
     "name": "glm",
@@ -11,12 +11,13 @@
     "key_file": "digest/glm_api_key.txt",
     "key_env": "GLM_API_KEY",
     "models": [
-     "glm-4.5-flash",
-     "glm-4.7-flash"
+     "glm-4.5-flash"
     ],
     "temperature": 0.3,
     "max_tokens": 600,
-    "note": "glm-4.5-flash 优先（产出稳定）；glm-4.7-flash 为推理模型，思考会耗尽 max_tokens 导致空正文，仅作备胎"
+    "note": "glm-4.5-flash 独占：glm-4.7-flash 是推理模型，思考会吃掉输出预算导致批量摘要被截断，不再作为备胎",
+    "batch_timeout": 240,
+    "batch_max_tokens": 8000
    },
    {
     "name": "modelscope",
@@ -29,7 +30,9 @@
     ],
     "temperature": 0.3,
     "max_tokens": 600,
-    "note": "魔搭社区免费推理额度（每日2000次），手机号注册即可"
+    "note": "魔搭社区免费推理额度（每日2000次），手机号注册即可",
+    "batch_timeout": 240,
+    "batch_max_tokens": 8000
    },
    {
     "name": "deepseek",
@@ -41,7 +44,9 @@
     ],
     "temperature": 0.3,
     "max_tokens": 600,
-    "note": "付费备胎，约¥1-4/天"
+    "note": "付费备胎，约¥1-4/天",
+    "batch_timeout": 240,
+    "batch_max_tokens": 8000
    },
    {
     "name": "siliconflow",
@@ -54,14 +59,20 @@
     ],
     "temperature": 0.3,
     "max_tokens": 600,
-    "note": "硅基流动，部分小模型免费"
+    "note": "硅基流动，部分小模型免费",
+    "batch_timeout": 240,
+    "batch_max_tokens": 8000
    }
   ],
-  "min_interval_seconds": 12
+  "min_interval_seconds": 15,
+  "batch_size": 4,
+  "repair_max": 12,
+  "debug_batch_dump": true,
+  "cooldown_seconds": 45
  },
- "window_days": 3,
- "per_source_daily_cap": 8,
- "items_per_module_cap": 40,
+ "window_days": 1,
+ "per_source_daily_cap": 4,
+ "items_per_module_cap": 16,
  "dedupe_threshold": 0.72,
  "summary_chars": 300,
  "article_text_chars": 1200,
@@ -72,5 +83,6 @@
  "http_timeout": 25,
  "out_dir": "output",
  "data_dir": "data",
- "log_dir": "logs"
+ "log_dir": "logs",
+ "date_only_grace_hours": 20
 }

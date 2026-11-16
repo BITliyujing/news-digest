@@ -48,7 +48,11 @@ def keyword_score(title, lead, module_def):
 def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
     """raw_items: (src, items) 列表。返回按模块分组、排序、截断后的条目列表。"""
     now = datetime.now(_CN_TZ)
-    window = timedelta(days=settings.get("window_days", 3))
+    window = timedelta(days=settings.get("window_days", 1))
+    # 有些站点只给日期不给时分（抓到的都是 00:00），按 1 天窗口会在早上7点把它判成"31小时前"而漏掉，
+    # 所以对这类条目单独放宽一个 grace 时段，保证前一天下午/晚上的稿子不漏。
+    grace_date_only = timedelta(hours=settings.get("date_only_grace_hours", 20))
+    grace_exact = timedelta(hours=2)  # 有时分的时间戳只做轻微容差（时区/校时抖动）
     cap_src = settings.get("per_source_daily_cap", 6)
     cap_mod = settings.get("items_per_module_cap", 40)
     thr = settings.get("dedupe_threshold", 0.72)
@@ -72,7 +76,9 @@ def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
                 break
             pub = it.get("published")
             if pub is not None:
-                if (now - pub) > window + timedelta(days=2):
+                date_only = (pub.hour == 0 and pub.minute == 0)
+                limit = window + (grace_date_only if date_only else grace_exact)
+                if (now - pub) > limit:
                     continue  # 过旧直接丢
             elif it["url"] in seen:
                 age_days = (now - datetime.fromisoformat(seen[it["url"]])).days

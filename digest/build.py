@@ -161,7 +161,7 @@ _TMPL = """<!DOCTYPE html>
 <header>
   <div class="tt">
     <h1>行业资讯简报</h1>
-    <div class="sub">{date} · {time} 自动生成 · 近{win}天 · 共{total}条 · {src_n}个信源</div>
+    <div class="sub">{date} · {time} 自动生成 · {win} · 共{total}条 · {src_n}个信源</div>
   </div>
   <button class="btn" onclick="openPanel()">信源设置</button>
 </header>
@@ -263,7 +263,8 @@ def build_page(items, module_defs, settings, out_dir, log=print, sources=None):
     modopts = "".join(f'<option value="{m}">{module_defs[m]["name"]}</option>' for m in mods)
     only_active = [s for s in sources if s.get("active")]
     page = _TMPL.format(date=date, time=now.strftime("%H:%M"),
-                        win=settings.get("window_days", 3), total=len(items),
+                        win=("近24小时" if int(settings.get("window_days", 1)) == 1
+                             else f"近{settings.get('window_days')}天"), total=len(items),
                         src_n=len(only_active), css=_CSS, js=_JS, nav=nav,
                         sections="\n".join(sections),
                         panel=_panel(module_defs, sources, src_counts), modopts=modopts)

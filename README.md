@@ -56,8 +56,10 @@ Key 放文件（`digest/*.txt`）或环境变量均可。
 
 说明：
 - 抓取、去重、排序、页面生成都在本地完成，**不消耗 token**；token 只花在“写 300 字摘要”。
+- **批量摘要**（默认 `llm.batch_size=5`）：5 条资讯合并进一次请求，模型按 `<<<序号>>>` 分节输出，再拆回各条。请求数降到 1/5，是绕开免费档“每分钟约 5 次”限流的关键；拆不出来的个别条目再用单条模式补（`llm.repair_max`，默认最多 24 条）。
+- 摘要按 URL 缓存 30 天（`data/summary_cache.json`），窗口内重复出现的旧条目不重复请求。
 - 全部 Key 都没有时页面仍会生成，摘要降级为正文前 300 字截取，并标注“摘要未生成”。
-- 并发默认 6（`llm.concurrency`），智谱免费档支持约 30 并发，可调高。
+- 批并发默认 2（`llm.concurrency`），全局限速 `llm.min_interval_seconds=12`（免费档实测约 5 次/分钟），并发开太大只会换来 429。
 
 ---
 
@@ -99,5 +101,5 @@ Key 放文件（`digest/*.txt`）或环境变量均可。
 | 某源 0 条 | 看 `logs/health.json` 的 `last_error`；403/429 多为反爬限流，换通道或等次日 |
 | 摘要全是正文截取 | 未检测到任何模型 Key，按第三节配一个 |
 | 英文源抓不到 | 本机网络被拦；配代理（`settings.json` 的 `proxy`），或直接走云端运行 |
-| 页面条目少 | 调大 `per_source_daily_cap` / `items_per_module_cap`；确认 `window_days`=3 |
+| 页面条目少 | 调大 `per_source_daily_cap` / `items_per_module_cap`；确认 `window_days`=1（当前为近 1 天） |
 | 想加某个网站 | 页面“信源设置→添加信源”生成配置，或直接改 `sources.json` 加 `{"type":"auto","home":"网址"}` |

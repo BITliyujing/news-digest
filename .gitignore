@@ -5,4 +5,6 @@ digest/siliconflow_api_key.txt
 __pycache__/
 *.pyc
 logs/_check.js
+logs/batch_debug/
+data/tmp_test/
 shot_*.png

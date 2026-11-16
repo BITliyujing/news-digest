@@ -213,6 +213,21 @@ def main():
         for it in items:
             it["summary_text"] = it.get("lead", "")
 
+    # 3.5) 只有标题、正文一个字都没取到的条目（反爬/付费墙/纯导航页）不进简报：
+    #      没有正文就写不出靠谱摘要，留着只会占版面。
+    keep, dropped = [], 0
+    for it in items:
+        txt = (it.get("summary_text") or it.get("lead") or "").strip()
+        if len(txt) >= 15:
+            keep.append(it)
+        else:
+            dropped += 1
+    if dropped:
+        kept_ids = {id(x) for x in keep}
+        drop_names = "、".join(sorted({it["source_name"] for it in items if id(it) not in kept_ids}))[:120]
+        log(f"  剔除 {dropped} 条仅有标题无正文的条目（{drop_names}）", logf)
+    items = keep
+
     # 4) 摘要
     summarize.summarize_items(items, settings, str(BASE), log=log, dry=args.dry)
 
