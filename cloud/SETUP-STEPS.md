@@ -1,6 +1,9 @@
 # 云端部署操作清单（GitHub Actions + Pages）
 
-本目录已经是初始化好的 git 仓库（本地已提交一次）。你只需做完下面 6 步，之后每天北京时间 07:00 自动更新，电脑关机也不影响。
+> **2026-11-16 更新：设置已基本完成。** 代码已推送到 https://github.com/BITliyujing/news-digest ，
+> GitHub Pages 已启用（网址 `https://bitliyujing.github.io/news-digest/`），首次运行已触发。
+> **你唯一剩下的事：注册两个免费模型 Key（第 1 步），然后把 Key 填进 GitHub Secrets（第 4 步）。**
+> 不配 Key 页面也能出（摘要用正文截取），配了才变成 300 字 AI 摘要。
 
 ---
 
@@ -20,7 +23,7 @@
 
 ---
 
-## 第 2 步：建一个 GitHub 仓库
+## 第 2 步：建一个 GitHub 仓库 ✅ 已完成（BITliyujing/news-digest）
 
 1. 登录 https://github.com → 右上角 + → New repository
 2. 名称随意，例如 `news-digest`
@@ -29,7 +32,7 @@
 
 ---
 
-## 第 3 步：把本地仓库推上去
+## 第 3 步：把本地仓库推上去 ✅ 已完成（main 分支已推送）
 
 在终端里执行（把 `<你的账号>` 换成你的 GitHub 用户名）：
 
@@ -56,14 +59,14 @@ git push -u origin main
 
 ---
 
-## 第 5 步：开启 Pages
+## 第 5 步：开启 Pages ✅ 已完成（build_type=workflow，网址 bitliyujing.github.io/news-digest/）
 
 仓库 Settings → Pages → Build and deployment → Source 选 **GitHub Actions**。
 （不要选 "Deploy from a branch"）
 
 ---
 
-## 第 6 步：手动跑一次验证
+## 第 6 步：手动跑一次验证 ✅ 已触发（也可随时在 Actions → daily-digest → Run workflow 重跑）
 
 仓库页面 → Actions → 左侧 `daily-digest` → 右上「Run workflow」→ Run。
 
