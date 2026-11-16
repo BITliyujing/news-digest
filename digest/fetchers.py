@@ -220,7 +220,11 @@ def fetch_rsshub(src, ch, settings):
         if not wid:
             return []  # 公众号尚未配置微信号：静默跳过（健康日志记 inactive）
         route = route.replace("{wechat_id}", wid)
-    base = settings.get("mirror", "").rstrip("/")
+    # 公众号等专用源可用 channel.base 覆盖默认 RSSHub 实例；
+    # 也可在 settings.wechat_mirror 统一指定公众号转 RSS 服务地址。
+    base = (ch.get("base") or
+            (settings.get("wechat_mirror") if "{wechat_id}" in ch.get("route", "") else None) or
+            settings.get("mirror", "")).rstrip("/")
     url = base + quote(route, safe="/@:.")
     status, raw = http.fetch(url, settings, timeout=settings.get("rsshub_timeout", 45))
     return _parse_rss_or_atom(raw, src)

@@ -99,9 +99,11 @@ Key 放文件（`digest/*.txt`）或环境变量均可。
 - **季度体检**：`python tools/probe_sources.py` 全量探测失效源；`python tools/build_sources.py` 把新发现的可抓站点并入 `sources.json`。
 - **健康日志**：`logs/health.json` 记录每个源最近成功日、连续失败次数、错误原因。
 - **通道优先级**：官方 RSS > 官方 API（财联社/华尔街见闻/澎湃/Crossref）> 页面解析 > RSSHub 镜像。
-- **公众号**：无 RSS，需 RSSHub 实例并填 `wechat_id`（`sources.json` 已预留 7 个，`active:false`）。
-  - 微信号查法：公众号文章页 → 右上角 → 更多资料 → 微信号。
-  - 公共镜像对公众号支持不稳，建议自建（Docker 一条命令）或二期用付费代抓。
+- **公众号**：无官方 RSS，需"公众号转 RSS"实例中转。8 个源的微信号已填入 `wechat_id`，但保持 `active:false`——因为当前 RSSHub 实例的 `/wechat/mp/` 路由返回 503，公共镜像普遍已弃用该路由。
+  - **启用方法（三步）**：①部署一个 wewe-rss / wechat2rss 实例（Docker + 微信读书扫码授权）；②把实例地址填入 `settings.json` 的 `wechat_mirror`；③把这 8 个源的 `active` 改为 `true`。也可以在单个源的 `channel.base` 里单独指定实例地址（优先级高于全局）。
+  - 路由模板：`/wechat/mp/{wechat_id}`，`{wechat_id}` 会替换为源里的微信号。若你的实例用别的路径格式（如 wewe-rss 的 `/feeds/{id}.rss`），改 `channel.route` 即可。
+  - 已配置微信号：高工氢电 `weixin-gg-fcev`、中金点睛 `CICC-Perspective`、研之成理 `rationalscience`、催化计 `icat2019`、参考消息 `ckxxwx`、晚点 `postlate`、微言教育 `jybxwb`、青塔 `cingta-com`。
+  - 实测结论（2026-11-16）：上述 8 个 ID 在当前实例下全部 503，与 ID 本身无关，是实例不支持微信路由。原则：不启用会持续失败、污染健康日志的源。
 
 ---
 

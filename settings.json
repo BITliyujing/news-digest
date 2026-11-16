@@ -1,5 +1,6 @@
 {
  "mirror": "https://rsshub.rssforever.com",
+ "wechat_mirror": "",
  "rsshub_timeout": 45,
  "proxy": null,
  "llm": {
