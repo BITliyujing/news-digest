@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 13,
+  "fail_streak": 14,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
@@ -128,7 +128,7 @@
  "thepaper": {
   "last_ok": "2026-11-16",
   "fail_streak": 0,
-  "last_count": 43,
+  "last_count": 42,
   "last_error": "",
   "checked": "2026-11-16"
  },
@@ -225,9 +225,9 @@
  },
  "acscatal": {
   "last_ok": "2026-11-16",
-  "fail_streak": 0,
-  "last_count": 20,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 429: Too Many Requests",
   "checked": "2026-11-16"
  },
  "ees": {
@@ -288,9 +288,9 @@
  },
  "ne21-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 2,
-  "last_count": 0,
-  "last_error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+  "fail_streak": 0,
+  "last_count": 35,
+  "last_error": "",
   "checked": "2026-11-16"
  },
  "evobserver-com": {
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 2,
+  "fail_streak": 3,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
@@ -498,9 +498,9 @@
  },
  "huxiu-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "TimeoutError: The read operation timed out",
+  "fail_streak": 0,
+  "last_count": 35,
+  "last_error": "",
   "checked": "2026-11-16"
  },
  "weeklyonstock-com": {
@@ -561,21 +561,21 @@
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 2,
+  "fail_streak": 3,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-16"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 2,
+  "fail_streak": 3,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 2,
+  "fail_streak": 3,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-16"
