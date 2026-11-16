@@ -56,3 +56,19 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      # 页面发布成功后，把当日要闻与完整版链接推送到飞书群
+      # 失败不影响简报发布；未配置密钥则静默跳过
+      - uses: actions/checkout@v4
+      - name: 推送到飞书群
+        if: always()
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_WEBHOOK_SECRET: ${{ secrets.FEISHU_WEBHOOK_SECRET }}
+          FEISHU_WEBHOOK_KEYWORD: ${{ secrets.FEISHU_WEBHOOK_KEYWORD }}
+        run: |
+          if [ -z "$FEISHU_WEBHOOK_URL" ]; then
+            echo "未配置 FEISHU_WEBHOOK_URL，跳过推送"
+            exit 0
+          fi
+          python tools/notify_feishu.py || echo "飞书推送失败，已忽略（简报不受影响）"
