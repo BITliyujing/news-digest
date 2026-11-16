@@ -98,7 +98,10 @@ def sign_if_needed(payload, secret, keyword):
         payload["content"]["post"]["zh_cn"]["title"] = keyword + " " + payload["content"]["post"]["zh_cn"]["title"]
     if secret:
         ts = str(int(time.time()))
-        h = hmac.new(secret.encode("utf-8"), f"{ts}\n{secret}".encode("utf-8"), hashlib.sha256).digest()
+        # 飞书自定义机器人的签名算法（官方示例）：把 timestamp+"\n"+密钥 整体当作
+        # HMAC 的 key，对空字符串签名后 Base64。注意与常见"密钥作 key、消息作 body"相反。
+        string_to_sign = f"{ts}\n{secret}"
+        h = hmac.new(string_to_sign.encode("utf-8"), digestmod=hashlib.sha256).digest()
         payload["timestamp"] = ts
         payload["sign"] = base64.b64encode(h).decode("utf-8")
     return payload
