@@ -7,7 +7,7 @@
   python run_daily.py --only m1 m3   # 只跑指定模块
   python run_daily.py --max-items 60 # 控制摘要条数上限（试运行省事）
 """
-import argparse, json, os, sys, traceback
+import argparse, json, os, re, sys, traceback
 from datetime import datetime
 from pathlib import Path
 
@@ -26,8 +26,50 @@ def log(msg, logf=None):
         logf.write(line + "\n")
 
 
+# 已知 CMS 正文容器 id/class：命中后只在容器内取正文，避免误抓页脚/侧栏。
+# 中财绿金院用 v_news_content；很多高校/机构站用 vsb_content / TRS_Editor。
+_BODY_CONTAINER_RE = re.compile(
+    r'<(?:div|article|section)\b[^>]*?(?:id|class)\s*=\s*["\'][^"\']*'
+    r'(?:v_news_content|vsb_content|vsb_content_\d+|TRS_Editor|article[-_]?content|'
+    r'entry[-_]?content|post[-_]?content|news[-_]?content|content[-_]?area|'
+    r'text[-_]?area|detail[-_]?content|article)[^"\']*["\'][^>]*>(.*)',
+    re.S | re.I)
+# 段落级噪声：联系方式/版权行等（原先只在 nav_hits 里数，个别站点单条就够成噪声）
+_LINE_NOISE_RE = re.compile(
+    r"(关于我们|联系方式|通讯地址|友情链接|网站声明|版权声明|举报|广告服务|用户协议|"
+    r"All Rights Reserved|责任编辑[：:]|编辑[：:]|来源[：:]|点击收起全文|返回顶部|"
+    r"扫一扫|分享到微信|地址[：:].{0,40}(号|路|街)|电话[（(]?传真|邮箱[：:]|E-?mail)", re.I)
+_NAV_WORDS = ("关于我们", "网站声明", "联系方式", "用户反馈", "网站地图", "举报",
+              "版权声明", "广告服务", "返回央视网首页", "返回首页", "精彩图集",
+              "最新推荐", "望海热线")
+
+
+def _clean_paras(html_fragment):
+    """从 HTML 片段里抽 <p> 段落文本，过滤导航/版权噪声。"""
+    paras = re.findall(r"<p[^>]*>(.*?)</p>", html_fragment, re.S | re.I)
+    out = []
+    for p in paras:
+        t = re.sub(r"<[^>]+>", " ", p)
+        t = re.sub(r"&[a-z#0-9]{2,8};", " ", t)
+        t = re.sub(r"\s+", " ", t).strip()
+        if len(t) < 12 or _LINE_NOISE_RE.search(t):
+            continue
+        out.append(t)
+    return " ".join(out)
+
+
+def _decode_cctv(contentdate):
+    """央视正文藏在 <script> 的 var contentdate='...' 里（含 \\uXXXX 转义与视频占位标记）。"""
+    txt = re.sub(r"\\u([0-9a-fA-F]{4})", lambda m: chr(int(m.group(1), 16)), contentdate)
+    txt = re.sub(r"\[!--.*?--\]", " ", txt)          # 去视频/广告占位
+    txt = re.sub(r"<[^>]+>", " ", txt)
+    txt = re.sub(r"&[a-z#0-9]{2,8};", " ", txt)
+    txt = re.sub(r"\b[0-9a-f]{32},\d+,\d+,[\d:]+,\w+\b", " ", txt)  # 残留的视频ID串
+    return re.sub(r"\s+", " ", txt).strip()
+
+
 def fetch_article_text(it, settings):
-    """抓原文正文前N字。优先用 <p> 段落抽取（避开导航/页脚），失败或命中反爬页返回空串。"""
+    """抓原文正文前N字。优先已知正文容器 > <p> 段落 > <article> 兜底；反爬/纯导航返回空串。"""
     import re
     try:
         status, raw = http.fetch(it["url"], settings, referer=it["url"],
@@ -38,46 +80,48 @@ def fetch_article_text(it, settings):
                      r"Access Denied|captcha|cf-browser-verification|"
                      r"<title>\s*(403|404|Just a moment|安全验证)\s*</title>)", head, re.I):
             return ""
-        html = re.sub(r"<(script|style|noscript|nav|footer|header|aside|form)[^>]*>.*?</\1>", " ",
+        cap = settings.get("article_text_chars", 1200)
+        # 0) 央视：正文是 JS 渲染，但原始 HTML 里内嵌 var contentdate，直接解码最干净
+        mc = re.search(r"var\s+contentdate\s*=\s*['\"](.*?)['\"]\s*;", html, re.S)
+        if mc:
+            t = _decode_cctv(mc.group(1))
+            if len(t) >= 60:
+                return t[:cap]
+        # 注意：不能剥 <form>——中财等高校 CMS 用 <form> 包裹整篇正文，剥了会把正文一起删掉。
+        # 只剥确定的非正文标签；<p> 抽取天然避开导航，容器匹配进一步收窄范围。
+        html = re.sub(r"<(script|style|noscript|nav|footer|header|aside)[^>]*>.*?</\1>", " ",
                       html, flags=re.S | re.I)
-        # 1) 优先：所有 <p> 段落拼接（正文通常都在 p 里，导航很少用 p）
-        paras = re.findall(r"<p[^>]*>(.*?)</p>", html, re.S | re.I)
-        cleaned = []
-        for p in paras:
-            t = re.sub(r"<[^>]+>", " ", p)
-            t = re.sub(r"&[a-z#0-9]{2,8};", " ", t)
-            t = re.sub(r"\s+", " ", t).strip()
-            if len(t) < 12:
-                continue
-            if re.search(r"(关于我们|联系方式|网站声明|版权声明|举报|广告服务|用户协议|"
-                         r"All Rights Reserved|责任编辑：)", t):
-                continue
-            cleaned.append(t)
-        text = " ".join(cleaned)
-        # 导航残留识别：正文里同时出现多个站点导航词 → 判为抽错，弃用
-        nav_hits = sum(1 for w in ("关于我们", "网站声明", "联系方式", "用户反馈",
-                                   "网站地图", "举报", "版权声明", "广告服务") if w in text)
-        if nav_hits >= 2:
-            return ""
-        # 2) 退化：<article> 或正文容器
-        if len(text) < 200:
-            m = re.search(r"<article[^>]*>(.*?)</article>", html, re.S | re.I) or \
-                re.search(r'<div[^>]+(?:id|class)="[^"]*(?:article|content|detail|text|post)[^"]*"[^>]*>(.*)',
-                          html, re.S | re.I)
-            if m:
-                body = m.group(1)
-                body = re.sub(r"<[^>]+>", " ", body)
+        # 1) 已知正文容器：容器内取 <p>，取不到再去标签取整段
+        text = ""
+        m = _BODY_CONTAINER_RE.search(html)
+        if m:
+            text = _clean_paras(m.group(1))
+            if len(text) < 200:
+                body = re.sub(r"<[^>]+>", " ", m.group(1))
+                body = re.sub(r"&[a-z#0-9]{2,8};", " ", body)
                 fallback = re.sub(r"\s+", " ", body).strip()
                 if len(fallback) > len(text):
                     text = fallback
-        # 兜底分支也要再查一次导航残留
-        nav_hits2 = sum(1 for w in ("关于我们", "网站声明", "联系方式", "用户反馈",
-                                    "网站地图", "举报", "版权声明", "广告服务") if w in text)
-        if nav_hits2 >= 2:
+        # 2) 容器没拿到/太短：全页 <p> 段落拼接
+        if len(text) < 200:
+            more = _clean_paras(html)
+            if len(more) > len(text):
+                text = more
+        # 3) 仍不足：<article> 兜底
+        if len(text) < 200:
+            ma = re.search(r"<article[^>]*>(.*?)</article>", html, re.S | re.I)
+            if ma:
+                body = re.sub(r"<[^>]+>", " ", ma.group(1))
+                fallback = re.sub(r"\s+", " ", body).strip()
+                if len(fallback) > len(text):
+                    text = fallback
+        # 导航残留识别：出现多个站点导航词 → 判为抽错，弃用
+        nav_hits = sum(1 for w in _NAV_WORDS if w in text)
+        if nav_hits >= 2:
             return ""
         if re.search(r'(var |function\s*\(|\{"|\\u[0-9a-f]{4})', text[:300]):
             return ""
-        return text[:settings.get("article_text_chars", 1200)]
+        return text[:cap]
     except Exception:
         return ""
 

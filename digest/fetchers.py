@@ -47,8 +47,20 @@ def _parse_date(s):
     return None
 
 
-def _mk_item(title, url, published, lead, src):
-    return {"title": _strip_tags(title)[:180], "url": url, "published": published,
+def _mk_item(title, url, published, lead, src, date_from_title=False):
+    """构造统一 item。date_from_title=True 时，若 published 为空则尝试从标题末尾解析
+    YYYY-MM-DD 并剥离（某些高校/机构列表页只在标题尾部带日期，URL 里没有日期，
+    不解析会导致时间窗过滤失效、旧文混入）。"""
+    title = _strip_tags(title)
+    if published is None and date_from_title:
+        m = re.search(r"\s*(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})\s*日?\s*$", title)
+        if m:
+            try:
+                published = datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)), tzinfo=CN_TZ)
+                title = title[:m.start()].strip()
+            except ValueError:
+                pass
+    return {"title": title[:180], "url": url, "published": published,
             "lead": _strip_tags(lead or "")[:400], "source_id": src["id"],
             "source_name": src["name"], "lang": src.get("lang", "zh")}
 
@@ -451,7 +463,8 @@ def fetch_generic_list(src, ch, settings):
     goods.sort(key=lambda x: (-x[0], x[1]))
     items = []
     for score, pos, title, u in goods[:35]:
-        items.append(_mk_item(title, u, _date_from_url(u), "", src))
+        # 通用列表页的日期常在标题尾（而非 URL），如高校/机构站；开启 date_from_title 兜底
+        items.append(_mk_item(title, u, _date_from_url(u), "", src, date_from_title=True))
     return items
 
 

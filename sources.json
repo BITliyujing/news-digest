@@ -1216,8 +1216,9 @@
    ],
    "lang": "zh",
    "weight": 0.75,
-   "active": true,
+   "active": false,
    "strict_keywords": true,
+   "note": "2026-11-17停用：站点实为青岛大学某重点实验室主页，栏目为校内学术报告通知/论文接受祝贺，非行业科研资讯；正文页无<p>，正文提取只拿到友情链接+通讯地址。信源定位错误，不可通过改抓取修复。",
    "channel": {
     "type": "auto",
     "home": "http://www.efmlab.com/"
@@ -1246,8 +1247,9 @@
    ],
    "lang": "zh",
    "weight": 0.75,
-   "active": true,
+   "active": false,
    "strict_keywords": true,
+   "note": "2026-11-17停用：站点实为科研耗材电商目录，NewsDetail.aspx栏目为产品选型指南/品牌页（含电催化剂等关键词故混入m3），本质广告软文，非科研资讯。信源定位错误，不可通过改抓取修复。",
    "channel": {
     "type": "auto",
     "home": "http://www.scimaterials.cn"
