@@ -1,9 +1,11 @@
 name: daily-digest
 
-# 每天北京时间 07:00（UTC 23:00）自动生成简报并发布到 GitHub Pages
+# 每天北京时间 06:30（UTC 22:30）自动生成简报并发布到 GitHub Pages
+# 刻意错开整点：GitHub 官方明确说明整点是 Actions 高负载时段，schedule 事件可能被延迟甚至丢弃
+# 预留约 30 分钟给生成+限流冷却，正常在 07:00 前后发布完成
 on:
   schedule:
-    - cron: "0 23 * * *"
+    - cron: "30 22 * * *"
   workflow_dispatch: {}   # 支持在网页上手动点“运行”
 
 permissions:
