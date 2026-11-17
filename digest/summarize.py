@@ -333,12 +333,20 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
             cache[url] = {"summary": sm, "mode": mode, "date": today,
                           "imp": it["importance"], "cat": it["category"]}
 
+    # 缓存自愈：正文抓取逻辑修复前生成的旧摘要可能混进页脚/导航噪声
+    # （如"地址：…电话…""责任编辑：…""点击收起全文"）。这类摘要即使命中缓存也
+    # 不能复用，否则修复代码后旧噪声摘要还会续命 30 天。命中即作废，强制重生成。
+    _CACHE_NOISE_RE = re.compile(
+        r"(责任编辑[：:]|点击收起全文|返回央视网首页|扫一扫|分享到微信|"
+        r"友情链接|通讯地址|地址[：:].{0,40}(号|路|街).{0,40}电话|"
+        r"邮箱[：:]\s*\S+@|电话[（(]?传真)", re.I)
+
     # 1) 命中缓存的先落袋，剩下的是本次真正要生成的
     todo = []
     for it in items:
         url = it.get("url") or ""
         hit = cache.get(url) if url else None
-        if hit and hit.get("summary"):
+        if hit and hit.get("summary") and not _CACHE_NOISE_RE.search(hit["summary"]):
             it["summary"] = hit["summary"]
             it["summary_mode"] = "cache"
             # 旧缓存没有 imp/cat，按中等分处理；新缓存会带回上次模型给的分数
