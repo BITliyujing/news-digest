@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 18,
+  "fail_streak": 19,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-17"
@@ -218,9 +218,9 @@
  },
  "angew": {
   "last_ok": "2026-11-17",
-  "fail_streak": 0,
-  "last_count": 19,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 429: Too Many Requests",
   "checked": "2026-11-17"
  },
  "acscatal": {
@@ -288,9 +288,9 @@
  },
  "ne21-com": {
   "last_ok": "2026-11-17",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "URLError: <urlopen error timed out>",
+  "fail_streak": 0,
+  "last_count": 35,
+  "last_error": "",
   "checked": "2026-11-17"
  },
  "evobserver-com": {
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 9,
+  "fail_streak": 10,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-17"
@@ -498,9 +498,9 @@
  },
  "huxiu-com": {
   "last_ok": "2026-11-17",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 502: Bad Gateway",
+  "fail_streak": 0,
+  "last_count": 35,
+  "last_error": "",
   "checked": "2026-11-17"
  },
  "weeklyonstock-com": {
@@ -555,27 +555,27 @@
  "un-news-zh": {
   "last_ok": "2026-11-17",
   "fail_streak": 0,
-  "last_count": 31,
+  "last_count": 32,
   "last_error": "",
   "checked": "2026-11-17"
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 7,
+  "fail_streak": 8,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-17"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 7,
+  "fail_streak": 8,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-17"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 7,
+  "fail_streak": 8,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-17"
