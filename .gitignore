@@ -10,3 +10,4 @@ data/tmp_test/
 shot_*.png
 
 digest/bitds_api_key.txt
+digest/gemini_api-key.txt
