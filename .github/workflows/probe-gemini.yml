@@ -5,58 +5,32 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 6
     steps:
-      - name: Probe free flash models
+      - name: Confirm OpenAI-compatible with stable lite model
         env:
           KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python3 - <<'PY'
           import os, json, urllib.request, urllib.error
-          key = os.environ["KEY"].strip()
-          mask = lambda s: s.replace(key, "***KEY***")
-          def gen(model):
-              body = {"contents":[{"parts":[{"text":"Reply with exactly: PONG"}]}],
-                      "generationConfig":{"maxOutputTokens":20}}
-              req = urllib.request.Request(
-                  f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                  data=json.dumps(body).encode(), method="POST",
-                  headers={"x-goog-api-key":key,"Content-Type":"application/json"})
+          key=os.environ["KEY"].strip()
+          def call(model):
+              body={"model":model,"messages":[{"role":"user","content":"Reply with exactly: PONG"}],"max_tokens":20}
+              req=urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+                  data=json.dumps(body).encode(),method="POST",
+                  headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
               try:
-                  with urllib.request.urlopen(req, timeout=30) as r:
-                      d = json.loads(r.read().decode("utf-8","ignore"))
-                      txt = d["candidates"][0]["content"]["parts"][0].get("text","")
-                      u = d.get("usageMetadata",{})
-                      print(f"RESULT:: {model} OK reply={txt!r} in={u.get('promptTokenCount')} out={u.get('candidatesTokenCount')}")
+                  with urllib.request.urlopen(req,timeout=30) as r:
+                      d=json.loads(r.read().decode("utf-8","ignore"))
+                      print(f"OPENAI:: {model} OK reply={d['choices'][0]['message'].get('content')!r} usage={d.get('usage')}")
               except urllib.error.HTTPError as e:
                   raw=e.read().decode("utf-8","ignore")
-                  try: msg=json.loads(raw)["error"]["message"][:150]
-                  except: msg=raw[:150]
-                  print(f"RESULT:: {model} HTTP{e.code} {msg}")
+                  try: msg=json.loads(raw)["error"]["message"][:180]
+                  except: msg=raw[:180]
+                  print(f"OPENAI:: {model} HTTP{e.code} {msg}")
               except Exception as e:
-                  print(f"RESULT:: {model} ERR {type(e).__name__} {str(e)[:100]}")
-
-          for m in ["gemini-3.8-flash","gemini-3.8-flash-lite","gemini-3.5-flash",
-                    "gemini-3.5-flash-lite","gemini-3.1-flash-lite",
-                    "gemini-flash-lite-latest","gemini-2.5-flash-lite"]:
-              gen(m)
-
-          # OpenAI 兼容端点（用户项目当前链路用的协议）
-          body={"model":"gemini-3.8-flash","messages":[{"role":"user","content":"Reply PONG"}],"max_tokens":20}
-          req=urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-              data=json.dumps(body).encode(), method="POST",
-              headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
-          try:
-              with urllib.request.urlopen(req,timeout=30) as r:
-                  d=json.loads(r.read().decode("utf-8","ignore"))
-                  txt=d["choices"][0]["message"].get("content","")
-                  print(f"OPENAI:: OK reply={txt!r}")
-          except urllib.error.HTTPError as e:
-              raw=e.read().decode("utf-8","ignore")
-              try: msg=json.loads(raw)["error"]["message"][:200]
-              except: msg=raw[:200]
-              print(f"OPENAI:: HTTP{e.code} {msg}")
-          except Exception as e:
-              print(f"OPENAI:: ERR {type(e).__name__} {str(e)[:100]}")
+                  print(f"OPENAI:: {model} ERR {type(e).__name__} {str(e)[:120]}")
+          for m in ["gemini-flash-lite-latest","gemini-3.5-flash-lite","gemini-3.1-flash-lite"]:
+              call(m)
           print("=== DONE ===")
           PY
