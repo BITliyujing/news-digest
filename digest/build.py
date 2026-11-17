@@ -184,7 +184,16 @@ function onScroll(){
   var b=document.getElementById('toTop');
   if(b) b.classList.toggle('on',y>360);
 }
-function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+/* 回到顶部：函数名必须避开 HTMLElement.scrollTop 原生属性，
+   否则用内联事件调用同名函数时会解析成元素的数值属性而报 "not a function"。
+   这里改用 addEventListener 绑定，并保留老浏览器/WebView 兼容降级。 */
+function backToTop(){
+  var d=document.documentElement;
+  if('scrollBehavior' in d.style){
+    try{window.scrollTo({top:0,left:0,behavior:'smooth'});return;}catch(e){}
+  }
+  window.scrollTo(0,0); d.scrollTop=0; document.body.scrollTop=0;
+}
 
 function toggleSrc(id,on){var s=getOff(); if(on)s.delete(id); else s.add(id); saveOff(s); apply();}
 function onlySrc(id){
@@ -215,6 +224,8 @@ function buildSnippet(){
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
 window.addEventListener('scroll',onScroll,{passive:true});
 (function(){
+  var tt=document.getElementById('toTop');
+  if(tt) tt.addEventListener('click',backToTop);
   var m=(location.hash||'#m1').slice(1);
   if(location.hash){history.replaceState(null,'',location.pathname+location.search);}
   go(document.getElementById(m)?m:'m1');
@@ -258,7 +269,7 @@ _TMPL = """<!DOCTYPE html>
   生成流程：抓取 → 去重 → 排序 → 摘要 → 静态页面。历史归档见 <a href="archive/">archive/</a>。<br>
   “信源设置”里的开关只影响本机浏览显示；新增信源请把生成的配置发给维护者加入 sources.json 后重新生成。
 </footer>
-<button id="toTop" aria-label="回到顶部" onclick="scrollTop()">
+<button id="toTop" aria-label="回到顶部">
   <svg viewBox="0 0 24 24"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
 </button>
 <div id="mask" onclick="closePanel()"></div>
