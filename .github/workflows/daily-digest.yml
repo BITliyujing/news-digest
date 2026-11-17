@@ -31,6 +31,7 @@ jobs:
         env:
           TZ: Asia/Shanghai
           CLOUD_RUN: "1"                 # 云端出口在境外，需代理的英文源直接启用
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
           MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

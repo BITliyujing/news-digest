@@ -7,6 +7,20 @@
   "concurrency": 3,
   "providers": [
    {
+    "name": "gemini",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+    "key_file": "digest/gemini_api-key.txt",
+    "key_env": "GEMINI_API_KEY",
+    "models": [
+     "gemini-flash-lite-latest"
+    ],
+    "temperature": 0.3,
+    "max_tokens": 600,
+    "note": "主力：Google AI Studio 免费层（无需信用卡，Flash-Lite 约1000 RPD）。走 OpenAI 兼容端点 /v1beta/openai；AQ 授权 key。gemini-2.5-flash 对新 key 已下线、3.8/3.5-flash 常 503 高负载，故用 flash-lite-latest 别名（永远指向最新免费 lite，实测稳定）。本机到 Google 不通，云端境外出口可用；key 存于 Secret GEMINI_API_KEY",
+    "batch_timeout": 240,
+    "batch_max_tokens": 8000
+   },
+   {
     "name": "glm",
     "base_url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
     "key_file": "digest/glm_api_key.txt",
