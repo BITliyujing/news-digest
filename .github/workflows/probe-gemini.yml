@@ -26,45 +26,48 @@ jobs:
                   with urllib.request.urlopen(r, timeout=timeout) as resp:
                       raw = resp.read().decode("utf-8", "ignore")
                       print(f"[{name}] HTTP {resp.status}")
-                      print(mask(raw[:900]))
-                      return resp.status, raw
+                      print("BODY::" + mask(raw)[:1500].replace("\n", " "))
+                      return raw
               except urllib.error.HTTPError as e:
                   raw = e.read().decode("utf-8", "ignore")
                   print(f"[{name}] HTTP {e.code}")
-                  print(mask(raw[:700]))
-                  return e.code, raw
+                  print("BODY::" + mask(raw)[:900].replace("\n", " "))
+                  return raw
               except Exception as e:
                   print(f"[{name}] ERR {type(e).__name__}: {str(e)[:300]}")
-                  return 0, ""
+                  return ""
 
-          payload = {
-              "contents": [{"parts": [{"text": "只回复两个字：收到"}]}],
-              "generationConfig": {"maxOutputTokens": 20},
-          }
-          chat = {
-              "model": "gemini-2.5-flash",
-              "messages": [{"role": "user", "content": "只回复两个字：收到"}],
-              "max_tokens": 20,
-          }
-          print("=== 1) 官方原生 list models（x-goog-api-key）===")
-          req("native-list", "GET",
-              "https://generativelanguage.googleapis.com/v1beta/models",
-              {"x-goog-api-key": key})
-          print("=== 2) 官方原生 generateContent：gemini-2.5-flash ===")
-          req("native-gen-flash", "POST",
+          payload = {"contents": [{"parts": [{"text": "只回复两个字：收到"}]}],
+                     "generationConfig": {"maxOutputTokens": 30}}
+
+          print("=== LIST MODELS (full names) ===")
+          raw = req("list", "GET", "https://generativelanguage.googleapis.com/v1beta/models",
+                    {"x-goog-api-key": key})
+          try:
+              models = [m["name"].replace("models/", "") for m in json.loads(raw).get("models", [])]
+              print("MODEL_COUNT::" + str(len(models)))
+              for m in models:
+                  print("MODEL::" + m)
+          except Exception as e:
+              print("PARSE_ERR::" + str(e)[:200])
+
+          print("=== GEN gemini-2.5-flash ===")
+          req("gen25flash", "POST",
               "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
               {"x-goog-api-key": key}, payload)
-          print("=== 3) 官方原生 generateContent：gemini-2.5-flash-lite ===")
-          req("native-gen-lite", "POST",
-              "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent",
-              {"x-goog-api-key": key}, payload)
-          print("=== 4) OpenAI 兼容端点：gemini-2.5-flash ===")
-          req("openai-compat", "POST",
-              "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-              {"Authorization": "Bearer " + key}, chat)
-          print("=== 5) 官方原生 generateContent：gemini-3-flash-preview ===")
-          req("native-gen-3flash", "POST",
+
+          print("=== GEN gemini-3-flash-preview ===")
+          req("gen3flash", "POST",
               "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
               {"x-goog-api-key": key}, payload)
+
+          print("=== GEN gemini-flash-latest ===")
+          req("gen-latest", "POST",
+              "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent",
+              {"x-goog-api-key": key}, payload)
+
+          print("=== QUOTA metadata from list response headers ===")
+          req("list-headers", "GET", "https://generativelanguage.googleapis.com/v1beta/models",
+              {"x-goog-api-key": key})
           print("=== DONE ===")
           PY
