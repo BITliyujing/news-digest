@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 24,
+  "fail_streak": 25,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
@@ -134,9 +134,9 @@
  },
  "guancha-intl": {
   "last_ok": "2026-11-18",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 567: Unknown Status",
+  "fail_streak": 0,
+  "last_count": 28,
+  "last_error": "",
   "checked": "2026-11-18"
  },
  "cctv-world": {
@@ -232,9 +232,9 @@
  },
  "ees": {
   "last_ok": "2026-11-18",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 429: Too Many Requests",
+  "fail_streak": 0,
+  "last_count": 20,
+  "last_error": "",
   "checked": "2026-11-18"
  },
  "nea": {
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 15,
+  "fail_streak": 16,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
@@ -484,7 +484,7 @@
  },
  "caijing-com-cn": {
   "last_ok": "2026-11-17",
-  "fail_streak": 5,
+  "fail_streak": 6,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 405: Not Allowed",
   "checked": "2026-11-18"
@@ -498,7 +498,7 @@
  },
  "huxiu-com": {
   "last_ok": "2026-11-17",
-  "fail_streak": 3,
+  "fail_streak": 4,
   "last_count": 0,
   "last_error": "TimeoutError: The read operation timed out",
   "checked": "2026-11-18"
@@ -561,21 +561,21 @@
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 13,
+  "fail_streak": 14,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-18"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 13,
+  "fail_streak": 14,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 13,
+  "fail_streak": 14,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
