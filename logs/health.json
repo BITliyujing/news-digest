@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 25,
+  "fail_streak": 26,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 16,
+  "fail_streak": 17,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
@@ -484,7 +484,7 @@
  },
  "caijing-com-cn": {
   "last_ok": "2026-11-17",
-  "fail_streak": 6,
+  "fail_streak": 7,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 405: Not Allowed",
   "checked": "2026-11-18"
@@ -497,10 +497,10 @@
   "checked": "2026-11-18"
  },
  "huxiu-com": {
-  "last_ok": "2026-11-17",
-  "fail_streak": 4,
-  "last_count": 0,
-  "last_error": "TimeoutError: The read operation timed out",
+  "last_ok": "2026-11-18",
+  "fail_streak": 0,
+  "last_count": 35,
+  "last_error": "",
   "checked": "2026-11-18"
  },
  "weeklyonstock-com": {
@@ -513,7 +513,7 @@
  "globaltimes": {
   "last_ok": "2026-11-18",
   "fail_streak": 0,
-  "last_count": 18,
+  "last_count": 17,
   "last_error": "",
   "checked": "2026-11-18"
  },
@@ -561,21 +561,21 @@
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 14,
+  "fail_streak": 15,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-18"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 14,
+  "fail_streak": 15,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 14,
+  "fail_streak": 15,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-18"
