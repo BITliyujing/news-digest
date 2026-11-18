@@ -87,13 +87,13 @@
   "max_minutes": 30
  },
  "window_days": 1,
- "per_source_daily_cap": 4,
+ "per_source_daily_cap": 6,
  "items_per_module_cap": 16,
  "dedupe_threshold": 0.72,
  "summary_chars": 300,
  "rerank_keyword_weight": 0.3,
  "rerank_importance_weight": 2.0,
- "article_text_chars": 1200,
+ "article_text_chars": 2000,
  "lead_enough_chars": 180,
  "source_concurrency": 6,
  "article_concurrency": 6,
@@ -102,5 +102,23 @@
  "out_dir": "output",
  "data_dir": "data",
  "log_dir": "logs",
- "date_only_grace_hours": 20
+ "date_only_grace_hours": 20,
+ "module_caps": {
+  "m1": 20,
+  "m2": 20,
+  "m3": 12,
+  "m4": 20,
+  "m5": 20,
+  "m6": 12,
+  "m7": 20
+ },
+ "module_order": [
+  "m7",
+  "m5",
+  "m1",
+  "m4",
+  "m2",
+  "m3",
+  "m6"
+ ]
 }

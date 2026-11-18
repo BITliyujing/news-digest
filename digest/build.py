@@ -226,9 +226,10 @@ window.addEventListener('scroll',onScroll,{passive:true});
 (function(){
   var tt=document.getElementById('toTop');
   if(tt) tt.addEventListener('click',backToTop);
-  var m=(location.hash||'#m1').slice(1);
+  var defmod='{defmod}';
+  var m=(location.hash||('#'+defmod)).slice(1);
   if(location.hash){history.replaceState(null,'',location.pathname+location.search);}
-  go(document.getElementById(m)?m:'m1');
+  go(document.getElementById(m)?m:defmod);
   setSort();
   apply();
   onScroll();
@@ -339,10 +340,10 @@ def _card(it):
             f'<p class="sum">{_esc(it.get("summary") or "")}</p></div>')
 
 
-def _panel(module_defs, sources, counts):
+def _panel(module_defs, sources, counts, mods):
     """信源面板：按模块分组列出全部信源（含未启用的），带勾选与“只看”。"""
     out = []
-    for m in sorted(module_defs):
+    for m in mods:
         ss = [s for s in sources if m in s.get("modules", [])]
         if not ss:
             continue
@@ -381,7 +382,9 @@ def _imp_key(it):
 def build_page(items, module_defs, settings, out_dir, log=print, sources=None):
     now = datetime.now()
     date = now.strftime("%Y-%m-%d")
-    mods = sorted(module_defs.keys())
+    # 模块顺序：按 settings.module_order 排列；缺失的模块补在末尾，保证不漏
+    order = [m for m in settings.get("module_order", []) if m in module_defs]
+    mods = order + [m for m in sorted(module_defs) if m not in order]
     counts = {m: 0 for m in mods}
     src_counts = {}
     for it in items:
@@ -404,9 +407,10 @@ def build_page(items, module_defs, settings, out_dir, log=print, sources=None):
     page = _TMPL.format(date=date, time=now.strftime("%H:%M"),
                         win=("近24小时" if int(settings.get("window_days", 1)) == 1
                              else f"近{settings.get('window_days')}天"), total=len(items),
-                        src_n=len(only_active), css=_CSS, js=_JS, nav=nav,
+                        src_n=len(only_active), css=_CSS,
+                        js=_JS.replace('{defmod}', mods[0] if mods else 'm1'), nav=nav,
                         sections="\n".join(sections),
-                        panel=_panel(module_defs, sources, src_counts), modopts=modopts)
+                        panel=_panel(module_defs, sources, src_counts, mods), modopts=modopts)
     out = Path(out_dir)
     (out / "archive").mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(page, encoding="utf-8")

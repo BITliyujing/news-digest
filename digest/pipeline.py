@@ -72,7 +72,10 @@ def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
     grace_date_only = timedelta(hours=settings.get("date_only_grace_hours", 20))
     grace_exact = timedelta(hours=2)  # 有时分的时间戳只做轻微容差（时区/校时抖动）
     cap_src = settings.get("per_source_daily_cap", 6)
-    cap_mod = settings.get("items_per_module_cap", 40)
+    cap_mod_default = settings.get("items_per_module_cap", 40)
+    # 支持各模块独立上限：settings.module_caps 形如 {"m1":20,"m3":12}；
+    # 未单独配置的模块回退到 items_per_module_cap。
+    module_caps = settings.get("module_caps", {}) or {}
     thr = settings.get("dedupe_threshold", 0.72)
 
     seen_path = Path(state_dir) / "seen.json"
@@ -145,11 +148,12 @@ def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
         scored.append((score, it))
     scored.sort(key=lambda x: -x[0])
 
-    # 4) 模块配额
+    # 4) 模块配额（各模块独立上限，未配置则用全局默认）
     out, per_mod = [], {}
     for score, it in scored:
         m = it["module"]
-        if per_mod.get(m, 0) >= cap_mod:
+        cap_m = int(module_caps.get(m, cap_mod_default))
+        if per_mod.get(m, 0) >= cap_m:
             continue
         per_mod[m] = per_mod.get(m, 0) + 1
         it["score"] = round(score, 2)
