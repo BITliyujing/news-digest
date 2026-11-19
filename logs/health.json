@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 27,
+  "fail_streak": 28,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -225,9 +225,9 @@
  },
  "acscatal": {
   "last_ok": "2026-11-19",
-  "fail_streak": 0,
-  "last_count": 20,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 429: Too Many Requests",
   "checked": "2026-11-19"
  },
  "ees": {
@@ -288,9 +288,9 @@
  },
  "ne21-com": {
   "last_ok": "2026-11-19",
-  "fail_streak": 0,
-  "last_count": 35,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
   "checked": "2026-11-19"
  },
  "evobserver-com": {
@@ -324,7 +324,7 @@
  "heatmap-news": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 5,
+  "last_count": 6,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 18,
+  "fail_streak": 19,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -484,7 +484,7 @@
  },
  "caijing-com-cn": {
   "last_ok": "2026-11-17",
-  "fail_streak": 8,
+  "fail_streak": 9,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 405: Not Allowed",
   "checked": "2026-11-19"
@@ -513,7 +513,7 @@
  "globaltimes": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 21,
+  "last_count": 22,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -555,27 +555,27 @@
  "un-news-zh": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 29,
+  "last_count": 30,
   "last_error": "",
   "checked": "2026-11-19"
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 16,
+  "fail_streak": 17,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-19"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 16,
+  "fail_streak": 17,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 16,
+  "fail_streak": 17,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
