@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 28,
+  "fail_streak": 29,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -128,15 +128,15 @@
  "thepaper": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 42,
+  "last_count": 40,
   "last_error": "",
   "checked": "2026-11-19"
  },
  "guancha-intl": {
   "last_ok": "2026-11-19",
-  "fail_streak": 0,
-  "last_count": 28,
-  "last_error": "",
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "HTTPError: HTTP Error 567: Unknown Status",
   "checked": "2026-11-19"
  },
  "cctv-world": {
@@ -225,9 +225,9 @@
  },
  "acscatal": {
   "last_ok": "2026-11-19",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 429: Too Many Requests",
+  "fail_streak": 0,
+  "last_count": 20,
+  "last_error": "",
   "checked": "2026-11-19"
  },
  "ees": {
@@ -288,15 +288,15 @@
  },
  "ne21-com": {
   "last_ok": "2026-11-19",
-  "fail_streak": 1,
-  "last_count": 0,
-  "last_error": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+  "fail_streak": 0,
+  "last_count": 35,
+  "last_error": "",
   "checked": "2026-11-19"
  },
  "evobserver-com": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 12,
+  "last_count": 11,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -324,7 +324,7 @@
  "heatmap-news": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 6,
+  "last_count": 4,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -338,7 +338,7 @@
  "cen-acs-org": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 23,
+  "last_count": 25,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -408,7 +408,7 @@
  "euraxess-ec-europa-eu": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 10,
+  "last_count": 8,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 19,
+  "fail_streak": 20,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -484,9 +484,9 @@
  },
  "caijing-com-cn": {
   "last_ok": "2026-11-17",
-  "fail_streak": 9,
+  "fail_streak": 10,
   "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 405: Not Allowed",
+  "last_error": "URLError: <urlopen error timed out>",
   "checked": "2026-11-19"
  },
  "latepost-com": {
@@ -561,21 +561,21 @@
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 17,
+  "fail_streak": 18,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-19"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 17,
+  "fail_streak": 18,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 17,
+  "fail_streak": 18,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -591,6 +591,20 @@
   "last_ok": "2026-11-19",
   "fail_streak": 0,
   "last_count": 25,
+  "last_error": "",
+  "checked": "2026-11-19"
+ },
+ "scmp-china": {
+  "last_ok": "2026-11-19",
+  "fail_streak": 0,
+  "last_count": 50,
+  "last_error": "",
+  "checked": "2026-11-19"
+ },
+ "scmp-world": {
+  "last_ok": "2026-11-19",
+  "fail_streak": 0,
+  "last_count": 50,
   "last_error": "",
   "checked": "2026-11-19"
  }
