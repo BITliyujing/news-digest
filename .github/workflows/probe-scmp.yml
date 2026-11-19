@@ -1,6 +1,6 @@
 name: probe-scmp
 
-# 临时探测：确认南华早报（SCMP）哪些 RSS 端点从 GitHub 境外出口可达。
+# 临时探测：确认南华早报（SCMP）RSS 能被正确解析、关键词命中数、正文可取。
 # 探测完即删除，不参与日常流程。
 on:
   workflow_dispatch: {}
@@ -12,23 +12,43 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: 探测 SCMP RSS 端点
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 解析与正文测试
+        env:
+          CLOUD_RUN: "1"
+          TZ: Asia/Shanghai
         run: |
-          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36"
-          for u in \
-            "https://www.scmp.com/rss/91/feed" \
-            "https://www.scmp.com/rss/4/feed" \
-            "https://www.scmp.com/rss/5/feed" \
-            "https://www.scmp.com/rss/92/feed" \
-            "https://www.scmp.com/rss/2/feed" \
-            "https://www.scmp.com/rss/3/feed" ; do
-            code=$(curl -sL --max-time 25 -A "$UA" -o /tmp/f.xml -w "%{http_code}" "$u" 2>/dev/null || echo ERR)
-            n=$(grep -o "<item" /tmp/f.xml 2>/dev/null | wc -l)
-            ch=$(grep -o "<title>[^<]*" /tmp/f.xml 2>/dev/null | sed -n 1p | cut -c8-60)
-            t2=$(grep -o "<title>[^<]*" /tmp/f.xml 2>/dev/null | sed -n 2p | cut -c8-80)
-            echo "RESULT | $u | HTTP=$code | items=$n | channel=$ch | first=$t2"
-            rm -f /tmp/f.xml
-          done
-          echo "--- 正文页可达性 ---"
-          c2=$(curl -sL --max-time 25 -A "$UA" -o /tmp/a.html -w "%{http_code}" "https://www.scmp.com/news/china" 2>/dev/null || echo ERR)
-          echo "RESULT | https://www.scmp.com/news/china | HTTP=$c2 | bytes=$(wc -c < /tmp/a.html 2>/dev/null)"
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0, ".")
+          from digest import fetchers, pipeline
+          import run_daily as R
+
+          st = json.load(open("settings.json", encoding="utf-8"))
+          cfg = json.load(open("sources.json", encoding="utf-8"))
+          mods = cfg["modules"]
+
+          for sid, url in [("scmp-china", "https://www.scmp.com/rss/4/feed"),
+                           ("scmp-world", "https://www.scmp.com/rss/5/feed")]:
+              src = {"id": sid, "name": sid, "lang": "en", "modules": ["m5"],
+                     "channel": {"type": "rss", "url": url}}
+              try:
+                  items = fetchers.fetch_rss(src, src["channel"], st)
+              except Exception as e:
+                  print("PROBE | %s | 抓取失败 %s: %s" % (sid, type(e).__name__, e))
+                  continue
+              print("PROBE | %s | 解析 %d 条" % (sid, len(items)))
+              hit = 0
+              for it in items[:12]:
+                  ks = pipeline.keyword_score(it["title"], it.get("lead", ""), mods["m5"])
+                  hit += int(ks > 0)
+                  d = it["published"].strftime("%m-%d %H:%M") if it["published"] else "无日期"
+                  print("PROBE |   k=%d | %s | %s" % (ks, d, it["title"][:78]))
+              print("PROBE | %s | 前12条命中 m5 关键词 %d 条" % (sid, hit))
+              if items:
+                  t = R.fetch_article_text(items[0], st)
+                  print("PROBE | %s | 正文 %d 字: %s" % (sid, len(t), t[:150].replace("\n", " ")))
+          PY

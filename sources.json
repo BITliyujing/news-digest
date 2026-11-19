@@ -1664,6 +1664,40 @@
     "type": "auto",
     "home": "https://news.un.org/zh/"
    }
+  },
+  {
+   "id": "scmp-china",
+   "name": "南华早报·中国",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 1.0,
+   "active": false,
+   "requires_proxy": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.scmp.com/rss/4/feed"
+   },
+   "note": "香港南华早报中国频道；本机被墙，云端出口可达（已探测 HTTP 200/50条）"
+  },
+  {
+   "id": "scmp-world",
+   "name": "南华早报·国际",
+   "modules": [
+    "m5"
+   ],
+   "lang": "en",
+   "weight": 1.0,
+   "active": false,
+   "requires_proxy": true,
+   "strict_keywords": true,
+   "channel": {
+    "type": "rss",
+    "url": "https://www.scmp.com/rss/5/feed"
+   },
+   "note": "香港南华早报国际频道；本机被墙，云端出口可达（已探测 HTTP 200/50条）"
   }
  ]
 }

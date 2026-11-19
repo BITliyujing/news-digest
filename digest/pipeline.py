@@ -99,8 +99,11 @@ def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
     candidates = []
     for src, items in raw_items:
         count = 0
-        strict = (src.get("channel", {}).get("type") == "auto"
-                  and src.get("strict_keywords", True))
+        ch_type = src.get("channel", {}).get("type")
+        strict_cfg = src.get("strict_keywords")
+        # auto 通道默认按关键词过滤（首页噪声多）；其它通道只在显式配置 strict_keywords
+        # 时开启——例如南华早报这类综合媒体，用关键词把娱乐/体育挡在模块外。
+        strict = (ch_type == "auto") if strict_cfg is None else bool(strict_cfg)
         for it in items:
             if count >= cap_src:
                 break
