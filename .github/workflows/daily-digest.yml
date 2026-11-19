@@ -29,6 +29,9 @@ concurrency:
 jobs:
   guard:
     runs-on: ubuntu-latest
+    # 闸门本身出错不能拖垮当天简报：失败时 outputs.skip 为空，
+    # 下游 if 判断为真，照常生成（宁可多跑一次，也不要某天空白）
+    continue-on-error: true
     permissions:
       actions: read
       contents: read
