@@ -6,6 +6,7 @@ import json, re, time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
+from html import unescape as _unescape
 from urllib.parse import quote, urlparse
 
 from . import http
@@ -18,9 +19,36 @@ CN_TZ = timezone(timedelta(hours=8))
 def _strip_tags(s):
     if not s:
         return ""
+    # 先整段删掉 <style>/<script> 的内容再剥标签。
+    # 有些站点（BNEF 的 bbg-cta 组件）把 <style> 嵌在 <a> 内部，只剥标签会把
+    # CSS 文本留在标题里，表现为标题尾部挂一串 "#cta_1234.bbg-cta .bbg-cta-link"。
+    s = re.sub(r"<(script|style)\b[^>]*>.*?</\1\s*>", " ", s, flags=re.S | re.I)
     s = re.sub(r"<[^>]+>", " ", s)
+    # HTML 实体要还原成字符（&#039; → '），直接删会留下 "don t" 这种断词
+    s = _unescape(s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
+
+# 标题里的 CSS 选择器/规则残留：#cta_1234、.bbg-cta-link.link-holder、{...}、!important
+_CSS_RESIDUE_RE = re.compile(r"(?:\s#[A-Za-z][\w-]*_\d+|\s\.[a-z][\w-]*(?:\.[\w-]+)+|\s*\{[^{}]{0,200}\}\s*|!important)")
+_TITLE_TAIL_JUNK_RE = re.compile(r"\s*(?:#[\w-]+|[.#][\w-]+\s*[.#][\w-]+).*$")
+
+
+def _clean_title(t):
+    """清洗标题：去 CSS 残留、去尾部选择器串、压缩空白。
+
+    BNEF 这类站点的锚点内文会夹带 <style>，清洗后只剩正题；
+    对正常标题是无害的（不含上述特征时原样返回）。
+    """
+    t = _strip_tags(t)
+    if not t:
+        return ""
+    if _CSS_RESIDUE_RE.search(t):
+        t = _TITLE_TAIL_JUNK_RE.sub("", t)
+        t = _CSS_RESIDUE_RE.sub(" ", t)
+    t = re.sub(r"\s+", " ", t).strip(" -–—|·>»«\"'")
+    return t
 
 
 def _parse_date(s):
@@ -51,7 +79,7 @@ def _mk_item(title, url, published, lead, src, date_from_title=False):
     """构造统一 item。date_from_title=True 时，若 published 为空则尝试从标题末尾解析
     YYYY-MM-DD 并剥离（某些高校/机构列表页只在标题尾部带日期，URL 里没有日期，
     不解析会导致时间窗过滤失效、旧文混入）。"""
-    title = _strip_tags(title)
+    title = _clean_title(title)
     if published is None and date_from_title:
         m = re.search(r"\s*(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})\s*日?\s*$", title)
         if m:
@@ -67,30 +95,69 @@ def _mk_item(title, url, published, lead, src, date_from_title=False):
 
 # ---------- RSS / Atom ----------
 
+# 这些命名空间里也常有 <title>/<description>，但装的是“图片说明/版权”，
+# 不是文章标题。遍历时必须跳过，否则图片 caption 会把真标题覆盖掉。
+_NOISE_NS = ("media", "image", "thumbnail", "itunes", "georss", "wfw", "slash")
+
+
+def _ns_of(tag):
+    return tag.split("}")[0].lstrip("{").lower() if tag.startswith("{") else ""
+
+
 def _parse_rss_or_atom(raw, src):
+    """解析 RSS/Atom。
+
+    取字段只认 item/entry 的**直接子元素**，并且跳过 media:/image: 等命名空间。
+    原来的写法用 el.iter() + 按 local name 匹配，导致 <media:title>（图片说明）
+    在文档顺序后面把真正的 <title> 覆盖掉——Fortune 的标题因此变成
+    "Photo: Jensen Huang" / "Many hundred dollar bills are seen in this photo."
+    这类图注。description 同理会被 <media:description> 顶替。
+    """
     text = raw.decode("utf-8", "ignore")
     root = ET.fromstring(re.sub(r"&(?!amp;|lt;|gt;|quot;|apos;|#)", "&amp;", text))
     items = []
-    tag_local = lambda t: t.split("}")[-1]
+
+    def txt(node):
+        return (node.text or "").strip()
+
+    def noisy(node):
+        return any(n in _ns_of(node.tag) for n in _NOISE_NS)
+
     for el in root.iter():
-        if tag_local(el.tag) in ("item", "entry"):
-            title = link = date = lead = None
+        if not isinstance(el.tag, str) or el.tag.split("}")[-1] not in ("item", "entry"):
+            continue
+        title = link = date = lead = None
+        # 1) 严格模式：只看直接子元素
+        for ch in list(el):
+            if not isinstance(ch.tag, str) or noisy(ch):
+                continue
+            name = ch.tag.split("}")[-1]
+            if name == "title" and title is None:
+                title = txt(ch)
+            elif name == "link":
+                if ch.get("href"):
+                    link = link or ch.get("href")
+                elif txt(ch).startswith("http"):
+                    link = link or txt(ch)
+            elif name in ("pubDate", "published", "updated", "date") and date is None:
+                date = _parse_date(txt(ch))
+            elif name in ("description", "summary", "content", "encoded") and not lead:
+                lead = txt(ch)
+        # 2) 兜底：个别 feed 把标题/链接套了一层容器，再深遍历一次（仍跳过噪声命名空间）
+        if not title or not link:
             for ch in el.iter():
-                t = tag_local(ch.tag)
-                if t == "title":
-                    title = (ch.text or "").strip()
-                elif t == "link":
+                if not isinstance(ch.tag, str) or noisy(ch):
+                    continue
+                name = ch.tag.split("}")[-1]
+                if name == "title" and not title:
+                    title = txt(ch)
+                elif name == "link" and not link:
                     if ch.get("href"):
                         link = ch.get("href")
-                    elif ch.text and ch.text.strip().startswith("http"):
-                        link = ch.text.strip()
-                elif t in ("pubDate", "published", "updated"):
-                    date = _parse_date(ch.text or "")
-                elif t in ("description", "summary", "content"):
-                    if not lead:
-                        lead = ch.text or ""
-            if title and link:
-                items.append(_mk_item(title, link, date, lead, src))
+                    elif txt(ch).startswith("http"):
+                        link = txt(ch)
+        if title and link:
+            items.append(_mk_item(title, link, date, lead, src))
     return items
 
 

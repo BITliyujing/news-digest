@@ -9,6 +9,7 @@
 """
 import argparse, json, os, re, sys, traceback
 from datetime import datetime
+from html import unescape as _unescape
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
@@ -27,18 +28,84 @@ def log(msg, logf=None):
 
 
 # 已知 CMS 正文容器 id/class：命中后只在容器内取正文，避免误抓页脚/侧栏。
-# 中财绿金院用 v_news_content；很多高校/机构站用 vsb_content / TRS_Editor。
-_BODY_CONTAINER_RE = re.compile(
-    r'<(?:div|article|section)\b[^>]*?(?:id|class)\s*=\s*["\'][^"\']*'
-    r'(?:v_news_content|vsb_content|vsb_content_\d+|TRS_Editor|article[-_]?content|'
-    r'entry[-_]?content|post[-_]?content|news[-_]?content|content[-_]?area|'
-    r'text[-_]?area|detail[-_]?content|article)[^"\']*["\'][^>]*>(.*)',
-    re.S | re.I)
+# 中财绿金院用 v_news_content；很多高校/机构站用 vsb_content / TRS_Editor；
+# 索比等资讯站用 detail-body / article-body。
+_CONTAINER_CAND_RE = re.compile(
+    r'<(div|article|section)\b[^>]*(?:id|class)\s*=\s*["\']([^"\']*)["\']', re.I)
+# 正文容器的命名特征，越靠前越可信
+_CONTAINER_POS = (
+    "v_news_content", "vsb_content", "trs_editor", "detail-body", "detail_body",
+    "article-body", "article_body", "entry-content", "post-content", "post_content",
+    "news-content", "news_content", "article-content", "article_content",
+    "content-body", "content_body", "detail-content", "detail_content",
+    "articlecontent", "content_main", "main-content", "txt-content",
+)
+_CONTAINER_WEAK = ("content", "article", "text", "detail", "body", "main", "art")
+# 明显不是正文的容器（署名/版权/推荐/评论/导航…）
+_CONTAINER_NEG = (
+    "editor", "author", "copyright", "tag", "recommend", "related", "hot",
+    "rank", "comment", "share", "footer", "nav", "menu", "sidebar", "list",
+    "head", "crumb", "search", "login", "banner", "popup", "modal", "toolbar",
+    "advert", "ad-", "bq", "copyright",
+)
+_TAG_SCAN_RE = re.compile(r"<(/?)(div|article|section)\b[^>]*>", re.I)
+
+
+def _pick_body_container(html):
+    """按容器命名打分挑正文容器，返回起始偏移量或 None。
+
+    原来只按正则列表找"第一个命中"，索比光伏网因此选中了
+    <div class="detailContentEditor">责任编辑：肖舟</div> —— 名字里带 detailContent，
+    却是署名块；从它往后取正文，就把整块"推荐阅读"当成了正文，
+    摘要于是文不对题（标题讲航天机电，摘要讲华密新材）。
+    现在给真正文容器加分、给署名/推荐类容器直接排除。
+    """
+    best = None  # (score, start)
+    for m in _CONTAINER_CAND_RE.finditer(html):
+        attr = (m.group(2) or "").lower()
+        if not attr or any(n in attr for n in _CONTAINER_NEG):
+            continue
+        score = 0
+        for i, p in enumerate(_CONTAINER_POS):
+            if p in attr:
+                score = 100 - i
+                break
+        if not score and any(w in attr for w in _CONTAINER_WEAK):
+            score = 10
+        if score and (best is None or score > best[0]):
+            best = (score, m.start())
+    return best[1] if best else None
+
+
+def _balanced_slice(html, start, max_len=200000):
+    """从容器开标签起按 div/article/section 开闭配平截取，只取该容器自身范围。
+
+    原来用 (.*) 贪婪匹配到文末，容器边界等于页面边界，
+    底部"相关阅读/最新资讯"必然混进正文。
+    """
+    depth = 0
+    for m in _TAG_SCAN_RE.finditer(html, start):
+        if m.start() - start > max_len:
+            return html[start:m.start()]
+        if m.group(1):
+            depth -= 1
+            if depth <= 0:
+                return html[start:m.end()]
+        else:
+            depth += 1
+    return html[start:start + max_len]
+
 # 段落级噪声：联系方式/版权行等（原先只在 nav_hits 里数，个别站点单条就够成噪声）
 _LINE_NOISE_RE = re.compile(
     r"(关于我们|联系方式|通讯地址|友情链接|网站声明|版权声明|举报|广告服务|用户协议|"
     r"All Rights Reserved|责任编辑[：:]|编辑[：:]|来源[：:]|点击收起全文|返回顶部|"
-    r"扫一扫|分享到微信|地址[：:].{0,40}(号|路|街)|电话[（(]?传真|邮箱[：:]|E-?mail)", re.I)
+    r"扫一扫|分享到微信|地址[：:].{0,40}(号|路|街)|电话[（(]?传真|邮箱[：:]|E-?mail|"
+    # 版权/授权声明块（索比等资讯站放在正文前）
+    r"本站标注来源|合法享有版权|已获授权的内容|追究法律责任|谢谢支持与配合|"
+    r"未经书面许可|不得以转载|保留进一步追偿|"
+    # Cookie/隐私提示（CGTN 等英文站放在正文前）
+    r"Cookie Policy|Privacy Statement|Terms of Use|cookies|"
+    r"隐私(?:政策|声明)|使用条款|我们使用\s*Cookie)", re.I)
 _NAV_WORDS = ("关于我们", "网站声明", "联系方式", "用户反馈", "网站地图", "举报",
               "版权声明", "广告服务", "返回央视网首页", "返回首页", "精彩图集",
               "最新推荐", "望海热线")
@@ -50,7 +117,7 @@ def _clean_paras(html_fragment):
     out = []
     for p in paras:
         t = re.sub(r"<[^>]+>", " ", p)
-        t = re.sub(r"&[a-z#0-9]{2,8};", " ", t)
+        t = _unescape(re.sub(r"&[a-z#0-9]{2,8};", " ", t))
         t = re.sub(r"\s+", " ", t).strip()
         if len(t) < 12 or _LINE_NOISE_RE.search(t):
             continue
@@ -91,14 +158,15 @@ def fetch_article_text(it, settings):
         # 只剥确定的非正文标签；<p> 抽取天然避开导航，容器匹配进一步收窄范围。
         html = re.sub(r"<(script|style|noscript|nav|footer|header|aside)[^>]*>.*?</\1>", " ",
                       html, flags=re.S | re.I)
-        # 1) 已知正文容器：容器内取 <p>，取不到再去标签取整段
+        # 1) 正文容器：先按命名挑准容器，再配平截取该容器自身范围（不能吃到文末）
         text = ""
-        m = _BODY_CONTAINER_RE.search(html)
-        if m:
-            text = _clean_paras(m.group(1))
+        pos = _pick_body_container(html)
+        if pos is not None:
+            frag = _balanced_slice(html, pos)
+            text = _clean_paras(frag)
             if len(text) < 200:
-                body = re.sub(r"<[^>]+>", " ", m.group(1))
-                body = re.sub(r"&[a-z#0-9]{2,8};", " ", body)
+                body = re.sub(r"<[^>]+>", " ", frag)
+                body = _unescape(re.sub(r"&[a-z#0-9]{2,8};", " ", body))
                 fallback = re.sub(r"\s+", " ", body).strip()
                 if len(fallback) > len(text):
                     text = fallback

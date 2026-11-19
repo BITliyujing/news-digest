@@ -127,13 +127,17 @@ def today_active(tok):
     return None
 
 
-def dispatch(tok):
+def dispatch(tok, force=False):
+    """触发云端运行。force=True 时带 force 输入，跳过 workflow 内的“当天只跑一次”闸门。"""
+    body = {"ref": "main"}
+    if force:
+        body["inputs"] = {"force": "true"}
     status, res = api(tok, "/actions/workflows/%s/dispatches" % WORKFLOW,
-                      {"ref": "main"}, method="POST")
+                      body, method="POST")
     if status != 204:
         log("触发失败 HTTP %s: %s" % (status, res.get("message")))
         return False
-    log("已触发云端简报（workflow_dispatch）")
+    log("已触发云端简报（workflow_dispatch%s）" % ("，force=true" if force else ""))
     return True
 
 
@@ -175,7 +179,7 @@ def main():
     if args.check_only:
         log("今天尚无运行（仅检查，未触发）")
         return 0
-    if not dispatch(tok):
+    if not dispatch(tok, args.force):
         return 1
     if args.no_wait:
         return 0

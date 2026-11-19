@@ -63,6 +63,15 @@ def keyword_score(title, lead, module_def):
     return sum(1 for kw in module_def.get("keywords", []) if _kw_hit(kw, text))
 
 
+# 商业推广/自家商品营销稿：标题一出现这些词基本就是广告，不是资讯。
+# 典型来源：华尔街见闻的"2027见闻历"（自家日历预售）、各类优惠券/课程报名软文。
+# 这些词在正规新闻标题里几乎不会出现，误杀风险很低。
+_AD_TITLE_RE = re.compile(
+    r"(见闻历|神历|限时优惠|限时特惠|优惠券|满减|秒杀|预售价|下单立减|包邮|"
+    r"免费领取|扫码(?:关注|领取|进群|购买)|加微信|抽奖|开奖|会员日|福利来袭|"
+    r"重磅福利|粉丝福利|限时抢购|爆款|拼团|赠品|专享价|内购会|课程报名|训练营)", re.I)
+
+
 def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
     """raw_items: (src, items) 列表。返回按模块分组、排序、截断后的条目列表。"""
     now = datetime.now(_CN_TZ)
@@ -95,6 +104,8 @@ def process_items(raw_items, sources_by_id, module_defs, settings, state_dir):
         for it in items:
             if count >= cap_src:
                 break
+            if _AD_TITLE_RE.search(it.get("title") or ""):
+                continue  # 营销/广告稿，不是资讯
             pub = it.get("published")
             if pub is not None:
                 date_only = (pub.hour == 0 and pub.minute == 0)
