@@ -21,6 +21,8 @@ _CTX = http._CTX
 _SYS_PROMPT = (
     "你是一名资深行业资讯编辑，为中文读者（科研人员与投资人）撰写每日简报。"
     "只依据给定材料归纳，不编造、不添加材料外的事实；英文术语、机构名、人名保留英文原文。"
+    "无论材料是中文还是英文，摘要正文一律用简体中文书写——英文材料要翻译归纳，"
+    "严禁整段照抄英文原句（实测中英文源会被原样抄成英文，中文读者读不了）。"
     "你还负责为每条资讯评估重要度并归类，判断要有区分度，不要一律打高分。"
 )
 
@@ -110,8 +112,9 @@ def _ask(title, source_name, text, settings, prov, model):
     if not text:
         text = title
     user = (f"信源：{source_name}\n标题：{title}\n材料：{text}\n\n"
-            f"请写一段约{settings.get('summary_chars', 300)}字的中文简报摘要（280～320字，材料单薄时可略短，不低于180字）："
+            f"请用简体中文写一段约{settings.get('summary_chars', 300)}字的中文简报摘要（280～320字，材料单薄时可略短，不低于180字）："
             "先给核心事实（谁、做了什么、关键数字），再给一句意义/影响；"
+            "材料是英文也务必翻译成中文来写，只保留术语/机构名/人名的英文原文，不要照抄英文句子；"
             "严禁编造材料外的信息；不要标题、不要项目符号、不要客套话。\n\n"
             "最后另起一行，只写一行元数据：重要度:数字|类别:政策/融资/技术/市场/动态/观点/人事/其他（八选一）。\n"
             "重要度标准：5=重大政策/突破性技术/巨额融资/市场剧震；4=重要政策/大额融资/重要成果；"
@@ -487,6 +490,37 @@ def summarize_items(items, settings, base_dir, log=print, dry=False):
             it["summary_mode"] = "lead" if it.get("lead") else "failed"
         it.setdefault("importance", 3)
         it.setdefault("category", "")
+
+    # 4.5) 语言兜底：英文材料偶尔被整段照抄成英文摘要（Gemini 批量请求下会这样），
+    #      中文简报里不应出现。中文占比过低的条目用单条模式重生成一次；
+    #      重生成仍不合格就保留原样，不反复消耗配额。
+    def _cjk_ratio(s):
+        s = s or ""
+        return sum(1 for c in s if "\u4e00" <= c <= "\u9fff") / max(1, len(s))
+
+    off_lang = [it for it in items
+                if it.get("summary_mode") not in ("lead", "failed")
+                and _cjk_ratio(it.get("summary")) < 0.20]
+    if off_lang and not out_of_time():
+        log(f"  语言兜底：{len(off_lang)} 条摘要非中文，改为单条重生成")
+        fixed = {"n": 0}
+
+        def _relang(it):
+            if out_of_time():
+                return
+            take_slot()
+            sm, mode, _err = _call("one", it, settings, providers, state)
+            if not sm:
+                return
+            sm, imp, cat = _extract_meta(_clean_summary(sm))
+            if _cjk_ratio(sm) >= 0.20:
+                put(it, sm, mode, imp, cat)
+                with state["lock"]:
+                    fixed["n"] += 1
+
+        with ThreadPoolExecutor(max_workers=2) as ex:
+            list(ex.map(_relang, off_lang[:15]))
+        log(f"  语言兜底完成：{fixed['n']}/{len(off_lang[:15])} 条已改为中文")
 
     # 缓存落盘（只保留最近 30 天）
     if cache:
