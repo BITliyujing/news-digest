@@ -48,7 +48,15 @@ jobs:
                   d = it["published"].strftime("%m-%d %H:%M") if it["published"] else "无日期"
                   print("PROBE |   k=%d | %s | %s" % (ks, d, it["title"][:78]))
               print("PROBE | %s | 前12条命中 m5 关键词 %d 条" % (sid, hit))
+              for it in items[:3]:
+                  print("PROBE | %s | lead=%d | %s" % (sid, len(it.get("lead") or ""),
+                                                       (it.get("lead") or "")[:110].replace("\n", " ")))
               if items:
                   t = R.fetch_article_text(items[0], st)
                   print("PROBE | %s | 正文 %d 字: %s" % (sid, len(t), t[:150].replace("\n", " ")))
+                  from digest import http
+                  code, raw = http.fetch(items[0]["url"], st, referer=items[0]["url"], read_bytes=300000)
+                  h = http.decode_html(raw)
+                  print("PROBE | %s | 页面 HTTP=%s len=%d url=%s" % (sid, code, len(h), items[0]["url"]))
+                  print("PROBE | %s | head: %s" % (sid, h[:260].replace("\n", " ")))
           PY
