@@ -22,7 +22,7 @@
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 30,
+  "fail_streak": 31,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -134,7 +134,7 @@
  },
  "guancha-intl": {
   "last_ok": "2026-11-19",
-  "fail_streak": 2,
+  "fail_streak": 3,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 567: Unknown Status",
   "checked": "2026-11-19"
@@ -408,7 +408,7 @@
  "euraxess-ec-europa-eu": {
   "last_ok": "2026-11-19",
   "fail_streak": 0,
-  "last_count": 8,
+  "last_count": 9,
   "last_error": "",
   "checked": "2026-11-19"
  },
@@ -463,7 +463,7 @@
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 21,
+  "fail_streak": 22,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
@@ -484,7 +484,7 @@
  },
  "caijing-com-cn": {
   "last_ok": "2026-11-17",
-  "fail_streak": 11,
+  "fail_streak": 12,
   "last_count": 0,
   "last_error": "URLError: <urlopen error timed out>",
   "checked": "2026-11-19"
@@ -561,21 +561,21 @@
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 19,
+  "fail_streak": 20,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
   "checked": "2026-11-19"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 19,
+  "fail_streak": 20,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 19,
+  "fail_streak": 20,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
   "checked": "2026-11-19"
