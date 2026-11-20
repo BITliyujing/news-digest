@@ -1,38 +1,38 @@
 {
  "pvmag": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "energystorage": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 300,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "hydrogeninsight": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 40,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "iea": {
   "last_ok": "2026-11-16",
-  "fail_streak": 31,
+  "fail_streak": 32,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "bnef": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "spglobal": {
   "last_ok": "",
@@ -42,11 +42,11 @@
   "checked": "2026-11-16"
  },
  "bjx": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "energypeople": {
   "last_ok": "",
@@ -56,25 +56,25 @@
   "checked": "2026-11-16"
  },
  "wallstcn-articles": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "wallstcn-lives": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 58,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cls": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 30,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "ftc-energy": {
   "last_ok": "",
@@ -84,158 +84,158 @@
   "checked": "2026-11-16"
  },
  "nenergy": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "nenergy-news": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "natcatal": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "chemrxiv": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "gov-zhengce": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 18,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cctv-china": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 1,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "thepaper": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
-  "last_count": 40,
+  "last_count": 41,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "guancha-intl": {
   "last_ok": "2026-11-19",
-  "fail_streak": 3,
+  "fail_streak": 4,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 567: Unknown Status",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cctv-world": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 1,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "huanqiu": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 40,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "moe": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 17,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "chinanews": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 40,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "sciencenet": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 40,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "retractionwatch": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "the-news": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 34,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "caixin": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 40,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "nbd": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 40,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "kr36": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "jacs": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "angew": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "acscatal": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "ees": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "nea": {
   "last_ok": "",
@@ -245,116 +245,116 @@
   "checked": "2026-11-16"
  },
  "joule": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 15,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "canarymedia-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 100,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "pv-tech-org": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 300,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "reneweconomy-com-au": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "windpowermonthly-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "woodmac-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 3,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "ne21-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "evobserver-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 11,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "evpartner-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "solarbe-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "trellis-net": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "heatmap-news": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
-  "last_count": 4,
+  "last_count": 3,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "iigf-cufe-edu-cn": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cen-acs-org": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 25,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "sciencedaily-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 60,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "arxiv-org": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 34,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "efmlab-com": {
   "last_ok": "2026-11-17",
@@ -364,11 +364,11 @@
   "checked": "2026-11-17"
  },
  "linkresearcher-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "scimaterials-cn": {
   "last_ok": "2026-11-17",
@@ -378,234 +378,234 @@
   "checked": "2026-11-17"
  },
  "banyuetan-org": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "ndrc-gov-cn": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "qstheory-cn": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cgtn-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "euraxess-ec-europa-eu": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 9,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "insidehighered-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "natureindex-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "topuniversities-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "universityworldnews-co": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "wonkhe-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 25,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "stdaily-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "gaoxiaojob-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "barrons-com": {
   "last_ok": "2026-11-16",
-  "fail_streak": 22,
+  "fail_streak": 23,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "fortune-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 10,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "theinformation-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "caijing-com-cn": {
   "last_ok": "2026-11-17",
-  "fail_streak": 12,
+  "fail_streak": 13,
   "last_count": 0,
   "last_error": "URLError: <urlopen error timed out>",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "latepost-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 8,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "huxiu-com": {
   "last_ok": "2026-11-19",
-  "fail_streak": 0,
-  "last_count": 35,
-  "last_error": "",
-  "checked": "2026-11-19"
+  "fail_streak": 1,
+  "last_count": 0,
+  "last_error": "TimeoutError: The read operation timed out",
+  "checked": "2026-11-20"
  },
  "weeklyonstock-com": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "globaltimes": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
-  "last_count": 22,
+  "last_count": 19,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "zaobao": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "fortunechina": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "pedaily": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cnenergynews": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "cgtn": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 35,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "un-news-zh": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
-  "last_count": 30,
+  "last_count": 31,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "reuters-world": {
   "last_ok": "",
-  "fail_streak": 20,
+  "fail_streak": 21,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 404: Not Found",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "economist": {
   "last_ok": "",
-  "fail_streak": 20,
+  "fail_streak": 21,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "isw": {
   "last_ok": "",
-  "fail_streak": 20,
+  "fail_streak": 21,
   "last_count": 0,
   "last_error": "HTTPError: HTTP Error 403: Forbidden",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "fa": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 20,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "aljazeera": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 25,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "scmp-china": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 50,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  },
  "scmp-world": {
-  "last_ok": "2026-11-19",
+  "last_ok": "2026-11-20",
   "fail_streak": 0,
   "last_count": 50,
   "last_error": "",
-  "checked": "2026-11-19"
+  "checked": "2026-11-20"
  }
 }
