@@ -32,6 +32,8 @@ def _strip_tags(s):
 
 # 标题里的 CSS 选择器/规则残留：#cta_1234、.bbg-cta-link.link-holder、{...}、!important
 _CSS_RESIDUE_RE = re.compile(r"(?:\s#[A-Za-z][\w-]*_\d+|\s\.[a-z][\w-]*(?:\.[\w-]+)+|\s*\{[^{}]{0,200}\}\s*|!important)")
+# 锚点内的块级子元素（h1-h6/p/div），用于标题只取第一块
+_BLOCK_TAG_RE = re.compile(r"<(h[1-6]|p|div)\b[^>]*>(.*?)</\1>", re.S | re.I)
 _TITLE_TAIL_JUNK_RE = re.compile(r"\s*(?:#[\w-]+|[.#][\w-]+\s*[.#][\w-]+).*$")
 
 
@@ -49,6 +51,23 @@ def _clean_title(t):
         t = _CSS_RESIDUE_RE.sub(" ", t)
     t = re.sub(r"\s+", " ", t).strip(" -–—|·>»«\"'")
     return t
+
+
+def _anchor_title(inner):
+    """从列表页锚点内文提取标题，只取第一个内容块。
+
+    背景：财富中文网等站的头条锚点是 <a><h2>标题</h2><p>导语</p></a> 结构，
+    直接 _strip_tags 会把标题和导语拼成超长串（文不对题观感）。
+    规则：锚点内含 2 个及以上块级元素时，优先取第一个 h1-h6；无标题级
+    则取第一个块；只有 0-1 个块时退回整体剥标签（与原行为一致）。
+    """
+    blocks = _BLOCK_TAG_RE.findall(inner or "")
+    if len(blocks) >= 2:
+        for tag, txt in blocks:
+            if re.match(r"h[1-6]$", tag.lower()):
+                return _clean_title(txt)
+        return _clean_title(blocks[0][1])
+    return _clean_title(_strip_tags(inner))
 
 
 def _parse_date(s):
@@ -275,7 +294,7 @@ def fetch_scrape(src, ch, settings):
                 continue
             if u in seen:
                 continue
-            title = _strip_tags(inner)
+            title = _anchor_title(inner)
             if len(title) < min_len or title.startswith("http"):
                 continue
             seen.add(u)
@@ -506,7 +525,7 @@ def fetch_generic_list(src, ch, settings):
             continue
         if len(u.rstrip("/").split("/")) <= 3 and not re.search(r"\d{4}", u):
             continue  # 太浅的路径（栏目首页）跳过
-        title = _strip_tags(inner)
+        title = _anchor_title(inner)
         if not title or title in _BAD_TITLE or _JUNK_TITLE_RE.search(title):
             continue
         cjk = sum(1 for c in title if "\u4e00" <= c <= "\u9fff")
