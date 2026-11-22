@@ -1,0 +1,64 @@
+name: probe-gnews3
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0, '.')
+          from digest import http, fetchers, pipeline
+          from datetime import datetime, timedelta
+          s = json.load(open('settings.json', encoding='utf-8'))
+          d = json.load(open('sources.json', encoding='utf-8'))
+          mods = d['modules']
+          byid = {x['id']: x for x in d['sources']}
+          now = datetime.now(fetchers.CN_TZ)
+          window = timedelta(days=s.get('window_days', 1))
+          grace_exact = timedelta(hours=2)
+          limit = window + grace_exact
+
+          raw_items = []
+          for sid in ['reuters-world', 'isw', 'huxiu-com']:
+              src = byid[sid]
+              try:
+                  items = fetchers.fetch_source(src, s)[0]
+              except Exception as e:
+                  print(f"PROBE | {sid} | FETCH FAIL {e}")
+                  continue
+              raw_items.append((src, items))
+              # 逐步复现第1步过滤
+              ch_type = src.get('channel', {}).get('type')
+              strict_cfg = src.get('strict_keywords')
+              strict = (ch_type == 'auto') if strict_cfg is None else bool(strict_cfg)
+              n_ad = n_time = n_strict = n_ok = 0
+              for it in items:
+                  if pipeline._AD_TITLE_RE.search(it.get('title') or ''):
+                      n_ad += 1; continue
+                  pub = it.get('published')
+                  if pub is not None:
+                      if (now - pub) > limit:
+                          n_time += 1; continue
+                  mod = pipeline.route_module(it, src, mods)
+                  if strict and pipeline.keyword_score(it['title'], it.get('lead',''), mods[mod]) == 0:
+                      n_strict += 1; continue
+                  n_ok += 1
+              print(f"PROBE | {sid} | 解析{len(items)} | 广告滤{n_ad} | 时间窗滤{n_time} | 关键词滤{n_strict} | 通过{n_ok} | strict={strict} ch={ch_type}")
+
+          # 完整跑 process_items
+          out = pipeline.process_items(raw_items, byid, mods, s, 'data')
+          new_ids = {'reuters-world','isw','huxiu-com'}
+          got = [x for x in out if x['source_id'] in new_ids]
+          print(f"PROBE | process_items 输出 {len(out)} 条，其中 GNews 源 {len(got)} 条")
+          for x in got[:10]:
+              print(f"  PROBE |   {x['source_id']} [{x['module']}] score={x.get('score')} | {x['title'][:60]}")
+          PY
