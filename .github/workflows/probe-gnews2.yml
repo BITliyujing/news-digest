@@ -1,0 +1,54 @@
+name: probe-gnews2
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0, '.')
+          from digest import http, fetchers, pipeline
+          from datetime import datetime, timedelta
+          s = json.load(open('settings.json', encoding='utf-8'))
+          d = json.load(open('sources.json', encoding='utf-8'))
+          mods = d['modules']
+          now = datetime.now(fetchers.CN_TZ)
+          win_start = now - timedelta(days=1) - timedelta(hours=s.get('date_only_grace_hours', 20))
+          tests = [
+            ('reuters-world', 'm5'),
+            ('economist', 'm5'),
+            ('huxiu-com', 'm7'),
+            ('isw', 'm5'),
+          ]
+          for sid, mid in tests:
+              src = [x for x in d['sources'] if x['id'] == sid][0]
+              try:
+                  items = fetchers.fetch_rss(src, src['channel'], s)
+              except Exception as e:
+                  print(f"PROBE | {sid} | FAIL {e}"); continue
+              n_time = n_kw = 0
+              print(f"PROBE | {sid} | 解析 {len(items)} 条 | 窗口起点 {win_start}")
+              for it in items[:12]:
+                  pub = it.get('published')
+                  inwin = bool(pub and pub >= win_start)
+                  ks = pipeline.keyword_score(it['title'], it.get('lead',''), mods[mid])
+                  tag = 'W' if inwin else '-'
+                  kw = 'K' if ks > 0 else '-'
+                  if inwin: n_time += 1
+                  if ks > 0: n_kw += 1
+                  print(f"  PROBE |   [{tag}{kw}] {str(pub)[:19]} kw={ks} | {it['title'][:60]}")
+              # 全量统计
+              n_t2 = sum(1 for it in items if it.get('published') and it['published'] >= win_start)
+              n_k2 = sum(1 for it in items if pipeline.keyword_score(it['title'], it.get('lead',''), mods[mid]) > 0)
+              n_both = sum(1 for it in items if (it.get('published') and it['published'] >= win_start) and pipeline.keyword_score(it['title'], it.get('lead',''), mods[mid]) > 0)
+              print(f"PROBE | {sid} | 汇总: 解析{len(items)} | 过时间窗{n_t2} | 过关键词{n_k2} | 两者都过{n_both}")
+          PY
