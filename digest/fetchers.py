@@ -99,6 +99,9 @@ def _mk_item(title, url, published, lead, src, date_from_title=False):
     YYYY-MM-DD 并剥离（某些高校/机构列表页只在标题尾部带日期，URL 里没有日期，
     不解析会导致时间窗过滤失效、旧文混入）。"""
     title = _clean_title(title)
+    # Google News RSS 的条目标题带 " - 源名" 尾缀（如 "...揭晓 - 虎嗅网"），剥掉更干净
+    if src.get("gnews"):
+        title = re.sub(r"\s+[-–]\s+\S{1,20}$", "", title)
     if published is None and date_from_title:
         m = re.search(r"\s*(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})\s*日?\s*$", title)
         if m:

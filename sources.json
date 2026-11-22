@@ -242,11 +242,13 @@
    "weight": 1.2,
    "active": false,
    "channel": {
-    "type": "sitemap",
-    "url": "https://www.iea.org/sitemap.xml"
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=site:iea.org+when:7d&hl=en-US&gl=US&ceid=US:en"
    },
    "requires_proxy": true,
-   "note": "本机被403限流；云端运行（CLOUD_RUN=1）时自动启用"
+   "note": "官网sitemap 403；改走Google News RSS代理（云端实测53条/7天，IEA更新频率低故取7天窗）",
+   "gnews": true,
+   "strict_keywords": true
   },
   {
    "id": "bnef",
@@ -868,10 +870,12 @@
    "active": false,
    "channel": {
     "type": "rss",
-    "url": "https://www.reutersagency.com/feed/?best-topics=world"
+    "url": "https://news.google.com/rss/search?q=site:reuters.com/world+when:2d&hl=en-US&gl=US&ceid=US:en"
    },
    "requires_proxy": true,
-   "note": "本机网络不可达，需代理；有代理后在settings.json配置proxy并置active=true"
+   "note": "官方RSS已停(404)；改走Google News RSS代理（云端实测100条）",
+   "gnews": true,
+   "strict_keywords": true
   },
   {
    "id": "economist",
@@ -884,12 +888,13 @@
    "weight": 1.2,
    "active": false,
    "channel": {
-    "type": "scrape",
-    "list_url": "https://www.economist.com/the-world-this-week",
-    "url_regex": "/\\d{4}/\\d{2}/\\d{2}/[\\w-]+"
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=site:economist.com+when:2d&hl=en-US&gl=US&ceid=US:en"
    },
    "requires_proxy": true,
-   "note": "需代理"
+   "note": "官方站403；改走Google News RSS代理（云端可达，实测100条），正文有付费墙、摘要以标题+导语为主",
+   "gnews": true,
+   "strict_keywords": true
   },
   {
    "id": "isw",
@@ -901,12 +906,13 @@
    "weight": 1.1,
    "active": false,
    "channel": {
-    "type": "scrape",
-    "list_url": "https://www.understandingwar.org/publications",
-    "url_regex": "/publications/[\\w-]+"
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=site:understandingwar.org+when:3d&hl=en-US&gl=US&ceid=US:en"
    },
    "requires_proxy": true,
-   "note": "Cloudflare反爬+需代理"
+   "note": "官网Cloudflare 403；改走Google News RSS代理（云端实测13条/3天）",
+   "gnews": true,
+   "strict_keywords": true
   },
   {
    "id": "fa",
@@ -1463,12 +1469,15 @@
    ],
    "lang": "en",
    "weight": 0.75,
-   "active": true,
+   "active": false,
    "strict_keywords": true,
    "channel": {
-    "type": "auto",
-    "home": "https://www.barrons.com"
-   }
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=site:barrons.com+when:2d&hl=en-US&gl=US&ceid=US:en"
+   },
+   "gnews": true,
+   "requires_proxy": true,
+   "note": "官网403；改走Google News RSS代理（云端实测100条），道琼斯付费墙、摘要以标题+导语为主"
   },
   {
    "id": "fortune-com",
@@ -1508,12 +1517,13 @@
    ],
    "lang": "zh",
    "weight": 0.75,
-   "active": true,
+   "active": false,
    "strict_keywords": true,
    "channel": {
     "type": "auto",
     "home": "https://www.caijing.com.cn"
-   }
+   },
+   "note": "官网对数据中心IP全面限速(本机/云端均超时)，Google News无收录；如需可后续走公众号或人工源"
   },
   {
    "id": "latepost-com",
@@ -1538,12 +1548,15 @@
    ],
    "lang": "zh",
    "weight": 0.75,
-   "active": true,
+   "active": false,
    "strict_keywords": true,
    "channel": {
-    "type": "auto",
-    "home": "https://www.huxiu.com"
-   }
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=site:huxiu.com+when:3d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+   },
+   "gnews": true,
+   "requires_proxy": true,
+   "note": "官网/rss.huxiu.com均不稳定；改走Google News中文版代理（云端实测100条）"
   },
   {
    "id": "weeklyonstock-com",
