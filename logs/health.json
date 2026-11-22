@@ -21,10 +21,10 @@
   "checked": "2026-11-22"
  },
  "iea": {
-  "last_ok": "2026-11-16",
-  "fail_streak": 34,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 403: Forbidden",
+  "last_ok": "2026-11-22",
+  "fail_streak": 0,
+  "last_count": 53,
+  "last_error": "",
   "checked": "2026-11-22"
  },
  "bnef": {
@@ -462,10 +462,10 @@
   "checked": "2026-11-22"
  },
  "barrons-com": {
-  "last_ok": "2026-11-16",
-  "fail_streak": 25,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 403: Forbidden",
+  "last_ok": "2026-11-22",
+  "fail_streak": 0,
+  "last_count": 100,
+  "last_error": "",
   "checked": "2026-11-22"
  },
  "fortune-com": {
@@ -497,10 +497,10 @@
   "checked": "2026-11-22"
  },
  "huxiu-com": {
-  "last_ok": "2026-11-19",
-  "fail_streak": 3,
-  "last_count": 0,
-  "last_error": "TimeoutError: The read operation timed out",
+  "last_ok": "2026-11-22",
+  "fail_streak": 0,
+  "last_count": 100,
+  "last_error": "",
   "checked": "2026-11-22"
  },
  "weeklyonstock-com": {
@@ -513,7 +513,7 @@
  "globaltimes": {
   "last_ok": "2026-11-22",
   "fail_streak": 0,
-  "last_count": 20,
+  "last_count": 23,
   "last_error": "",
   "checked": "2026-11-22"
  },
@@ -555,29 +555,29 @@
  "un-news-zh": {
   "last_ok": "2026-11-22",
   "fail_streak": 0,
-  "last_count": 30,
+  "last_count": 27,
   "last_error": "",
   "checked": "2026-11-22"
  },
  "reuters-world": {
-  "last_ok": "",
-  "fail_streak": 23,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 404: Not Found",
+  "last_ok": "2026-11-22",
+  "fail_streak": 0,
+  "last_count": 100,
+  "last_error": "",
   "checked": "2026-11-22"
  },
  "economist": {
-  "last_ok": "",
-  "fail_streak": 23,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 403: Forbidden",
+  "last_ok": "2026-11-22",
+  "fail_streak": 0,
+  "last_count": 75,
+  "last_error": "",
   "checked": "2026-11-22"
  },
  "isw": {
-  "last_ok": "",
-  "fail_streak": 23,
-  "last_count": 0,
-  "last_error": "HTTPError: HTTP Error 403: Forbidden",
+  "last_ok": "2026-11-22",
+  "fail_streak": 0,
+  "last_count": 13,
+  "last_error": "",
   "checked": "2026-11-22"
  },
  "fa": {
