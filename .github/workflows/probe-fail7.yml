@@ -25,27 +25,18 @@ jobs:
 
           # (源, 说明, url, kind)  kind: feed=RSS解析 / list=通用列表
           cands = [
-            ('economist', '官方RSS leaders', 'https://www.economist.com/leaders/rss', 'feed'),
-            ('economist', '官方RSS latest', 'https://www.economist.com/latest/rss', 'feed'),
-            ('economist', 'RSSHub', 'https://rsshub.rssforever.com/economist', 'feed'),
-            ('economist', 'GNews', 'https://news.google.com/rss/search?q=site:economist.com+when:2d&hl=en-US&gl=US&ceid=US:en', 'feed'),
-            ('barrons', '官方RSS', 'https://www.barrons.com/rss', 'feed'),
-            ('barrons', 'GNews', 'https://news.google.com/rss/search?q=site:barrons.com+when:2d&hl=en-US&gl=US&ceid=US:en', 'feed'),
-            ('reuters', 'RSSHub world', 'https://rsshub.rssforever.com/reuters/world', 'feed'),
-            ('reuters', 'GNews world', 'https://news.google.com/rss/search?q=site:reuters.com/world+when:2d&hl=en-US&gl=US&ceid=US:en', 'feed'),
-            ('iea', '官方feeds', 'https://www.iea.org/feeds/news-and-events', 'feed'),
-            ('iea', 'RSSHub news', 'https://rsshub.rssforever.com/iea/news', 'feed'),
-            ('iea', 'GNews', 'https://news.google.com/rss/search?q=site:iea.org+when:7d&hl=en-US&gl=US&ceid=US:en', 'feed'),
-            ('isw', 'GNews', 'https://news.google.com/rss/search?q=site:understandingwar.org+when:3d&hl=en-US&gl=US&ceid=US:en', 'feed'),
-            ('isw', 'RSSHub', 'https://rsshub.rssforever.com/understandingwar', 'feed'),
-            ('caijing', '官方RSS', 'http://www.caijing.com.cn/rss', 'feed'),
-            ('caijing', '栏目页', 'https://www.caijing.com.cn/news/', 'list'),
-            ('huxiu', '官方RSS', 'https://rss.huxiu.com/', 'feed'),
-            ('huxiu', 'RSSHub', 'https://rsshub.rssforever.com/huxiu', 'feed'),
+            ('huxiu', 'GNews中文', 'https://news.google.com/rss/search?q=site:huxiu.com+when:3d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans', 'feed'),
+            ('huxiu', 'RSSHub官方', 'https://rsshub.app/huxiu', 'feed'),
+            ('huxiu', 'RSSHub slarker', 'https://hub.slarker.me/huxiu', 'feed'),
+            ('huxiu', '移动版列表', 'https://m.huxiu.com/', 'list'),
+            ('caijing', 'GNews中文', 'https://news.google.com/rss/search?q=site:caijing.com.cn+when:3d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans', 'feed'),
+            ('caijing', 'RSSHub官方', 'https://rsshub.app/caijing', 'feed'),
+            ('caijing', 'rss.xml', 'http://www.caijing.com.cn/rss.xml', 'feed'),
+            ('caijing', '栏目页40s超时', 'https://www.caijing.com.cn/news/', 'list'),
           ]
           for sid, desc, url, kind in cands:
               try:
-                  st, raw = http.fetch(url, s, referer=url, read_bytes=300000, timeout=20)
+                  st, raw = http.fetch(url, s, referer=url, read_bytes=300000, timeout=40)
                   head = raw[:400].decode('utf-8', 'ignore')
                   isfeed = bool(rsspat.search(head)) or '<item' in head.lower()
                   n = 0; sample = ''
