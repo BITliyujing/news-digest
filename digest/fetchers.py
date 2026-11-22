@@ -421,6 +421,17 @@ def fetch_api(src, ch, settings):
     raise ValueError(f"未知api适配器: {adapter}")
 
 
+def _thepaper_date(o):
+    """澎湃 API 节点的发布时间：pubTime（'2026-11-22 10:30'）或 pubTimeLong（毫秒）。"""
+    ts = o.get("pubTimeLong") or o.get("publishTimeLong")
+    if isinstance(ts, (int, float)) and ts > 10 ** 12:
+        return datetime.fromtimestamp(ts / 1000, tz=timezone.utc).astimezone(CN_TZ)
+    s = o.get("pubTime") or o.get("publishTime") or ""
+    if s:
+        return _parse_date(str(s))
+    return None
+
+
 def _thepaper(src, data):
     from urllib.parse import urljoin
     out = []
@@ -435,7 +446,8 @@ def _thepaper(src, data):
                     url = urljoin("https://www.thepaper.cn/", url)
                 if url.startswith("http"):
                     ch = "财经" if "financial" in path.lower() else ""
-                    out.append((str(name), url, ch))
+                    pub = _thepaper_date(o)
+                    out.append((str(name), url, ch, pub))
             for k, v in o.items():
                 walk(v, f"{path}.{k}")
         elif isinstance(o, list) and o:
@@ -443,8 +455,8 @@ def _thepaper(src, data):
                 walk(v, f"{path}[]")
     walk(data)
     items = []
-    for name, url, channel in out[:50]:
-        it = _mk_item(name, url, None, "", src)
+    for name, url, channel, pub in out[:50]:
+        it = _mk_item(name, url, pub, "", src)
         it["_channel"] = channel
         items.append(it)
     return items
